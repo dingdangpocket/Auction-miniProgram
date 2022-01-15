@@ -1,0 +1,1 @@
+<view class="commonStyle"><text style="color:white;">确认订单</text><button type="default" data-event-opts="{{[['tap',[['comfirm',['$event']]]]]}}" bindtap="__e">支付</button></view>

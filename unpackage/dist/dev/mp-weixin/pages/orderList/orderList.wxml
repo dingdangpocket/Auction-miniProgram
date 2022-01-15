@@ -1,0 +1,1 @@
+<view class="body"><view class="title">我的订单</view><view class="orderListContainer"><block wx:for="{{orderList}}" wx:for-item="item" wx:for-index="__i0__"><view><order-card vue-id="{{'5bc50eb4-1-'+__i0__}}" item="{{item}}" bind:__l="__l"></order-card></view></block></view></view>

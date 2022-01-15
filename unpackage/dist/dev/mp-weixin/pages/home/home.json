@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "龙鲤",
+  "usingComponents": {
+    "nav-card": "/components/navCard/navCard",
+    "collection-card": "/components/collectionCard/collectionCard"
+  }
+}

@@ -1,0 +1,115 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/home/home",
+			"style": {
+				// "navigationBarTitleText": "uni-app"
+				"navigationBarTitleText":"龙鲤"
+			}
+		}
+        ,{
+            "path" : "pages/main/main",
+            "style" :                                                                                    
+            {
+
+                // "enablePullDownRefresh": false
+				"navigationBarTitleText":"龙鲤"
+            }  
+        }
+        // ,{
+        //     "path" : "pages/description/description",
+        //     "style" :                                                                                    
+        //     {
+        //         "navigationBarTitleText": "",
+        //         "enablePullDownRefresh": false
+        //     }
+            
+        // }
+        ,{
+            "path" : "pages/setting/setting",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/model/model",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        },
+		{
+			"path": "pages/auth/auth",
+			"style": {
+				// "navigationBarTitleText": "uni-app"
+				"navigationBarTitleText":"龙鲤"
+			}
+		}
+        ,{
+            "path" : "pages/orderList/orderList",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/description/description",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/aboutUs/aboutUs",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/orderComfirm/orderComfirm",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	"tabBar": {
+		"selectedColor": "#f2f1ff",
+		"backgroundColor": "#020000",
+		"color": "#918f91",
+		"list": [{
+				"pagePath": "pages/home/home",
+				"text": "首页",
+				"iconPath": "static/home.png",
+				"selectedIconPath":"static/homewhite.png"
+			},
+			{
+				"pagePath": "pages/main/main",
+				"text": "我的",
+				"iconPath": "static/profileblack.png",
+				"selectedIconPath": "static/profilewhite.png"
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		
+		// "navigationStyle":"custom",
+		"navigationBarBackgroundColor": "#130e0a",
+		"backgroundColor": "#F8F8F8"
+	}
+}
