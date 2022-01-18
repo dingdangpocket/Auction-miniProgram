@@ -1,7 +1,8 @@
 {
-  "navigationBarTitleText": "龙鲤",
+  "navigationBarTitleText": "龙鲤数字藏品",
   "usingComponents": {
     "nav-card": "/components/navCard/navCard",
+    "uni-segmented-control": "/uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control",
     "collection-card": "/components/collectionCard/collectionCard"
   }
 }

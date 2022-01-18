@@ -105,11 +105,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"components/collectionCard/collectionCard":1,"components/navCard/navCard":1,"components/orderCard/orderCard":1,"components/imgCard/imgCard":1};
+/******/ 		var cssChunks = {"components/collectionCard/collectionCard":1,"components/navCard/navCard":1,"uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control":1,"components/orderCard/orderCard":1,"components/imgCard/imgCard":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"components/collectionCard/collectionCard":"components/collectionCard/collectionCard","components/navCard/navCard":"components/navCard/navCard","components/orderCard/orderCard":"components/orderCard/orderCard","components/imgCard/imgCard":"components/imgCard/imgCard"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"components/collectionCard/collectionCard":"components/collectionCard/collectionCard","components/navCard/navCard":"components/navCard/navCard","uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control":"uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control","components/orderCard/orderCard":"components/orderCard/orderCard","components/imgCard/imgCard":"components/imgCard/imgCard"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

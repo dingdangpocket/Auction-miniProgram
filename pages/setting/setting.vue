@@ -5,7 +5,7 @@
 					<text>手机号码</text>
 				</view> -->
 				<view class="box">
-					<text @click="LinkToAuth">实名认证</text>
+				  <text @click="LinkToAuth">实名认证</text>
 				</view>
 				<view class="box">
 					<text @click="LinkToAboutUs">关于龙鲤</text>
@@ -54,7 +54,7 @@
 		.Body{
 			height:1260rpx;
 			width:100%;
-			background-color:black;
+			background-color: #FFFFFF;
 			overflow:hidden;
 			.MenuArea{
 				// height:380rpx;
@@ -66,16 +66,17 @@
 				margin-top: 20rpx;
 				.box{
 					height:100rpx;
-					width:90%;
-					background-color:#2a2a2c;
-					border-radius: 20rpx;
-					color: white;
+					width:80%;
 					display: flex;
 					justify-content: center;
 					flex-wrap: wrap;
 					align-items: center;
 					margin-top: 10rpx;
 					margin-bottom: 10rpx;
+					// background-color:#333333;
+					color: black;
+					border-bottom: 1px solid #808080;
+					// box-shadow: 1px 1px 2px #101010;
 				}
 				.box:nth-child(6)
 				{

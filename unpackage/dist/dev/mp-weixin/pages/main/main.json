@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "龙鲤",
+  "navigationBarTitleText": "个人中心",
   "usingComponents": {
     "collection-card": "/components/collectionCard/collectionCard"
   }

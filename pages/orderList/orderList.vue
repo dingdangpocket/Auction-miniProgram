@@ -1,21 +1,18 @@
 <template>
 	<view class="body">
-		<view class="title">
-			我的订单
-		</view>
 		<view class="orderListContainer">
 			<view class="" v-for="item in orderList">
-				<orderCard :item="item"/>
+				<orderCard :item="item" />
 			</view>
 		</view>
 	</view>
 </template>
 
 <script>
-import orderCard from '../../components/orderCard/orderCard.vue'
+	import orderCard from '../../components/orderCard/orderCard.vue'
 	export default {
-		components:{
-			orderCard 
+		components: {
+			orderCard
 		},
 		data() {
 			return {
@@ -33,7 +30,7 @@ import orderCard from '../../components/orderCard/orderCard.vue'
 						collectionId: "73",
 						title: "磁州窑",
 						payTime: "2021-1-3",
-						imgSrc:"https://img1.baidu.com/it/u=2267847562,3543896283&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=542"
+						imgSrc: "https://img1.baidu.com/it/u=2267847562,3543896283&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=542"
 					},
 					{
 						id: 2,
@@ -41,7 +38,7 @@ import orderCard from '../../components/orderCard/orderCard.vue'
 						collectionId: "73",
 						title: "白瓷",
 						payTime: "2021-1-3",
-						imgSrc:"https://img1.baidu.com/it/u=2267847562,3543896283&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=542"
+						imgSrc: "https://img1.baidu.com/it/u=2267847562,3543896283&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=542"
 					},
 					{
 						id: 3,
@@ -49,24 +46,8 @@ import orderCard from '../../components/orderCard/orderCard.vue'
 						collectionId: "73",
 						title: "景泰蓝",
 						payTime: "2021-1-3",
-						imgSrc:"https://img1.baidu.com/it/u=2267847562,3543896283&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=542"
+						imgSrc: "https://img1.baidu.com/it/u=2267847562,3543896283&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=542"
 					},
-					{
-						id: 4,
-						orderId: "YTSH28255388UJOP",
-						collectionId: "73",
-						title: "景泰蓝",
-						payTime: "2021-1-3",
-						imgSrc:"https://img1.baidu.com/it/u=2267847562,3543896283&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=542"
-					},
-					{
-						id: 5,
-						orderId: "YTSH28255388UJOP",
-						collectionId: "73",
-						title: "景泰蓝",
-						payTime: "2021-1-3",
-						imgSrc:"https://img1.baidu.com/it/u=2267847562,3543896283&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=542"
-					}
 				]
 			}
 		},
@@ -80,19 +61,22 @@ import orderCard from '../../components/orderCard/orderCard.vue'
 	.body {
 		height: 100%;
 		width: 100%;
-		background-color: black;
+		background-color: #FFFFFF;
 		color: white;
 		overflow: hidden;
-		.title{
-			height: 100rpx;
+
+		.title {
+			height: 70rpx;
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			color: black;
 		}
-		.orderListContainer{
-			  height: 100%;
-			  background-color: black;
-			  overflow-y: scroll;
+
+		.orderListContainer {
+			height: 100%;
+			background-color: #FFFFFF;
+			overflow-y: scroll;
 		}
 	}
 </style>

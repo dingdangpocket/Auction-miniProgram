@@ -27,7 +27,7 @@
 .Body {
   height: 1260rpx;
   width: 100%;
-  background-color: black;
+  background-color: #FFFFFF;
   overflow: hidden;
 }
 .Body .MenuArea {
@@ -43,10 +43,7 @@
 }
 .Body .MenuArea .box {
   height: 100rpx;
-  width: 90%;
-  background-color: #2a2a2c;
-  border-radius: 20rpx;
-  color: white;
+  width: 80%;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -60,6 +57,8 @@
           align-items: center;
   margin-top: 10rpx;
   margin-bottom: 10rpx;
+  color: black;
+  border-bottom: 1px solid #808080;
 }
 .Body .MenuArea .box:nth-child(6) {
   color: red;

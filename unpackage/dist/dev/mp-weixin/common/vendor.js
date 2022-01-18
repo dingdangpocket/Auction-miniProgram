@@ -8012,9 +8012,9 @@ module.exports = g;
 
 /***/ }),
 /* 4 */
-/*!***********************************************!*\
-  !*** /Users/niegang/Desktop/龙鲤小程序/pages.json ***!
-  \***********************************************/
+/*!*************************************************************!*\
+  !*** /Users/niegang/Desktop/Auction-miniProgram/pages.json ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -8155,9 +8155,9 @@ function normalizeComponent (
 
 /***/ }),
 /* 11 */
-/*!***************************************************!*\
-  !*** /Users/niegang/Desktop/龙鲤小程序/store/index.js ***!
-  \***************************************************/
+/*!*****************************************************************!*\
+  !*** /Users/niegang/Desktop/Auction-miniProgram/store/index.js ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9296,9 +9296,9 @@ var index = {
 
 /***/ }),
 /* 13 */
-/*!********************************************************************!*\
-  !*** /Users/niegang/Desktop/龙鲤小程序/store/storeModules/userStore.js ***!
-  \********************************************************************/
+/*!**********************************************************************************!*\
+  !*** /Users/niegang/Desktop/Auction-miniProgram/store/storeModules/userStore.js ***!
+  \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9325,9 +9325,9 @@ var _default =
 
 /***/ }),
 /* 14 */
-/*!****************************************************!*\
-  !*** /Users/niegang/Desktop/龙鲤小程序/http/request.js ***!
-  \****************************************************/
+/*!******************************************************************!*\
+  !*** /Users/niegang/Desktop/Auction-miniProgram/http/request.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9378,9 +9378,9 @@ var request = function request(data) {
 
 /***/ }),
 /* 15 */
-/*!********************************************************************!*\
-  !*** /Users/niegang/Desktop/龙鲤小程序/store/storeModules/homeStore.js ***!
-  \********************************************************************/
+/*!**********************************************************************************!*\
+  !*** /Users/niegang/Desktop/Auction-miniProgram/store/storeModules/homeStore.js ***!
+  \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10226,9 +10226,9 @@ if (hadRuntime) {
 
 /***/ }),
 /* 19 */
-/*!************************************************!*\
-  !*** /Users/niegang/Desktop/龙鲤小程序/http/API.js ***!
-  \************************************************/
+/*!**************************************************************!*\
+  !*** /Users/niegang/Desktop/Auction-miniProgram/http/API.js ***!
+  \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10246,9 +10246,9 @@ API;exports.default = _default;
 
 /***/ }),
 /* 20 */
-/*!************************************************************************!*\
-  !*** /Users/niegang/Desktop/龙鲤小程序/http/httpModules/userAPI/userAPI.js ***!
-  \************************************************************************/
+/*!**************************************************************************************!*\
+  !*** /Users/niegang/Desktop/Auction-miniProgram/http/httpModules/userAPI/userAPI.js ***!
+  \**************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10293,9 +10293,9 @@ userAPI;exports.default = _default;
 
 /***/ }),
 /* 21 */
-/*!**************************************************************************************!*\
-  !*** /Users/niegang/Desktop/龙鲤小程序/http/httpModules/relicManageAPI/relicManageAPI.js ***!
-  \**************************************************************************************/
+/*!****************************************************************************************************!*\
+  !*** /Users/niegang/Desktop/Auction-miniProgram/http/httpModules/relicManageAPI/relicManageAPI.js ***!
+  \****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10392,9 +10392,9 @@ relicManageAPI;exports.default = _default;
 
 /***/ }),
 /* 22 */
-/*!**********************************************************************!*\
-  !*** /Users/niegang/Desktop/龙鲤小程序/http/httpModules/payAPI/payAPI.js ***!
-  \**********************************************************************/
+/*!************************************************************************************!*\
+  !*** /Users/niegang/Desktop/Auction-miniProgram/http/httpModules/payAPI/payAPI.js ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10416,9 +10416,9 @@ payAPI;exports.default = _default;
 
 /***/ }),
 /* 23 */
-/*!**********************************************************************!*\
-  !*** /Users/niegang/Desktop/龙鲤小程序/store/storeModules/searchStore.js ***!
-  \**********************************************************************/
+/*!************************************************************************************!*\
+  !*** /Users/niegang/Desktop/Auction-miniProgram/store/storeModules/searchStore.js ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

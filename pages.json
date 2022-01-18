@@ -4,112 +4,125 @@
 			"path": "pages/home/home",
 			"style": {
 				// "navigationBarTitleText": "uni-app"
-				"navigationBarTitleText":"龙鲤"
+				"navigationBarTitleText": "龙鲤数字藏品"
+			}
+		}, {
+			"path": "pages/main/main",
+			"style": {
+
+				// "enablePullDownRefresh": false
+				"navigationBarTitleText": "个人中心"
 			}
 		}
-        ,{
-            "path" : "pages/main/main",
-            "style" :                                                                                    
-            {
+		// ,{
+		//     "path" : "pages/description/description",
+		//     "style" :                                                                                    
+		//     {
+		//         "navigationBarTitleText": "",
+		//         "enablePullDownRefresh": false
+		//     }
 
-                // "enablePullDownRefresh": false
-				"navigationBarTitleText":"龙鲤"
-            }  
-        }
-        // ,{
-        //     "path" : "pages/description/description",
-        //     "style" :                                                                                    
-        //     {
-        //         "navigationBarTitleText": "",
-        //         "enablePullDownRefresh": false
-        //     }
-            
-        // }
-        ,{
-            "path" : "pages/setting/setting",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/model/model",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        },
+		// }
+		, {
+			"path": "pages/setting/setting",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarTitleText": "设置中心"
+			}
+
+		}, {
+			"path": "pages/model/model",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/shop/shop",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		
+		},
 		{
 			"path": "pages/auth/auth",
 			"style": {
 				// "navigationBarTitleText": "uni-app"
-				"navigationBarTitleText":"龙鲤"
+				"navigationBarTitleText": "实名认证"
 			}
+		}, {
+			"path": "pages/orderList/orderList",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarTitleText": "我的订单"
+			}
+
+		}, {
+			"path": "pages/description/description",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarTitleText": "藏品详情"
+			}
+
+		}, {
+			"path": "pages/aboutUs/aboutUs",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/orderComfirm/orderComfirm",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarTitleText": "订单确认"
+			}
+
+		},  {
+			"path": "pages/blockDetial/blockDetial",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarTitleText": "订单详情"
+			}
+
 		}
-        ,{
-            "path" : "pages/orderList/orderList",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/description/description",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/aboutUs/aboutUs",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/orderComfirm/orderComfirm",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-    ],
+	],
 	"tabBar": {
-		"selectedColor": "#f2f1ff",
-		"backgroundColor": "#020000",
+		"selectedColor": "#000000",
+		"backgroundColor": "#FFFFFF",
 		"color": "#918f91",
 		"list": [{
 				"pagePath": "pages/home/home",
 				"text": "首页",
-				"iconPath": "static/home.png",
-				"selectedIconPath":"static/homewhite.png"
+				"iconPath": "static/home1.png",
+				"selectedIconPath": "static/home2.png"
+			},
+			{
+				"pagePath": "pages/shop/shop",
+				"text": "商城",
+				"iconPath": "static/shop2.png",
+				"selectedIconPath": "static/shop1.png"
 			},
 			{
 				"pagePath": "pages/main/main",
 				"text": "我的",
-				"iconPath": "static/profileblack.png",
-				"selectedIconPath": "static/profilewhite.png"
+				"iconPath": "static/my1.png",
+				"selectedIconPath": "static/my2.png"
 			}
 		]
 	},
 	"globalStyle": {
-		"navigationBarTextStyle": "white",
-		
+		"navigationBarTextStyle": "black",
+
 		// "navigationStyle":"custom",
-		"navigationBarBackgroundColor": "#130e0a",
+		"navigationBarBackgroundColor": "#FFFFFF",
 		"backgroundColor": "#F8F8F8"
 	}
 }

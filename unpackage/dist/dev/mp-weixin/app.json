@@ -4,34 +4,42 @@
     "pages/main/main",
     "pages/setting/setting",
     "pages/model/model",
+    "pages/shop/shop",
     "pages/auth/auth",
     "pages/orderList/orderList",
     "pages/description/description",
     "pages/aboutUs/aboutUs",
-    "pages/orderComfirm/orderComfirm"
+    "pages/orderComfirm/orderComfirm",
+    "pages/blockDetial/blockDetial"
   ],
   "subPackages": [],
   "window": {
-    "navigationBarTextStyle": "white",
-    "navigationBarBackgroundColor": "#130e0a",
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#FFFFFF",
     "backgroundColor": "#F8F8F8"
   },
   "tabBar": {
-    "selectedColor": "#f2f1ff",
-    "backgroundColor": "#020000",
+    "selectedColor": "#000000",
+    "backgroundColor": "#FFFFFF",
     "color": "#918f91",
     "list": [
       {
         "pagePath": "pages/home/home",
         "text": "首页",
-        "iconPath": "static/home.png",
-        "selectedIconPath": "static/homewhite.png"
+        "iconPath": "static/home1.png",
+        "selectedIconPath": "static/home2.png"
+      },
+      {
+        "pagePath": "pages/shop/shop",
+        "text": "商城",
+        "iconPath": "static/shop2.png",
+        "selectedIconPath": "static/shop1.png"
       },
       {
         "pagePath": "pages/main/main",
         "text": "我的",
-        "iconPath": "static/profileblack.png",
-        "selectedIconPath": "static/profilewhite.png"
+        "iconPath": "static/my1.png",
+        "selectedIconPath": "static/my2.png"
       }
     ]
   },

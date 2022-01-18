@@ -1,9 +1,9 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/main/main"],{
 
 /***/ 32:
-/*!***************************************************************************!*\
-  !*** /Users/niegang/Desktop/龙鲤小程序/main.js?{"page":"pages%2Fmain%2Fmain"} ***!
-  \***************************************************************************/
+/*!*****************************************************************************************!*\
+  !*** /Users/niegang/Desktop/Auction-miniProgram/main.js?{"page":"pages%2Fmain%2Fmain"} ***!
+  \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17,9 +17,9 @@ createPage(_main.default);
 /***/ }),
 
 /***/ 33:
-/*!********************************************************!*\
-  !*** /Users/niegang/Desktop/龙鲤小程序/pages/main/main.vue ***!
-  \********************************************************/
+/*!**********************************************************************!*\
+  !*** /Users/niegang/Desktop/Auction-miniProgram/pages/main/main.vue ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -58,9 +58,9 @@ component.options.__file = "pages/main/main.vue"
 /***/ }),
 
 /***/ 34:
-/*!***************************************************************************************!*\
-  !*** /Users/niegang/Desktop/龙鲤小程序/pages/main/main.vue?vue&type=template&id=52f690a6& ***!
-  \***************************************************************************************/
+/*!*****************************************************************************************************!*\
+  !*** /Users/niegang/Desktop/Auction-miniProgram/pages/main/main.vue?vue&type=template&id=52f690a6& ***!
+  \*****************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -80,9 +80,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 35:
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/niegang/Desktop/龙鲤小程序/pages/main/main.vue?vue&type=template&id=52f690a6& ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/niegang/Desktop/Auction-miniProgram/pages/main/main.vue?vue&type=template&id=52f690a6& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -96,7 +96,7 @@ var components
 try {
   components = {
     collectionCard: function() {
-      return __webpack_require__.e(/*! import() | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then(__webpack_require__.bind(null, /*! @/components/collectionCard/collectionCard.vue */ 103))
+      return __webpack_require__.e(/*! import() | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then(__webpack_require__.bind(null, /*! @/components/collectionCard/collectionCard.vue */ 118))
     }
   }
 } catch (e) {
@@ -130,9 +130,9 @@ render._withStripped = true
 /***/ }),
 
 /***/ 36:
-/*!*********************************************************************************!*\
-  !*** /Users/niegang/Desktop/龙鲤小程序/pages/main/main.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************/
+/*!***********************************************************************************************!*\
+  !*** /Users/niegang/Desktop/Auction-miniProgram/pages/main/main.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -146,23 +146,14 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 37:
-/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/niegang/Desktop/龙鲤小程序/pages/main/main.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/niegang/Desktop/Auction-miniProgram/pages/main/main.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 16));
-
-
-
-
-
-
-
-
-
 
 
 
@@ -243,21 +234,49 @@ var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 1
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var app = getApp();var collectionCard = function collectionCard() {__webpack_require__.e(/*! require.ensure | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then((function () {return resolve(__webpack_require__(/*! ../../components/collectionCard/collectionCard.vue */ 103));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { collectionCard: collectionCard }, data: function data() {return { userInfo: "", dataArry: null, mycollect: null, auth: false, collectionData: [{ id: 0, content: "藏品" }, { id: 1, content: "购买须知" }, { id: 2, content: "数字藏品拍卖" }, { id: 3, content: "藏品" }, { id: 4, content: "购买须知" }, { id: 5, content: "数字藏品拍卖" }, { id: 6, content: "藏品" }, { id: 7, content: "购买须知" }] };}, mounted: function mounted() {this.getData();},
+var app = getApp();var collectionCard = function collectionCard() {__webpack_require__.e(/*! require.ensure | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then((function () {return resolve(__webpack_require__(/*! ../../components/collectionCard/collectionCard.vue */ 118));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { collectionCard: collectionCard }, data: function data() {return { userInfo: "", dataArry: null, mycollect: null, auth: false, collectionData: [{ id: 0, title: "红釉瓷", imgSrc: "../../static/1.jpg", offer: "成都博物院" }, { id: 1, title: "花纹壶", imgSrc: "../../static/2.jpg", offer: "山西博物院" }, { id: 2, title: "青瓷", imgSrc: "../../static/3.jpg", offer: "河北博物院" }, { id: 3, title: "汝窑", imgSrc: "../../static/4.jpg", offer: "山东博物院" }, { id: 4, title: "靛蓝瓷", imgSrc: "../../static/5.jpg", offer: "陕西博物院" },
+
+      {
+        id: 5,
+        title: "龙纹瓷",
+        imgSrc: "../../static/6.jpg",
+        offer: "成都博物院" },
+
+      {
+        id: 6,
+        title: "红釉瓷",
+        imgSrc: "../../static/7.jpg",
+        offer: "南京博物院" },
+
+      {
+        id: 7,
+        title: "红釉瓷",
+        imgSrc: "../../static/8.jpg",
+        offer: "贵州博物院" },
+
+      {
+        id: 8,
+        title: "白釉壶",
+        imgSrc: "../../static/9.jpg",
+        offer: "甘肃博物院" },
+
+      {
+        id: 9,
+        title: "龙纹笔筒",
+        imgSrc: "../../static/10.jpg",
+        offer: "北京博物院" }] };
+
+
+
+  },
+  mounted: function mounted() {
+    this.getData();
+  },
   methods: {
-    getData: function getData() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
-                  _API.default.relicManageAPI.GetCollectionData());case 2:res = _context.sent;
-                _this.collectionData = res.data.rows;
-                console.log("结果", res.data.rows);case 5:case "end":return _context.stop();}}}, _callee);}))();
+    getData: function getData() {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+                // const res = await API.relicManageAPI.GetCollectionData()
+                // this.collectionData = res.data.rows
+                console.log("结果", res.data.rows);case 1:case "end":return _context.stop();}}}, _callee);}))();
     },
     LinkToSetting: function LinkToSetting() {
       uni.navigateTo({
@@ -271,30 +290,30 @@ var app = getApp();var collectionCard = function collectionCard() {__webpack_req
     },
 
     //登陆板块
-    login: function login() {var _this2 = this;
+    login: function login() {var _this = this;
       uni.getUserProfile({
         desc: 'weixin',
         success: function success(res) {
           console.log(res, '授权成功');
-          _this2.userInfo = res.userInfo;
-          _this2.getCode(res.userInfo);
-          _this2.nickName = res.userInfo.nickName;
+          _this.userInfo = res.userInfo;
+          _this.getCode(res.userInfo);
+          _this.nickName = res.userInfo.nickName;
         },
         fail: function fail(err) {
           console.log(err, '失败授权');
         } });
 
     },
-    getCode: function getCode(userInfo) {var _this3 = this;
+    getCode: function getCode(userInfo) {var _this2 = this;
       uni.login({
         provider: 'weixin',
         success: function success(res) {
-          _this3.getToken(res.code, userInfo); //将code码和用户信息发给后端;
+          _this2.getToken(res.code, userInfo); //将code码和用户信息发给后端;
           app.globalData.code = res.code;
         } });
 
     },
-    getToken: function getToken(code, userInfo) {var _this4 = this; //获取token;
+    getToken: function getToken(code, userInfo) {var _this3 = this; //获取token;
       console.log(code, userInfo);
       uni.request({
         url: 'https://10.10.10.24:8443/auth/wxlogin',
@@ -318,7 +337,7 @@ var app = getApp();var collectionCard = function collectionCard() {__webpack_req
               title: '授权登陆成功',
               duration: 1300 });
 
-            _this4.userInfo = res.data.data.sysUser;
+            _this3.userInfo = res.data.data.sysUser;
             // console.log("用户信息", this.userInfo)
           } else {
             uni.showToast({
@@ -337,9 +356,9 @@ var app = getApp();var collectionCard = function collectionCard() {__webpack_req
 /***/ }),
 
 /***/ 38:
-/*!******************************************************************************************!*\
-  !*** /Users/niegang/Desktop/龙鲤小程序/pages/main/main.vue?vue&type=style&index=0&lang=scss& ***!
-  \******************************************************************************************/
+/*!********************************************************************************************************!*\
+  !*** /Users/niegang/Desktop/Auction-miniProgram/pages/main/main.vue?vue&type=style&index=0&lang=scss& ***!
+  \********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -353,9 +372,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 39:
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--8-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/niegang/Desktop/龙鲤小程序/pages/main/main.vue?vue&type=style&index=0&lang=scss& ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--8-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/niegang/Desktop/Auction-miniProgram/pages/main/main.vue?vue&type=style&index=0&lang=scss& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "",
+  "navigationBarTitleText": "藏品详情",
   "enablePullDownRefresh": false,
   "usingComponents": {
     "img-card": "/components/imgCard/imgCard"

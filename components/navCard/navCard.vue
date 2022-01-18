@@ -28,13 +28,10 @@
 		width: 100%;
 		height: 100%;
 		background-color: #000000;
-		padding: 1rpx;
-		border-radius: 30rpx;
 		color:white;
 		.imgArea{
 			width: 100%;
 			height: 80%;
-			background-color: #ff1d3a;
 			.image{
 				width: 100%;
 				height: 100%;
@@ -43,7 +40,7 @@
 		.titleArea{
 			width: 100%;
 			height: 20%;
-			background-color: #333336;
+			background-color: #1e1e20;
 			padding:10rpx;
 			font-size: 26rpx;
 		}

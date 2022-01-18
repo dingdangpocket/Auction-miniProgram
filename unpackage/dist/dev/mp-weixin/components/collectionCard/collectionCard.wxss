@@ -26,9 +26,11 @@
 /* 文章场景相关 */
 .collectionCard {
   width: 280rpx;
-  height: 370rpx;
+  height: 380rpx;
   margin-top: 20rpx;
   margin-bottom: 10rpx;
+  background-color: black;
+  box-shadow: 1px 1px 1px #4f4f50;
 }
 .collectionCard .imgArea {
   width: 100%;
@@ -49,16 +51,15 @@
   -webkit-align-items: center;
           align-items: center;
   line-height: 75rpx;
-  background-color: #252529;
   color: white;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
           justify-content: center;
+  border-bottom: 1px solid rgba(101, 95, 102, 0.9);
 }
 .collectionCard .onwerArea {
   width: 100%;
   height: 75rpx;
-  background-color: #825500;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -70,16 +71,26 @@
   width: 60%;
   height: 75rpx;
   line-height: 75rpx;
-  background-color: #252529;
-  color: white;
+  color: #e3e1e4;
+}
+.collectionCard .onwerArea .left text {
+  display: block;
+  margin-left: 10rpx;
 }
 .collectionCard .onwerArea .right {
   width: 40%;
   height: 75rpx;
-  background-color: #fafff9;
   line-height: 75rpx;
-  background-color: #252529;
-  color: white;
+  color: #ffffff;
   font-size: 40rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
 }
 

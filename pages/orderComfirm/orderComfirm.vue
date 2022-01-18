@@ -1,7 +1,19 @@
 <template>
 	<view class="commonStyle">
-		<text style="color:white">确认订单</text>
-		<button type="default" @click="comfirm">支付</button>
+		<view class="orderCardItem">
+			<view class="imgArea">
+				<image :src="orderInfo.imgArray[0].imgPath" mode=""></image>
+			</view>
+			<view class="textArea">
+				<text>{{orderInfo.title}}</text>
+				<text>{{orderInfo.price}}</text>
+				<text style="font-size:25rpx;">数量:1件</text>
+				<text style="font-size:20rpx;">发行方:{{orderInfo.musem}}</text>
+			</view>
+			<view class="btnArea">
+				<button class="btn" type="default" @click="comfirm">确认支付</button>
+			</view>
+		</view>
 	</view>
 </template>
 
@@ -11,8 +23,13 @@
 	export default {
 		data() {
 			return {
-
+				orderInfo: "",
 			}
+		},
+		onLoad(option) {
+			const res = JSON.parse(option.items)
+			console.log(res)
+			this.orderInfo = res
 		},
 		methods: {
 			async comfirm() {
@@ -49,8 +66,63 @@
 	}
 </script>
 
-<style>
+<style lang="scss">
 	.commonStyle {
-		color: white
+		color: white;
+		background-color: white;
+	}
+
+	.orderCardItem {
+		width: 98%;
+		height: 230rpx;
+		background-color: #343334;
+		margin-top: 10rpx;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0 auto;
+		.imgArea {
+			width: 200rpx;
+			height: 200rpx;
+			background-color: red;
+
+			image {
+				width: 200rpx;
+				height: 200rpx;
+			}
+		}
+
+		.textArea {
+			width: 200rpx;
+			height: 200rpx;
+			// background-color: blue;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			margin-left: 10rpx;
+
+			text {
+				display: block;
+			}
+		}
+
+		.btnArea {
+			width: 310rpx;
+			height: 200rpx;
+			// background-color: blue;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+
+			.btn {
+				width: 160rpx;
+				height: 60rpx;
+				font-size: 27rpx;
+				border-radius: 3rpx;
+				background-color:#333333;
+				color: white;
+				border-bottom: 4rpx solid #78470b;
+			}
+		}
 	}
 </style>

@@ -7,26 +7,38 @@
 				</swiper-item>
 			</swiper>
 		</view>
-		<view class="PriceArea">
-			<text style="font-size:40rpx;">{{descData.price}}RMB</text><br>
-			<text style="font-size:20rpx;">发行{{descData.limit}}份</text>
-			<image class="model" src="../../static/3d.png" mode="" @click="LinkToModel"></image>
-		</view>
 		<view class="TitleArea">
-			<text>{{descData.title}}</text>
+			<view class="Title">
+				<image src="../../static/iconleft.png" mode="" style="width:40rpx;height:40rpx"></image>
+				<text>{{descData.title}}</text>
+				<image src="../../static/iconright.png" mode="" style="width:40rpx;height:40rpx"></image>
+			</view>
 		</view>
 		<view class="MusemArea">
 			<text>发行方</text>
 			<text>{{descData.musem}}</text>
 		</view>
+		<view class="PriceArea">
+			<text style="font-size:40rpx;">{{descData.price}}RMB</text><br>
+			<text class="limitTag">限量发行</text><text
+				style="font-size:22rpx;padding-left:5rpx;">{{descData.limit}}份</text>
+			<image class="model" src="../../static/3d.png" mode="" @click="LinkToModel"></image>
+		</view>
+
 		<view class="DescArea">
+			<image src="../../static/desc-1.jpeg" mode="" style="width: 100%;height:1800rpx;"></image>
+			<image src="../../static/desc-2.jpeg" mode="" style="width: 100%;height:1300rpx;"></image>
+			<image src="../../static/desc-3.jpeg" mode="" style="width: 100%;height:700rpx;"></image>
 			<text>....</text>
 		</view>
-		<view class="PayBtn" @click="LinkToOrderComfirm">购买</view>
+
 		<view class="ReminderArea">
-			<text style="font-size: 40rpx;">购买须知</text><br>
+			<text style="font-size:30rpx;">购买须知</text><br>
 			<text>数字藏品为虚拟数字商品,并非实物,仅限实名认证为年满14周岁的中国大陆用户购买,数字藏品的版权由发行方或作者拥有,除另行取得版权拥有者书面同意外,用户不得将数字藏品用于任何商业用途,本商品一经售出,不支持退换;请勿对藏品进行炒作、场外交易、欺诈、或其他任何非法用途;
 			</text>
+		</view>
+		<view class="PayBtn" @click="LinkToOrderComfirm">
+			<text>购买</text>
 		</view>
 	</view>
 </template>
@@ -37,21 +49,21 @@
 			return {
 				descData: {
 					id: 0,
-					title: "青花瓷",
-					price: 99,
+					title: "红釉瓷",
+					price: 9.9,
 					limit: 800,
 					musem: "成都博物馆",
 					imgArray: [{
 							id: 0,
-							imgPath: "../../static/card1.jpg"
+							imgPath: "../../static/9.jpg"
 						},
 						{
 							id: 1,
-							imgPath: "../../static/card2.jpg"
+							imgPath: "../../static/2.jpg"
 						},
 						{
 							id: 2,
-							imgPath: "../../static/card2.jpg"
+							imgPath: "../../static/3.jpg"
 						}
 					],
 					decs: "详情数据",
@@ -65,8 +77,9 @@
 				})
 			},
 			LinkToOrderComfirm() {
+				var items = this.descData
 				uni.navigateTo({
-					url: "../orderComfirm/orderComfirm"
+					url: '../orderComfirm/orderComfirm?items=' + JSON.stringify(items),
 				})
 			}
 		},
@@ -77,14 +90,14 @@
 	.body {
 		// height: 100%;
 		width: 100%;
-		background-color: black;
+		background-color: white;
 		color: white;
 		overflow: hidden;
 
 		.ImgArea {
 			height: 560rpx;
 			width: 100%;
-			background-color: red;
+			// background-color: red;
 			color: white;
 			display: flex;
 			align-items: center;
@@ -101,13 +114,20 @@
 		}
 
 		.PriceArea {
-			height: 100rpx;
+			height: 110rpx;
 			width: 100%;
-			background-color: black;
-			color: white;
+			background-color: "#FFFFFF";
+			color: black;
 			padding: 10rpx;
-			border-bottom: 2px solid white;
+			border-bottom: 1px solid white;
 			position: relative;
+
+			.limitTag {
+				color: white;
+				font-size: 25rpx;
+				padding: 8rpx;
+				background-color: #78470b;
+			}
 
 			.model {
 				position: absolute;
@@ -119,25 +139,33 @@
 		}
 
 		.TitleArea {
-			height: 60rpx;
 			width: 100%;
-			background-color: black;
-			color: white;
-			line-height: 60rpx;
-			padding: 10rpx;
-			font-size: 35rpx;
+			height: 75rpx;
+			display: flex;
+			align-items: center;
+			line-height: 75rpx;
+			color: black;
+			justify-content: center;
+			background-color: "#FFFFFF";
+
+			// border-bottom: 1px solid white;
+			.Title {
+				height: 50rpx;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
 		}
 
 		.MusemArea {
-			height: 60rpx;
+			height: 40rpx;
 			width: 100%;
-			background-color: gray;
-			color: white;
-			line-height: 60rpx;
-			// padding: 10rpx;
+			background-color: #cecfd2;
+			color: black;
+			line-height: 40rpx;
+			font-size: 23rpx;
 			display: flex;
 			justify-content: space-between;
-
 			text {
 				display: block;
 				margin-left: 10rpx;
@@ -146,16 +174,16 @@
 		}
 
 		.ReminderArea {
-			height: 310rpx;
+			height: 300rpx;
 			width: 98%;
-			background-color: black;
+			background-color: #1f1e1f;
 			color: white;
-			font-size: 30rpx;
+			font-size: 24rpx;
 			padding: 15rpx;
+			margin-bottom: 30rpx;
 		}
 
 		.DescArea {
-			height: 1300rpx;
 			width: 100%;
 			background-color: white;
 			color: white;
@@ -165,12 +193,19 @@
 	.PayBtn {
 		width: 100%;
 		height: 100rpx;
-		background: black;
+		background: #333333;
 		color: white;
 		position: fixed;
 		bottom: 0;
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		text {
+			width: 85rpx;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-bottom: 1.5px solid #78470b;
+		}
 	}
 </style>

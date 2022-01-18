@@ -1,1 +1,1 @@
-<view class="Card"><view class="imgArea"><image class="image" src="{{item.imgPath}}" mode="aspectFill"></image></view></view>
+<view class="Card"><view class="imgArea"><image class="image" src="{{item.imgPath}}" mode="aspectFit"></image></view></view>

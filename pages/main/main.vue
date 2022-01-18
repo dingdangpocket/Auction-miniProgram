@@ -6,17 +6,9 @@
 			<text class="tip">登陆后查看自己的数字藏品</text>
 		</view>
 		<view class="setting">
-			<!-- 	<view class="box">
-				<view class="">
-					<image src="../../static/collection.png" mode="" style="width:60rpx;height:60rpx;"></image>
-				</view>
-				<view class="">
-					<text>我的收藏</text>
-				</view>
-			</view> -->
 			<view class="box" @click="LinkToMyOrderList">
 				<view class="">
-					<image src="../../static/order.png" mode="" style="width:60rpx;height:60rpx;"></image>
+					<image src="../../static/orderblack.png" mode="" style="width:60rpx;height:60rpx;"></image>
 				</view>
 				<view class="">
 					<text>我的订单</text>
@@ -24,14 +16,13 @@
 			</view>
 			<view class="box" @click="LinkToSetting">
 				<view class="">
-					<image src="../../static/setting.png" mode="" style="width:60rpx;height:60rpx;"></image>
+					<image src="../../static/setblack.png" mode="" style="width:68rpx;height:68rpx;"></image>
 				</view>
 				<view class="">
 					<text>设置中心</text>
 				</view>
 			</view>
 		</view>
-
 		<view class="collectionArea-title">
 			<text>我的收藏</text>
 		</view>
@@ -62,35 +53,63 @@
 				auth: false,
 				collectionData: [{
 						id: 0,
-						content: "藏品"
+						title: "红釉瓷",
+						imgSrc: "../../static/1.jpg",
+						offer: "成都博物院"
 					},
 					{
 						id: 1,
-						content: "购买须知"
+						title: "花纹壶",
+						imgSrc: "../../static/2.jpg",
+						offer: "山西博物院"
 					},
 					{
 						id: 2,
-						content: "数字藏品拍卖"
+						title: "青瓷",
+						imgSrc: "../../static/3.jpg",
+						offer: "河北博物院"
 					},
 					{
 						id: 3,
-						content: "藏品"
+						title: "汝窑",
+						imgSrc: "../../static/4.jpg",
+						offer: "山东博物院"
 					},
 					{
 						id: 4,
-						content: "购买须知"
+						title: "靛蓝瓷",
+						imgSrc: "../../static/5.jpg",
+						offer: "陕西博物院"
 					},
 					{
 						id: 5,
-						content: "数字藏品拍卖"
+						title: "龙纹瓷",
+						imgSrc: "../../static/6.jpg",
+						offer: "成都博物院"
 					},
 					{
 						id: 6,
-						content: "藏品"
+						title: "红釉瓷",
+						imgSrc: "../../static/7.jpg",
+						offer: "南京博物院"
 					},
 					{
 						id: 7,
-						content: "购买须知"
+						title: "红釉瓷",
+						imgSrc: "../../static/8.jpg",
+						offer: "贵州博物院"
+					},
+					{
+						id: 8,
+						title: "白釉壶",
+						imgSrc: "../../static/9.jpg",
+						offer: "甘肃博物院"
+					},
+					{
+						id: 9,
+						title: "龙纹笔筒",
+						imgSrc: "../../static/10.jpg",
+						offer: "北京博物院"
 					},
 				]
 			}
@@ -100,8 +119,8 @@
 		},
 		methods: {
 			async getData() {
-				const res = await API.relicManageAPI.GetCollectionData()
-				this.collectionData = res.data.rows
+				// const res = await API.relicManageAPI.GetCollectionData()
+				// this.collectionData = res.data.rows
 				console.log("结果", res.data.rows)
 			},
 			LinkToSetting() {
@@ -135,7 +154,7 @@
 					provider: 'weixin',
 					success: res => {
 						this.getToken(res.code, userInfo) //将code码和用户信息发给后端;
-							app.globalData.code = res.code
+						app.globalData.code = res.code
 					}
 				})
 			},
@@ -145,7 +164,7 @@
 					url: 'https://10.10.10.24:8443/auth/wxlogin',
 					method: 'POST',
 					data: {
-						code, 
+						code,
 						userInfo,
 					},
 					success: res => {
@@ -156,7 +175,7 @@
 								data: res.data.data.token
 							});
 							// console.log("获取的token",res.data.data.token)
-							app.globalData.token=res.data.data.token
+							app.globalData.token = res.data.data.token
 							app.globalData.openId = res.data.data.sysUser.userName
 							app.globalData.userInfo = res.data.data.sysUser
 							uni.showToast({
@@ -165,7 +184,7 @@
 							});
 							this.userInfo = res.data.data.sysUser
 							// console.log("用户信息", this.userInfo)
-						}else{
+						} else {
 							uni.showToast({
 								title: '网络错误,登陆失败',
 								duration: 1300
@@ -182,8 +201,10 @@
 
 <style lang="scss">
 	.body {
-		background-color: black;
+
 		color: white;
+		overflow: hidden;
+		background-color: white;
 	}
 
 	.collectionArea-title {
@@ -194,49 +215,42 @@
 		align-items: center;
 		justify-content: center;
 		margin-top: 10rpx;
-		border-bottom: 5rpx solid white;
-		// background-color: red;
+		color: black;
+		border-bottom: 5rpx solid black;
+		background-color: #FFFFFF;
 	}
 
 	.collectionArea {
-		// height: 770rpx;
-		width: 98%;
-		background-color: black;
-		position: relative;
-		white-space: nowrap;
-		border-radius: 8rpx;
+		width: 100vw;
+		height: 69vh;
 		margin-top: 10rpx;
-
+		background-color: white;
 		.collectionArea-flex-container {
 			width: 100vw;
-			// height: 770rpx;
-			background-color: black;
 			display: flex;
 			justify-content: space-around;
 			flex-wrap: wrap;
 		}
-
 		.collectionArea-flex-container:after {
 			content: '';
 			height: 10rpx;
 			width: 285rpx;
 		}
 	}
-
 	.setting {
 		width: 100%;
 		height: 160rpx;
-		// background-color: white;
+		background-color: white;
 		display: flex;
 		flex-wrap: nowrap;
 		justify-content: space-around;
 		align-items: center;
 		margin-top: 10rpx;
-
 		.box {
 			width: 140rpx;
 			height: 140rpx;
-			background-color: black;
+			// background-color: #2f2f2f;
+			color: black;
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: space-around;
@@ -252,8 +266,9 @@
 		height: 160rpx;
 		margin: 0 auto;
 		position: relative;
+		margin-top: 15rpx;
+		background-color: white;
 
-		// margin-top: 20rpx;
 		.profile {
 			width: 120rpx;
 			height: 120rpx;
@@ -261,19 +276,20 @@
 			border-radius: 60rpx;
 			position: absolute;
 			top: 20rpx;
-			left: 30rpx;
+			left: 125rpx;
 		}
 
 		.login {
 			position: absolute;
+			color: black;
 			top: 35rpx;
-			left: 190rpx;
+			left: 250rpx;
 		}
 
 		.tip {
 			position: absolute;
 			top: 70rpx;
-			left: 190rpx;
+			left: 250rpx;
 			font-size: 20rpx;
 			color: gray;
 			margin-top: 10rpx;

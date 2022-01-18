@@ -37,7 +37,7 @@
 	.body{
 		height: 100%;
 		width: 100%;
-		background-color: black;
+		background-color: #2b2a2c;
 		color: white;
 		overflow: hidden;
 		.AuthArea{
