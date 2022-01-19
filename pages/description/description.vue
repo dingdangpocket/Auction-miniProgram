@@ -44,6 +44,7 @@
 </template>
 
 <script>
+	var app = getApp()
 	export default {
 		data() {
 			return {
@@ -77,10 +78,18 @@
 				})
 			},
 			LinkToOrderComfirm() {
-				var items = this.descData
-				uni.navigateTo({
-					url: '../orderComfirm/orderComfirm?items=' + JSON.stringify(items),
-				})
+				console.log("请先登陆", app)
+				if (app.globalData.token == null) {
+					uni.showToast({
+						title: '请先登陆',
+						duration: 3000
+					});
+				}else{
+					var items = this.descData
+					uni.navigateTo({
+						url: '../orderComfirm/orderComfirm?items=' + JSON.stringify(items),
+					})
+				}
 			}
 		},
 	}
@@ -166,6 +175,7 @@
 			font-size: 23rpx;
 			display: flex;
 			justify-content: space-between;
+
 			text {
 				display: block;
 				margin-left: 10rpx;
@@ -200,6 +210,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+
 		text {
 			width: 85rpx;
 			display: flex;

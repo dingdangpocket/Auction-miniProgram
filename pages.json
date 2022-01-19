@@ -40,10 +40,11 @@
 
 		},
 		{
-			"path": "pages/shop/shop",
+			"path": "pages/find/find",
 			"style": {
 				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
+				"enablePullDownRefresh": false,
+				"navigationBarTitleText": "龙鲤数字藏品"
 			}
 		
 		},
@@ -83,7 +84,6 @@
 				"enablePullDownRefresh": false,
 				"navigationBarTitleText": "订单确认"
 			}
-
 		},  {
 			"path": "pages/blockDetial/blockDetial",
 			"style": {
@@ -91,7 +91,6 @@
 				"enablePullDownRefresh": false,
 				"navigationBarTitleText": "订单详情"
 			}
-
 		}
 	],
 	"tabBar": {
@@ -105,10 +104,10 @@
 				"selectedIconPath": "static/home2.png"
 			},
 			{
-				"pagePath": "pages/shop/shop",
-				"text": "商城",
-				"iconPath": "static/shop2.png",
-				"selectedIconPath": "static/shop1.png"
+				"pagePath": "pages/find/find",
+				"text": "发现",
+				"iconPath": "static/find1.png",
+				"selectedIconPath": "static/find2.png"
 			},
 			{
 				"pagePath": "pages/main/main",

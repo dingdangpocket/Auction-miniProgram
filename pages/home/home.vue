@@ -12,42 +12,38 @@
 				@clickItem="onClickItem" />
 			<view class="content">
 				<view v-show="current === 0">
-					<scroll-view class="collectionArea" scroll-y="true" show-scrollbar="false">
+					<!-- <scroll-view class="collectionArea" scroll-y="true" show-scrollbar="false"> -->
 						<view class="collectionArea-flex-container">
 							<view class="" v-for="item in collectionData" @click="linkToDescription" :key="item.id"
 								:data-id="item.id">
 								<collectionCard :item="item"></collectionCard>
 							</view>
 						</view>
-					</scroll-view>
+			<!-- 		</scroll-view> -->
 				</view>
 				<view v-show="current === 1">
-					<scroll-view class="collectionArea" scroll-y="true" show-scrollbar="false">
+				<!-- 	<scroll-view class="collectionArea" scroll-y="true" show-scrollbar="false"> -->
 						<view class="collectionArea-flex-container">
 							<view class="" v-for="item in collectionRecdData" @click="linkToDescription" :key="item.id"
 								:data-id="item.id">
 								<collectionCard :item="item"></collectionCard>
 							</view>
 						</view>
-					</scroll-view>
+					<!-- </scroll-view> -->
 				</view>
 				<view v-show="current === 2">
-					<scroll-view class="collectionArea" scroll-y="true" show-scrollbar="false">
+					<!-- <scroll-view class="collectionArea" scroll-y="true" show-scrollbar="false"> -->
 						<view class="collectionArea-flex-container">
 							<view class="" v-for="item in collectionHotData" @click="linkToDescription" :key="item.id"
 								:data-id="item.id">
 								<collectionCard :item="item"></collectionCard>
 							</view>
 						</view>
-					</scroll-view>
+			<!-- 		</scroll-view> -->
 				</view>
 			</view>
 		</view>
-
-
-
 	</view>
-
 </template>
 
 <script>
@@ -212,6 +208,9 @@
 			// this.getData()
 		},
 		onLoad() {
+			// uni.switchTab({
+			//    url:"../find/find"
+			// })
 			// uni.navigateTo({
 			// 	url:"../description/description"
 			// })
@@ -283,7 +282,7 @@
 			width: 85%;
 			height: 325rpx;
 			// border-radius: 30rpx;
-			background-color:black;
+			background-color: black;
 			box-shadow: 1px 1px 3px #101010;
 
 			.swiper-item {
@@ -295,10 +294,7 @@
 		}
 	}
 
-	.collectionArea {
-		width: 100vw;
-		height: 69vh;
-		margin-top: 10rpx;
+
 
 		.collectionArea-flex-container {
 			width: 100vw;
@@ -312,5 +308,5 @@
 			height: 10rpx;
 			width: 285rpx;
 		}
-	}
+	
 </style>

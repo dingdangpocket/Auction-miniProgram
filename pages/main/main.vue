@@ -219,24 +219,19 @@
 		border-bottom: 5rpx solid black;
 		background-color: #FFFFFF;
 	}
-
-	.collectionArea {
-		width: 100vw;
-		height: 69vh;
-		margin-top: 10rpx;
-		background-color: white;
 		.collectionArea-flex-container {
 			width: 100vw;
 			display: flex;
 			justify-content: space-around;
 			flex-wrap: wrap;
 		}
+		
 		.collectionArea-flex-container:after {
 			content: '';
 			height: 10rpx;
 			width: 285rpx;
 		}
-	}
+	
 	.setting {
 		width: 100%;
 		height: 160rpx;

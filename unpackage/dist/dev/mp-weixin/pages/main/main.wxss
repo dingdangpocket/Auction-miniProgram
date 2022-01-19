@@ -47,13 +47,7 @@
   border-bottom: 5rpx solid black;
   background-color: #FFFFFF;
 }
-.collectionArea {
-  width: 100vw;
-  height: 69vh;
-  margin-top: 10rpx;
-  background-color: white;
-}
-.collectionArea .collectionArea-flex-container {
+.collectionArea-flex-container {
   width: 100vw;
   display: -webkit-box;
   display: -webkit-flex;
@@ -63,7 +57,7 @@
   -webkit-flex-wrap: wrap;
           flex-wrap: wrap;
 }
-.collectionArea .collectionArea-flex-container:after {
+.collectionArea-flex-container:after {
   content: '';
   height: 10rpx;
   width: 285rpx;

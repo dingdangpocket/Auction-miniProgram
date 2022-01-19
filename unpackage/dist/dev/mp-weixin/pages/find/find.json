@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "龙鲤数字藏品",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "collection-card": "/components/collectionCard/collectionCard",
+    "search": "/components/mehaotian-search/mehaotian-search",
+    "drop-down": "/components/dropdown-screen/dropdown-screen"
+  }
+}

@@ -50,12 +50,7 @@
   background-color: rgba(55, 55, 55, 0.5);
   box-shadow: 1px 1px 3px #101010;
 }
-.collectionArea {
-  width: 100vw;
-  height: 69vh;
-  margin-top: 10rpx;
-}
-.collectionArea .collectionArea-flex-container {
+.collectionArea-flex-container {
   width: 100vw;
   display: -webkit-box;
   display: -webkit-flex;
@@ -65,7 +60,7 @@
   -webkit-flex-wrap: wrap;
           flex-wrap: wrap;
 }
-.collectionArea .collectionArea-flex-container:after {
+.collectionArea-flex-container:after {
   content: '';
   height: 10rpx;
   width: 285rpx;

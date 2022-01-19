@@ -96,13 +96,13 @@ var components
 try {
   components = {
     navCard: function() {
-      return __webpack_require__.e(/*! import() | components/navCard/navCard */ "components/navCard/navCard").then(__webpack_require__.bind(null, /*! @/components/navCard/navCard.vue */ 104))
+      return __webpack_require__.e(/*! import() | components/navCard/navCard */ "components/navCard/navCard").then(__webpack_require__.bind(null, /*! @/components/navCard/navCard.vue */ 110))
     },
     uniSegmentedControl: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control */ "uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control.vue */ 111))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control */ "uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control.vue */ 117))
     },
     collectionCard: function() {
-      return __webpack_require__.e(/*! import() | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then(__webpack_require__.bind(null, /*! @/components/collectionCard/collectionCard.vue */ 118))
+      return __webpack_require__.e(/*! import() | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then(__webpack_require__.bind(null, /*! @/components/collectionCard/collectionCard.vue */ 124))
     }
   }
 } catch (e) {
@@ -210,13 +210,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
 var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 19));
 
-var _vuex = __webpack_require__(/*! vuex */ 12);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var navCard = function navCard() {__webpack_require__.e(/*! require.ensure | components/navCard/navCard */ "components/navCard/navCard").then((function () {return resolve(__webpack_require__(/*! ../../components/navCard/navCard.vue */ 104));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var collectionCard = function collectionCard() {__webpack_require__.e(/*! require.ensure | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then((function () {return resolve(__webpack_require__(/*! ../../components/collectionCard/collectionCard.vue */ 118));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var app = getApp();var _createNamespacedHelp =
+var _vuex = __webpack_require__(/*! vuex */ 12);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var navCard = function navCard() {__webpack_require__.e(/*! require.ensure | components/navCard/navCard */ "components/navCard/navCard").then((function () {return resolve(__webpack_require__(/*! ../../components/navCard/navCard.vue */ 110));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var collectionCard = function collectionCard() {__webpack_require__.e(/*! require.ensure | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then((function () {return resolve(__webpack_require__(/*! ../../components/collectionCard/collectionCard.vue */ 124));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var app = getApp();var _createNamespacedHelp =
 
 
 
@@ -373,6 +369,9 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function _interopRequireDefault(
     // this.getData()
   },
   onLoad: function onLoad() {
+    // uni.switchTab({
+    //    url:"../find/find"
+    // })
     // uni.navigateTo({
     // 	url:"../description/description"
     // })

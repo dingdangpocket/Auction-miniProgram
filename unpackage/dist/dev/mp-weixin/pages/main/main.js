@@ -96,7 +96,7 @@ var components
 try {
   components = {
     collectionCard: function() {
-      return __webpack_require__.e(/*! import() | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then(__webpack_require__.bind(null, /*! @/components/collectionCard/collectionCard.vue */ 118))
+      return __webpack_require__.e(/*! import() | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then(__webpack_require__.bind(null, /*! @/components/collectionCard/collectionCard.vue */ 124))
     }
   }
 } catch (e) {
@@ -234,7 +234,7 @@ var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 1
 //
 //
 //
-var app = getApp();var collectionCard = function collectionCard() {__webpack_require__.e(/*! require.ensure | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then((function () {return resolve(__webpack_require__(/*! ../../components/collectionCard/collectionCard.vue */ 118));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { collectionCard: collectionCard }, data: function data() {return { userInfo: "", dataArry: null, mycollect: null, auth: false, collectionData: [{ id: 0, title: "红釉瓷", imgSrc: "../../static/1.jpg", offer: "成都博物院" }, { id: 1, title: "花纹壶", imgSrc: "../../static/2.jpg", offer: "山西博物院" }, { id: 2, title: "青瓷", imgSrc: "../../static/3.jpg", offer: "河北博物院" }, { id: 3, title: "汝窑", imgSrc: "../../static/4.jpg", offer: "山东博物院" }, { id: 4, title: "靛蓝瓷", imgSrc: "../../static/5.jpg", offer: "陕西博物院" },
+var app = getApp();var collectionCard = function collectionCard() {__webpack_require__.e(/*! require.ensure | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then((function () {return resolve(__webpack_require__(/*! ../../components/collectionCard/collectionCard.vue */ 124));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { collectionCard: collectionCard }, data: function data() {return { userInfo: "", dataArry: null, mycollect: null, auth: false, collectionData: [{ id: 0, title: "红釉瓷", imgSrc: "../../static/1.jpg", offer: "成都博物院" }, { id: 1, title: "花纹壶", imgSrc: "../../static/2.jpg", offer: "山西博物院" }, { id: 2, title: "青瓷", imgSrc: "../../static/3.jpg", offer: "河北博物院" }, { id: 3, title: "汝窑", imgSrc: "../../static/4.jpg", offer: "山东博物院" }, { id: 4, title: "靛蓝瓷", imgSrc: "../../static/5.jpg", offer: "陕西博物院" },
 
       {
         id: 5,
