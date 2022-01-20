@@ -68,9 +68,16 @@
 }
 .body .PriceArea .model {
   position: absolute;
-  width: 70rpx;
-  height: 70rpx;
+  width: 60rpx;
+  height: 60rpx;
   right: 50rpx;
+  bottom: 28rpx;
+}
+.body .PriceArea .follow {
+  position: absolute;
+  width: 50rpx;
+  height: 50rpx;
+  right: 130rpx;
   bottom: 28rpx;
 }
 .body .TitleArea {

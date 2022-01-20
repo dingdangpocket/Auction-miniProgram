@@ -294,8 +294,6 @@
 		}
 	}
 
-
-
 		.collectionArea-flex-container {
 			width: 100vw;
 			display: flex;

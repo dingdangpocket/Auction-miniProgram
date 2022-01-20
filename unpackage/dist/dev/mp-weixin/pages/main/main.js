@@ -95,8 +95,11 @@ __webpack_require__.r(__webpack_exports__);
 var components
 try {
   components = {
+    uniSegmentedControl: function() {
+      return __webpack_require__.e(/*! import() | uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control */ "uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control.vue */ 119))
+    },
     collectionCard: function() {
-      return __webpack_require__.e(/*! import() | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then(__webpack_require__.bind(null, /*! @/components/collectionCard/collectionCard.vue */ 124))
+      return __webpack_require__.e(/*! import() | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then(__webpack_require__.bind(null, /*! @/components/collectionCard/collectionCard.vue */ 126))
     }
   }
 } catch (e) {
@@ -195,6 +198,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} //
 //
 //
@@ -234,23 +255,25 @@ var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 1
 //
 //
 //
-var app = getApp();var collectionCard = function collectionCard() {__webpack_require__.e(/*! require.ensure | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then((function () {return resolve(__webpack_require__(/*! ../../components/collectionCard/collectionCard.vue */ 124));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { collectionCard: collectionCard }, data: function data() {return { userInfo: "", dataArry: null, mycollect: null, auth: false, collectionData: [{ id: 0, title: "红釉瓷", imgSrc: "../../static/1.jpg", offer: "成都博物院" }, { id: 1, title: "花纹壶", imgSrc: "../../static/2.jpg", offer: "山西博物院" }, { id: 2, title: "青瓷", imgSrc: "../../static/3.jpg", offer: "河北博物院" }, { id: 3, title: "汝窑", imgSrc: "../../static/4.jpg", offer: "山东博物院" }, { id: 4, title: "靛蓝瓷", imgSrc: "../../static/5.jpg", offer: "陕西博物院" },
-
-      {
-        id: 5,
-        title: "龙纹瓷",
-        imgSrc: "../../static/6.jpg",
-        offer: "成都博物院" },
-
-      {
-        id: 6,
-        title: "红釉瓷",
-        imgSrc: "../../static/7.jpg",
-        offer: "南京博物院" },
-
-      {
-        id: 7,
-        title: "红釉瓷",
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var app = getApp();var collectionCard = function collectionCard() {__webpack_require__.e(/*! require.ensure | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then((function () {return resolve(__webpack_require__(/*! ../../components/collectionCard/collectionCard.vue */ 126));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { collectionCard: collectionCard }, data: function data() {return { items: ['我的收藏', '我的关注'], current: 0, userInfo: "", dataArry: null, mycollect: null, auth: false, collectionData: [{ id: 0, title: "红釉瓷", imgSrc: "../../static/1.jpg", offer: "成都博物院" }, { id: 1, title: "花纹壶", imgSrc: "../../static/2.jpg", offer: "山西博物院" }, { id: 2, title: "青瓷", imgSrc: "../../static/3.jpg", offer: "河北博物院" }, { id: 3, title: "汝窑", imgSrc: "../../static/4.jpg", offer: "山东博物院" }, { id: 4, title: "靛蓝瓷", imgSrc: "../../static/5.jpg", offer: "陕西博物院" }, { id: 5, title: "龙纹瓷", imgSrc: "../../static/6.jpg", offer: "成都博物院" }, { id: 6, title: "红釉瓷", imgSrc: "../../static/7.jpg", offer: "南京博物院" }, { id: 7, title: "红釉瓷",
         imgSrc: "../../static/8.jpg",
         offer: "贵州博物院" },
 
@@ -264,7 +287,57 @@ var app = getApp();var collectionCard = function collectionCard() {__webpack_req
         id: 9,
         title: "龙纹笔筒",
         imgSrc: "../../static/10.jpg",
-        offer: "北京博物院" }] };
+        offer: "北京博物院" }],
+
+
+      collectionRecdData: [{
+        id: 3,
+        title: "红釉瓷",
+        imgSrc: "../../static/5.jpg",
+        offer: "成都博物院" },
+
+      {
+        id: 1,
+        title: "花纹壶",
+        imgSrc: "../../static/1.jpg",
+        offer: "山西博物院" },
+
+      {
+        id: 2,
+        title: "青瓷",
+        imgSrc: "../../static/2.jpg",
+        offer: "河北博物院" },
+
+      {
+        id: 3,
+        title: "汝窑",
+        imgSrc: "../../static/7.jpg",
+        offer: "山东博物院" }],
+
+
+      collectionHotData: [{
+        id: 8,
+        title: "红釉瓷",
+        imgSrc: "../../static/8.jpg",
+        offer: "成都博物院" },
+
+      {
+        id: 10,
+        title: "花纹壶",
+        imgSrc: "../../static/9.jpg",
+        offer: "山西博物院" },
+
+      {
+        id: 4,
+        title: "青瓷",
+        imgSrc: "../../static/5.jpg",
+        offer: "河北博物院" },
+
+      {
+        id: 7,
+        title: "汝窑",
+        imgSrc: "../../static/10.jpg",
+        offer: "山东博物院" }] };
 
 
 
@@ -273,6 +346,11 @@ var app = getApp();var collectionCard = function collectionCard() {__webpack_req
     this.getData();
   },
   methods: {
+    onClickItem: function onClickItem(e) {
+      if (this.current !== e.currentIndex) {
+        this.current = e.currentIndex;
+      }
+    },
     getData: function getData() {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
                 // const res = await API.relicManageAPI.GetCollectionData()
                 // this.collectionData = res.data.rows

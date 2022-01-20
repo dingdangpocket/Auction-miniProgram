@@ -23,17 +23,35 @@
 				</view>
 			</view>
 		</view>
-		<view class="collectionArea-title">
-			<text>我的收藏</text>
-		</view>
-		<scroll-view scroll-y="true" class="collectionArea" show-scrollbar="false">
-			<view class="collectionArea-flex-container">
-				<view class="" v-for="item in collectionData" @click="linkToDescription" :key="item.id"
-					:data-id="item.id">
-					<collectionCard :item="item"></collectionCard>
+		<view>
+			<uni-segmented-control :current="current" :values="items" style-type="text" active-color="#a05909"
+				@clickItem="onClickItem" />
+			<view class="content">
+				<view v-show="current === 0">
+					<!-- <scroll-view class="collectionArea" scroll-y="true" show-scrollbar="false"> -->
+					<scroll-view scroll-y="true" class="collectionArea" show-scrollbar="false">
+						<view class="collectionArea-flex-container">
+							<view class="" v-for="item in collectionData" @click="linkToDescription" :key="item.id"
+								:data-id="item.id">
+								<collectionCard :item="item"></collectionCard>
+							</view>
+						</view>
+					</scroll-view>
+			<!-- 		</scroll-view> -->
+				</view>
+				<view v-show="current === 1">
+				<!-- 	<scroll-view class="collectionArea" scroll-y="true" show-scrollbar="false"> -->
+						<view class="collectionArea-flex-container">
+							<view class="" v-for="item in collectionRecdData" @click="linkToDescription" :key="item.id"
+								:data-id="item.id">
+								<collectionCard :item="item"></collectionCard>
+							</view>
+						</view>
+					<!-- </scroll-view> -->
 				</view>
 			</view>
-		</scroll-view>
+		</view>
+		
 	</view>
 </template>
 
@@ -47,6 +65,8 @@
 		},
 		data() {
 			return {
+				items: ['我的收藏', '我的关注'],
+				current: 0,
 				userInfo: "",
 				dataArry: null,
 				mycollect: null,
@@ -111,6 +131,56 @@
 						imgSrc: "../../static/10.jpg",
 						offer: "北京博物院"
 					},
+				],
+				collectionRecdData: [{
+						id: 3,
+						title: "红釉瓷",
+						imgSrc: "../../static/5.jpg",
+						offer: "成都博物院"
+					},
+					{
+						id: 1,
+						title: "花纹壶",
+						imgSrc: "../../static/1.jpg",
+						offer: "山西博物院"
+					},
+					{
+						id: 2,
+						title: "青瓷",
+						imgSrc: "../../static/2.jpg",
+						offer: "河北博物院"
+					},
+					{
+						id: 3,
+						title: "汝窑",
+						imgSrc: "../../static/7.jpg",
+						offer: "山东博物院"
+					},
+				],
+				collectionHotData: [{
+						id: 8,
+						title: "红釉瓷",
+						imgSrc: "../../static/8.jpg",
+						offer: "成都博物院"
+					},
+					{
+						id: 10,
+						title: "花纹壶",
+						imgSrc: "../../static/9.jpg",
+						offer: "山西博物院"
+					},
+					{
+						id: 4,
+						title: "青瓷",
+						imgSrc: "../../static/5.jpg",
+						offer: "河北博物院"
+					},
+					{
+						id: 7,
+						title: "汝窑",
+						imgSrc: "../../static/10.jpg",
+						offer: "山东博物院"
+					},
 				]
 			}
 		},
@@ -118,6 +188,11 @@
 			this.getData()
 		},
 		methods: {
+			onClickItem(e) {
+				if (this.current !== e.currentIndex) {
+					this.current = e.currentIndex
+				}
+			},
 			async getData() {
 				// const res = await API.relicManageAPI.GetCollectionData()
 				// this.collectionData = res.data.rows
@@ -241,6 +316,7 @@
 		justify-content: space-around;
 		align-items: center;
 		margin-top: 10rpx;
+		border-bottom: solid 1rpx #b7b8ba;
 		.box {
 			width: 140rpx;
 			height: 140rpx;
@@ -306,5 +382,18 @@
 
 	.scrollFram {
 		width: 725rpx;
+	}
+	
+	.collectionArea-flex-container {
+		width: 100vw;
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+	}
+	
+	.collectionArea-flex-container:after {
+		content: '';
+		height: 10rpx;
+		width: 285rpx;
 	}
 </style>

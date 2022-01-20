@@ -77,6 +77,7 @@
   -webkit-align-items: center;
           align-items: center;
   margin-top: 10rpx;
+  border-bottom: solid 1rpx #b7b8ba;
 }
 .setting .box {
   width: 140rpx;
@@ -137,5 +138,20 @@
 }
 .scrollFram {
   width: 725rpx;
+}
+.collectionArea-flex-container {
+  width: 100vw;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.collectionArea-flex-container:after {
+  content: '';
+  height: 10rpx;
+  width: 285rpx;
 }
 
