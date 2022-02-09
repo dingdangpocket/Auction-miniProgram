@@ -24,7 +24,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 16));
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 16));
 
 
 
@@ -64,30 +64,33 @@ var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 1
 //
 //
 //
-var app = getApp();var _default = { data: function data() {return { orderInfo: "" };}, onLoad: function onLoad(option) {var res = JSON.parse(option.items);console.log(res);this.orderInfo = res;}, methods: { comfirm: function comfirm() {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var quantity, needPay, orderData, res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:quantity = 3;needPay = Math.floor(parseFloat(3.8 * 100 * quantity));console.log(needPay, "分");orderData = { // code: app.globalData.code,
-                  openId: app.globalData.openId, collectionId: app.globalData.collectionId,
-                  price: 0.01 * 100
-                  // title:"测试"
+var app = getApp();var _default = { data: function data() {return { orderInfo: "" };}, onLoad: function onLoad(option) {var res = JSON.parse(option.items);console.log(res);this.orderInfo = res;}, methods: { comfirm: function comfirm() {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var orderData, res, params;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0: // var quantity = 3
+                // var needPay = Math.floor(parseFloat(3.8 * 100 * quantity));
+                // console.log(needPay, "分")
+                orderData = { openId: app.globalData.openId, collectionId: 122, price: 0.01 * 100 // title:"测试"
                   // payType: "wxPay"
-                };
-                console.log("支付所需订单信息", orderData);_context.next = 7;return (
-                  _API.default.payAPI.comfirmPay(orderData));case 7:res = _context.sent;
-                console.log("支付所需参数", res);
-                // uni.requestPayment({
-                // 	"appId":"wx48d4c185c78f0c21"
-                // 	"timeStamp": res.timeStamp,
-                // 	"nonceStr":"5K8264ILTKCH16CQ2502SI8ZNMTM67VS",
-                // 	"package":`prepay_id=${res.data.prepay_id}`,
-                // 	"signType":"RSA",
-                // 	"paySign": res.paySign,
-                // 	success: function(res) {
-                // 		console.log("支付成功结果", res)
-                // 	},
-                // 	fail: function(err) {
-                // 		console.log("支付失败结果", err)
-                // 	}
-                // });
-              case 9:case "end":return _context.stop();}}}, _callee);}))();} } };exports.default = _default;
+                  // code: app.globalData.code,
+                };_context.next = 3;return _API.default.payAPI.comfirmPay(orderData);case 3:res = _context.sent;
+                console.log("prepay_id", res);_context.next = 7;return (
+                  _API.default.payAPI.getPayParams(res.data.prepay_id));case 7:params = _context.sent;
+                console.log("参数", params);
+                console.log(params.data.paySign);
+                uni.requestPayment({
+                  "appId": params.data.appId,
+                  "timeStamp": params.data.timeStamp,
+                  "nonceStr": params.data.nonceStr,
+                  "package": params.data.package,
+                  "signType": params.data.signType,
+                  "paySign": params.data.paySign,
+                  success: function success(res) {
+                    console.log("支付成功结果", res);
+                  },
+                  fail: function fail(err) {
+                    console.log("支付失败结果", err);
+                  } });case 11:case "end":return _context.stop();}}}, _callee);}))();
+
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

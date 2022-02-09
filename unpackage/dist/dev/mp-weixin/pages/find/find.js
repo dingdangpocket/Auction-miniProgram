@@ -96,7 +96,7 @@ var components
 try {
   components = {
     collectionCard: function() {
-      return __webpack_require__.e(/*! import() | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then(__webpack_require__.bind(null, /*! @/components/collectionCard/collectionCard.vue */ 126))
+      return __webpack_require__.e(/*! import() | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then(__webpack_require__.bind(null, /*! @/components/collectionCard/collectionCard.vue */ 142))
     }
   }
 } catch (e) {
@@ -153,48 +153,50 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-var app = getApp();var search = function search() {__webpack_require__.e(/*! require.ensure | components/mehaotian-search/mehaotian-search */ "components/mehaotian-search/mehaotian-search").then((function () {return resolve(__webpack_require__(/*! ../../components/mehaotian-search/mehaotian-search.vue */ 133));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var dropDown = function dropDown() {__webpack_require__.e(/*! require.ensure | components/dropdown-screen/dropdown-screen */ "components/dropdown-screen/dropdown-screen").then((function () {return resolve(__webpack_require__(/*! ../../components/dropdown-screen/dropdown-screen.vue */ 140));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var collectionCard = function collectionCard() {__webpack_require__.e(/*! require.ensure | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then((function () {return resolve(__webpack_require__(/*! ../../components/collectionCard/collectionCard.vue */ 126));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 16));
 
 
 
-{
-  components: {
-    search: search,
-    dropDown: dropDown,
-    collectionCard: collectionCard },
 
-  data: function data() {
-    return {
-      collectionDataCopy: [{
-        id: 0,
-        title: "红釉瓷",
-        imgSrc: "../../static/1.jpg",
-        offer: "成都博物院" },
 
-      {
-        id: 1,
-        title: "花纹壶",
-        imgSrc: "../../static/2.jpg",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var app = getApp();var search = function search() {__webpack_require__.e(/*! require.ensure | components/mehaotian-search/mehaotian-search */ "components/mehaotian-search/mehaotian-search").then((function () {return resolve(__webpack_require__(/*! ../../components/mehaotian-search/mehaotian-search.vue */ 149));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var dropDown = function dropDown() {__webpack_require__.e(/*! require.ensure | components/dropdown-screen/dropdown-screen */ "components/dropdown-screen/dropdown-screen").then((function () {return resolve(__webpack_require__(/*! ../../components/dropdown-screen/dropdown-screen.vue */ 156));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var collectionCard = function collectionCard() {__webpack_require__.e(/*! require.ensure | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then((function () {return resolve(__webpack_require__(/*! ../../components/collectionCard/collectionCard.vue */ 142));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { search: search, dropDown: dropDown, collectionCard: collectionCard }, data: function data() {return { filterValue: "", collectionDataCopy: [{ id: 0, title: "红釉瓷", imgSrc: "../../static/1.jpg", offer: "成都博物院" }, { id: 1, title: "花纹壶", imgSrc: "../../static/2.jpg",
         offer: "山西博物院" },
 
       {
@@ -309,9 +311,20 @@ var app = getApp();var search = function search() {__webpack_require__.e(/*! req
 
 
   },
+  onShow: function onShow() {
+    this.getData();
+  },
   methods: {
+    filterIf: function filterIf(filterValue) {
+      console.log("筛选条件", filterValue);
+      // 筛选条件接口
+    },
+    getData: function getData() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+                  _API.default.relicManageAPI.GetCollectionData());case 2:res = _context.sent;
+                _this.collectionData = res.data.rows;case 4:case "end":return _context.stop();}}}, _callee);}))();
+    },
     getAllCollection: function getAllCollection() {
-      this.collectionData = this.collectionDataCopy;
+      this.collectionData = this.getData();
     },
     search: function search(value) {
       console.log("筛选条件", value);
@@ -319,13 +332,39 @@ var app = getApp();var search = function search() {__webpack_require__.e(/*! req
     },
     linkToDescription: function linkToDescription(e) {
       app.globalData.collectionId = e.currentTarget.dataset.id;
-      // uni.navigateTo({
-      // 	url: '../description/description',
-      // })
       uni.navigateTo({
         url: "../description/description" });
 
-    } } };exports.default = _default;
+    } },
+
+  watch: {
+    filterValue: function filterValue() {
+      this.collectionData = this.getData();
+    } },
+
+  computed: {
+    // filterCollection: function() {
+    // 	if (this.filterValue[0] == 0) {
+    // 		return this.collectionData
+    // 	}
+    // 	if (this.filterValue[0] == "近三天") {
+    // 		this.collectionData = this.collectionData.filter((item) => {
+    // 			if (item.tag == "精选") {
+    // 				return item
+    // 			}
+    // 		})
+    // 		return this.collectionData
+    // 	}
+    // 	if (this.current == 2) {
+    // 		this.collectionData = this.collectionData.filter((item) => {
+    // 			if (item.tag == "热门") {
+    // 				return item
+    // 			}
+    // 		})
+    // 		return this.collectionData
+    // 	}
+    // }
+  } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

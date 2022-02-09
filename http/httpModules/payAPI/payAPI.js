@@ -10,5 +10,11 @@ import {
 			data:data
  		})
  	},
+	getPayParams(prepayid){
+		return request({
+			url: `/bill/payment/paysign?prepay_id=${prepayid}`,
+			method: 'POST',
+		})
+	}
  }
  export default payAPI;

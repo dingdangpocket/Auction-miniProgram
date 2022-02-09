@@ -96,7 +96,7 @@ var components
 try {
   components = {
     imgCard: function() {
-      return __webpack_require__.e(/*! import() | components/imgCard/imgCard */ "components/imgCard/imgCard").then(__webpack_require__.bind(null, /*! @/components/imgCard/imgCard.vue */ 154))
+      return __webpack_require__.e(/*! import() | components/imgCard/imgCard */ "components/imgCard/imgCard").then(__webpack_require__.bind(null, /*! @/components/imgCard/imgCard.vue */ 170))
     }
   }
 } catch (e) {
@@ -205,7 +205,7 @@ var app = getApp();var _default =
     return {
       descData: {
         id: 0,
-        title: "红釉瓷",
+        title: "红釉陶瓷工艺品",
         price: 9.9,
         limit: 800,
         musem: "成都博物馆",
@@ -233,8 +233,8 @@ var app = getApp();var _default =
 
     },
     LinkToOrderComfirm: function LinkToOrderComfirm() {
-      console.log("请先登陆", app);
-      if (app.globalData.token == null) {
+      var res = uni.getStorageSync('user_token');
+      if (!res) {
         uni.showToast({
           title: '请先登陆',
           duration: 3000 });

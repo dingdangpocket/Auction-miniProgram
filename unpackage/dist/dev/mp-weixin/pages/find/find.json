@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "龙鲤数字藏品",
+  "navigationBarTitleText": "龙鲤网",
   "enablePullDownRefresh": false,
   "usingComponents": {
     "collection-card": "/components/collectionCard/collectionCard",

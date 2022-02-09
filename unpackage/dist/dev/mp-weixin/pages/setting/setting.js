@@ -177,6 +177,16 @@ var _default =
       uni.navigateTo({
         url: "../aboutUs/aboutUs" });
 
+    },
+    LinkToPrivacy: function LinkToPrivacy() {
+      uni.navigateTo({
+        url: "../privacy/privacy" });
+
+    },
+    LinkToServiceAgreement: function LinkToServiceAgreement() {
+      uni.navigateTo({
+        url: "../srviceAgreement/srviceAgreement" });
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

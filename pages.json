@@ -4,7 +4,7 @@
 			"path": "pages/home/home",
 			"style": {
 				// "navigationBarTitleText": "uni-app"
-				"navigationBarTitleText": "龙鲤数字藏品"
+				"navigationBarTitleText": "龙鲤网"
 			}
 		}, {
 			"path": "pages/main/main",
@@ -44,7 +44,7 @@
 			"style": {
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false,
-				"navigationBarTitleText": "龙鲤数字藏品"
+				"navigationBarTitleText": "龙鲤网"
 			}
 		
 		},
@@ -67,7 +67,7 @@
 			"style": {
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false,
-				"navigationBarTitleText": "藏品详情"
+				"navigationBarTitleText": "详情"
 			}
 
 		}, {
@@ -92,7 +92,26 @@
 				"navigationBarTitleText": "订单详情"
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/privacy/privacy",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+				"navigationBarTitleText": "隐私政策"
+            }
+            
+        }
+        ,{
+            "path" : "pages/srviceAgreement/srviceAgreement",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "用户协议",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"tabBar": {
 		"selectedColor": "#000000",
 		"backgroundColor": "#FFFFFF",
@@ -119,8 +138,6 @@
 	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-
-		// "navigationStyle":"custom",
 		"navigationBarBackgroundColor": "#FFFFFF",
 		"backgroundColor": "#F8F8F8"
 	}

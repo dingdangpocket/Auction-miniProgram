@@ -47,7 +47,6 @@
 .orderCardItem .imgArea {
   width: 200rpx;
   height: 200rpx;
-  background-color: red;
 }
 .orderCardItem .imgArea image {
   width: 200rpx;

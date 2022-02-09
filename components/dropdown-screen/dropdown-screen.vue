@@ -77,7 +77,7 @@
 			listArr: {
 				type: Array,
 				default: () => {
-					return ['发布时间', '授权类别', '发售价格', '藏品年代']
+					return ['发布时间', '工艺类别', '发售价格', ]
 				}
 			},
 			// item数量超过多少开始滚动
@@ -103,10 +103,10 @@
 						},
 						],
 						[{
-							text: '商业机构',
+							text: '陶器',
 							value: 3
 						}, {
-							text: '个人授权',
+							text: '瓷器',
 							value: 4
 						}],
 						[{
@@ -198,7 +198,8 @@
 		},
 		watch:{
 			updateArr(){
-				console.log("筛选条件",this.updateArr)
+				// console.log("筛选条件",this.updateArr)
+				this.$parent.filterIf(this.updateArr)
 			}
 		},
 		methods: {

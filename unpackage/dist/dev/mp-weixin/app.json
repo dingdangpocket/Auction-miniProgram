@@ -10,7 +10,9 @@
     "pages/description/description",
     "pages/aboutUs/aboutUs",
     "pages/orderComfirm/orderComfirm",
-    "pages/blockDetial/blockDetial"
+    "pages/blockDetial/blockDetial",
+    "pages/privacy/privacy",
+    "pages/srviceAgreement/srviceAgreement"
   ],
   "subPackages": [],
   "window": {
@@ -44,6 +46,5 @@
     ]
   },
   "permission": {},
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }

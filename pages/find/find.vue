@@ -22,6 +22,7 @@
 	import search from "../../components/mehaotian-search/mehaotian-search.vue"
 	import dropDown from '../../components/dropdown-screen/dropdown-screen.vue'
 	import collectionCard from '../../components/collectionCard/collectionCard.vue'
+	import API from "../../http/API.js"
 	export default {
 		components: {
 			search,
@@ -30,6 +31,7 @@
 		},
 		data() {
 			return {
+				filterValue:"",
 				collectionDataCopy: [{
 						id: 0,
 						title: "红釉瓷",
@@ -154,23 +156,59 @@
 				],
 			}
 		},
+		onShow() {
+			this.getData()
+		},
 		methods: {
-			getAllCollection(){
-				this.collectionData=this.collectionDataCopy
+			filterIf(filterValue){
+				console.log("筛选条件",filterValue)
+				// 筛选条件接口
 			},
-			search(value){
-				console.log("筛选条件",value)
-				this.collectionData=this.collectionData.filter((item)=>item.title.includes(value))
+			async getData() {
+				const res = await API.relicManageAPI.GetCollectionData()
+				this.collectionData = res.data.rows
+			},
+			getAllCollection() {
+				this.collectionData = this.getData()
+			},
+			search(value) {
+				console.log("筛选条件", value)
+				this.collectionData = this.collectionData.filter((item) => item.title.includes(value))
 			},
 			linkToDescription(e) {
 				app.globalData.collectionId = e.currentTarget.dataset.id
-				// uni.navigateTo({
-				// 	url: '../description/description',
-				// })
 				uni.navigateTo({
 					url: "../description/description"
 				})
 			}
+		},
+		watch: {
+			filterValue() {
+				this.collectionData = this.getData()
+			}
+		},
+		computed: {
+			// filterCollection: function() {
+			// 	if (this.filterValue[0] == 0) {
+			// 		return this.collectionData
+			// 	}
+			// 	if (this.filterValue[0] == "近三天") {
+			// 		this.collectionData = this.collectionData.filter((item) => {
+			// 			if (item.tag == "精选") {
+			// 				return item
+			// 			}
+			// 		})
+			// 		return this.collectionData
+			// 	}
+			// 	if (this.current == 2) {
+			// 		this.collectionData = this.collectionData.filter((item) => {
+			// 			if (item.tag == "热门") {
+			// 				return item
+			// 			}
+			// 		})
+			// 		return this.collectionData
+			// 	}
+			// }
 		},
 	}
 </script>

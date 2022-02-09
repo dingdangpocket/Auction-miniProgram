@@ -1,45 +1,44 @@
 <template>
-	<view class="body">
-		<view class="NavArea">
-			<swiper class="swiper-container" :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
-				<swiper-item v-for="item in navData" class="swiper-item" :key="item.id" @click="linkTo()">
-					<navCard :item="item"></navCard>
-				</swiper-item>
-			</swiper>
-		</view>
-		<view>
-			<uni-segmented-control :current="current" :values="items" style-type="text" active-color="#de7800"
-				@clickItem="onClickItem" />
-			<view class="content">
-				<view v-show="current === 0">
-					<!-- <scroll-view class="collectionArea" scroll-y="true" show-scrollbar="false"> -->
+	<view>
+		<fui-dialog :show="show" :content="content" maskClosable @close="onClose">
+		</fui-dialog>
+		<view class="body">
+			<view class="NavArea">
+				<swiper class="swiper-container" :indicator-dots="true" :autoplay="true" :interval="3000"
+					:duration="1000">
+					<swiper-item v-for="item in navData" class="swiper-item" :key="item.id" @click="linkTo()">
+						<navCard :item="item"></navCard>
+					</swiper-item>
+				</swiper>
+			</view>
+			<view>
+				<uni-segmented-control :current="current" :values="items" style-type="text" active-color="#de7800"
+					@clickItem="onClickItem" />
+				<view class="content">
+					<view v-show="current === 0">
 						<view class="collectionArea-flex-container">
-							<view class="" v-for="item in collectionData" @click="linkToDescription" :key="item.id"
-								:data-id="item.id">
+							<view class="" v-for="item in collectionDataFilter" @click="linkToDescription"
+								:key="item.id" :data-id="item.id">
 								<collectionCard :item="item"></collectionCard>
 							</view>
 						</view>
-			<!-- 		</scroll-view> -->
-				</view>
-				<view v-show="current === 1">
-				<!-- 	<scroll-view class="collectionArea" scroll-y="true" show-scrollbar="false"> -->
+					</view>
+					<view v-show="current === 1">
 						<view class="collectionArea-flex-container">
-							<view class="" v-for="item in collectionRecdData" @click="linkToDescription" :key="item.id"
-								:data-id="item.id">
+							<view class="" v-for="item in collectionDataFilter" @click="linkToDescription"
+								:key="item.id" :data-id="item.id">
 								<collectionCard :item="item"></collectionCard>
 							</view>
 						</view>
-					<!-- </scroll-view> -->
-				</view>
-				<view v-show="current === 2">
-					<!-- <scroll-view class="collectionArea" scroll-y="true" show-scrollbar="false"> -->
+					</view>
+					<view v-show="current === 2">
 						<view class="collectionArea-flex-container">
-							<view class="" v-for="item in collectionHotData" @click="linkToDescription" :key="item.id"
-								:data-id="item.id">
+							<view class="" v-for="item in collectionDataFilter" @click="linkToDescription"
+								:key="item.id" :data-id="item.id">
 								<collectionCard :item="item"></collectionCard>
 							</view>
 						</view>
-			<!-- 		</scroll-view> -->
+					</view>
 				</view>
 			</view>
 		</view>
@@ -50,6 +49,7 @@
 	import navCard from '../../components/navCard/navCard.vue'
 	import collectionCard from '../../components/collectionCard/collectionCard.vue'
 	import API from "../../http/API.js"
+	import fuiDialog from "../../components/fui-dialog/fui-dialog.vue"
 	var app = getApp()
 	import {
 		createNamespacedHelpers
@@ -58,213 +58,193 @@
 		mapState,
 		mapActions
 	} = createNamespacedHelpers("homeStore");
-
 	export default {
 		components: {
 			navCard,
-			collectionCard
+			collectionCard,
+			fuiDialog
 		},
 		data() {
 			return {
-				items: ['即将发售', '精选', "热门"],
+				content: '购买、收藏等操作需要您先登陆,是否登陆?',
+				show: false,
+				items: ['发售中', '精选', "热门"],
 				current: 0,
 				title: 'Hello',
 				navData: [{
 						id: 0,
-						content: "什么是数字藏品",
-						desc: "深入了解数字藏品",
+						content: "精制陶瓷工艺品",
+						desc: "",
 						imgPath: "../../static/banner1.jpg"
 					},
 					{
 						id: 1,
-						content: "购买须知",
-						desc: "关于数字藏品的购买说明",
+						content: "做最好的瓷器",
+						desc: "",
 						imgPath: "../../static/banner4.jpg"
 					},
-					// {
-					// 	id: 2,
-					// 	content: "数字藏品拍卖",
-					// 	desc: "数字藏品拍卖进行中",
-					// 	imgPath: "../../static/banner3.jpg"
-					// }
 				],
-				collectionData: [{
-						id: 0,
-						title: "红釉瓷",
-						imgSrc: "../../static/1.jpg",
-						offer: "成都博物院"
-					},
-					{
-						id: 1,
-						title: "花纹壶",
-						imgSrc: "../../static/2.jpg",
-						offer: "山西博物院"
-					},
-					{
-						id: 2,
-						title: "青瓷",
-						imgSrc: "../../static/3.jpg",
-						offer: "河北博物院"
-					},
-					{
-						id: 3,
-						title: "汝窑",
-						imgSrc: "../../static/4.jpg",
-						offer: "山东博物院"
-					},
-					{
-						id: 4,
-						title: "靛蓝瓷",
-						imgSrc: "../../static/5.jpg",
-						offer: "陕西博物院"
-					},
-					{
-						id: 5,
-						title: "龙纹瓷",
-						imgSrc: "../../static/6.jpg",
-						offer: "成都博物院"
-					},
-					{
-						id: 6,
-						title: "红釉瓷",
-						imgSrc: "../../static/7.jpg",
-						offer: "南京博物院"
-					},
-					{
-						id: 7,
-						title: "红釉瓷",
-						imgSrc: "../../static/8.jpg",
-						offer: "贵州博物院"
-					},
-					{
-						id: 8,
-						title: "白釉壶",
-						imgSrc: "../../static/9.jpg",
-						offer: "甘肃博物院"
-					},
-					{
-						id: 9,
-						title: "龙纹笔筒",
-						imgSrc: "../../static/10.jpg",
-						offer: "北京博物院"
-					},
-				],
-				collectionRecdData: [{
-						id: 3,
-						title: "红釉瓷",
-						imgSrc: "../../static/5.jpg",
-						offer: "成都博物院"
-					},
-					{
-						id: 1,
-						title: "花纹壶",
-						imgSrc: "../../static/1.jpg",
-						offer: "山西博物院"
-					},
-					{
-						id: 2,
-						title: "青瓷",
-						imgSrc: "../../static/2.jpg",
-						offer: "河北博物院"
-					},
-					{
-						id: 3,
-						title: "汝窑",
-						imgSrc: "../../static/7.jpg",
-						offer: "山东博物院"
-					},
-				],
-				collectionHotData: [{
-						id: 8,
-						title: "红釉瓷",
-						imgSrc: "../../static/8.jpg",
-						offer: "成都博物院"
-					},
-					{
-						id: 10,
-						title: "花纹壶",
-						imgSrc: "../../static/9.jpg",
-						offer: "山西博物院"
-					},
-					{
-						id: 4,
-						title: "青瓷",
-						imgSrc: "../../static/5.jpg",
-						offer: "河北博物院"
-					},
-					{
-						id: 7,
-						title: "汝窑",
-						imgSrc: "../../static/10.jpg",
-						offer: "山东博物院"
-					},
-				]
+				collectionData: "",
+				screenWidth: ""
 			}
 		},
-		// mounted() {
-		//    this.getData()
-		// },
-		onShow() {
-			// this.getData()
-		},
 		onLoad() {
-			// uni.switchTab({
-			//    url:"../find/find"
-			// })
-			// uni.navigateTo({
-			// 	url:"../description/description"
-			// })
-			// uni.navigateTo({
-			// 	url:"../orderComfirm/orderComfirm"
-			// })
-			// uni.switchTab({
-			// 		url: '../main/main',
-			// })
-			// uni.navigateTo({
-			// 	url:"../orderList/orderList"
-			// })
-			// uni.navigateTo({
-			// 	url:"../blockDetial/blockDetial"
-			// })
-			// uni.navigateTo({
-			// 	url:"../model/model"
-			// })
-			// uni.navigateTo({
-			// 	url:"../auth/auth"
-			// })
-			// uni.navigateTo({
-			// 	url:"../orderList/orderList"
-			// })
-			// uni.navigateTo({
-			// 	url:"../setting/setting"
-			// })
+			// const res = await API.relicManageAPI.GetCollectionData()
+			// if(res){
+			// 	console.log("未过期")
+			// }
+			let res = uni.getStorageSync('user_token');
+			if (res) {
+				this.show = false
+			} else {
+				this.show = true
+			}
+		},
+		async mounted() {
+			this.getData()
+		},
+		watch: {
+			current() {
+				console.log(this.current)
+			}
+		},
+		computed: {
+			collectionDataFilter: function() {
+				if (this.current == 0) {
+					return this.collectionData
+				}
+				if (this.current == 1) {
+					return this.collectionData.filter((item) => {
+						return item.tag == "精选"
+					})
+				}
+				if (this.current == 2) {
+					return this.collectionData.filter((item) => {
+						return item.tag == "热门"
+					})
+				}
+			}
 		},
 		methods: {
+			cancelValue(index) {
+				if (index == 0) {
+					this.show = false
+				} else {
+					this.show = false
+					this.login()
+				}
+			},
+			onClose() {
+				this.show = false
+			},
+			// dialog
+			
+			async getData() {
+				const res = await API.relicManageAPI.GetCollectionData()
+				this.collectionData = res.data.rows
+				console.log("结果来自华为云公网API", res)
+			},
 			onClickItem(e) {
 				if (this.current !== e.currentIndex) {
 					this.current = e.currentIndex
 				}
 			},
-			async getData() {
-				const res = await API.relicManageAPI.GetCollectionData()
-				console.log(res)
-				this.collectionData = res.data.rows
-				console.log("结果", res.data.rows)
-			},
 			linkToDescription(e) {
 				app.globalData.collectionId = e.currentTarget.dataset.id
-				// uni.navigateTo({
-				// 	url: '../description/description',
-				// })
 				uni.navigateTo({
 					url: "../description/description"
 				})
-			}
-		}
+			},
+			//登陆板块
+			login() {
+				this.show = false;
+				uni.getUserProfile({
+					desc: 'weixin',
+					success: res => {
+						this.userInfo = res.userInfo
+						this.getCode(res.userInfo)
+						this.nickName = res.userInfo.nickName
+					},
+					fail: err => {
+						console.log(err, '失败授权')
+					}
+				})
+			},
+			getCode(userInfo) {
+				uni.login({
+					provider: 'weixin',
+					success: res => {
+						this.getToken(res.code, userInfo) //将code码和用户信息发给后端;
+						app.globalData.code = res.code
+					}
+				})
+			},
+			getToken(code, userInfo) { //获取token;
+				uni.request({
+					url: 'https://api.bitaichain.com:8443/auth/wxlogin',
+					method: 'POST',
+					data: {
+						code,
+						userInfo,
+					},
+					success: res => {
+						if (res.data.msg == "success") { //如果成功保存token;
+							uni.setStorage({
+								key: 'user_token',
+								data: res.data.data.token
+							});
+							app.globalData.token = res.data.data.token
+							app.globalData.openId = res.data.data.sysUser.userName
+							app.globalData.userInfo = res.data.data.sysUser
+							uni.showToast({
+								title: '授权登陆成功',
+								duration: 1300
+							});
+							this.userInfo = res.data.data.sysUser
+						} else {
+							uni.showToast({
+								title: '网络错误,登陆失败',
+								duration: 1300
+							});
+						}
+					},
+				})
+			},
+			//登陆板块
+		},
 	}
 </script>
 
 <style lang="scss">
+	.Model {
+		position: fixed;
+		background-color: rgb(250, 250, 250);
+		width: 80%;
+		height: 32%;
+		top: 30%;
+		right: 10%;
+		left: 10%;
+		z-index: 3;
+		transition: visibility 200ms ease-in;
+		padding: 8rpx;
+		border-radius: 10rpx;
+	}
+
+	.login {
+		width: 160rpx;
+		background-color: orange;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 10rpx;
+		color: white;
+		font-size: 30rpx;
+	}
+
+	.ModelHidden {
+		display: none;
+	}
+
 	.body {
 		background-color: white;
 	}
@@ -272,39 +252,34 @@
 	.NavArea {
 		width: 100vw;
 		height: 35vh;
-		// background-color:gray;
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
 
-		// margin-top: 10rpx;
 		.swiper-container {
 			width: 85%;
 			height: 325rpx;
-			// border-radius: 30rpx;
 			background-color: black;
 			box-shadow: 1px 1px 3px #101010;
 
 			.swiper-item {
 				background-color: blue;
-				// border-radius: 30rpx;
 				background-color: rgba($color: #373737, $alpha: 0.5);
 				box-shadow: 1px 1px 3px #101010;
 			}
 		}
 	}
 
-		.collectionArea-flex-container {
-			width: 100vw;
-			display: flex;
-			justify-content: space-around;
-			flex-wrap: wrap;
-		}
+	.collectionArea-flex-container {
+		width: 100vw;
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+	}
 
-		.collectionArea-flex-container:after {
-			content: '';
-			height: 10rpx;
-			width: 285rpx;
-		}
-	
+	.collectionArea-flex-container:after {
+		content: '';
+		height: 10rpx;
+		width: 285rpx;
+	}
 </style>

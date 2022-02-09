@@ -96,10 +96,10 @@ var components
 try {
   components = {
     uniSegmentedControl: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control */ "uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control.vue */ 119))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control */ "uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control.vue */ 135))
     },
     collectionCard: function() {
-      return __webpack_require__.e(/*! import() | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then(__webpack_require__.bind(null, /*! @/components/collectionCard/collectionCard.vue */ 126))
+      return __webpack_require__.e(/*! import() | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then(__webpack_require__.bind(null, /*! @/components/collectionCard/collectionCard.vue */ 142))
     }
   }
 } catch (e) {
@@ -212,10 +212,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
 var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} //
 //
 //
@@ -269,11 +265,11 @@ var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 1
 //
 //
 //
-//
-//
-//
-//
-var app = getApp();var collectionCard = function collectionCard() {__webpack_require__.e(/*! require.ensure | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then((function () {return resolve(__webpack_require__(/*! ../../components/collectionCard/collectionCard.vue */ 126));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { collectionCard: collectionCard }, data: function data() {return { items: ['我的收藏', '我的关注'], current: 0, userInfo: "", dataArry: null, mycollect: null, auth: false, collectionData: [{ id: 0, title: "红釉瓷", imgSrc: "../../static/1.jpg", offer: "成都博物院" }, { id: 1, title: "花纹壶", imgSrc: "../../static/2.jpg", offer: "山西博物院" }, { id: 2, title: "青瓷", imgSrc: "../../static/3.jpg", offer: "河北博物院" }, { id: 3, title: "汝窑", imgSrc: "../../static/4.jpg", offer: "山东博物院" }, { id: 4, title: "靛蓝瓷", imgSrc: "../../static/5.jpg", offer: "陕西博物院" }, { id: 5, title: "龙纹瓷", imgSrc: "../../static/6.jpg", offer: "成都博物院" }, { id: 6, title: "红釉瓷", imgSrc: "../../static/7.jpg", offer: "南京博物院" }, { id: 7, title: "红釉瓷",
+var app = getApp();var collectionCard = function collectionCard() {__webpack_require__.e(/*! require.ensure | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then((function () {return resolve(__webpack_require__(/*! ../../components/collectionCard/collectionCard.vue */ 142));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { collectionCard: collectionCard }, data: function data() {return { items: ['我的收藏', '我的关注'], current: 0, userInfo: "", dataArry: null, mycollect: null, auth: false, collectionData: [{ id: 0, title: "红釉瓷", imgSrc: "../../static/1.jpg", offer: "成都博物院" }, { id: 1, title: "花纹壶", imgSrc: "../../static/2.jpg", offer: "山西博物院" }, { id: 2, title: "青瓷", imgSrc: "../../static/3.jpg", offer: "河北博物院" }, { id: 3, title: "汝窑", imgSrc: "../../static/4.jpg", offer: "山东博物院" }, { id: 4, title: "靛蓝瓷", imgSrc: "../../static/5.jpg", offer: "陕西博物院" }, { id: 5, title: "龙纹瓷", imgSrc: "../../static/6.jpg", offer: "成都博物院" }, { id: 6, title: "红釉瓷", imgSrc: "../../static/7.jpg", offer: "南京博物院" },
+
+      {
+        id: 7,
+        title: "红釉瓷",
         imgSrc: "../../static/8.jpg",
         offer: "贵州博物院" },
 
@@ -343,6 +339,7 @@ var app = getApp();var collectionCard = function collectionCard() {__webpack_req
 
   },
   mounted: function mounted() {
+    this.login();
     this.getData();
   },
   methods: {
@@ -351,10 +348,10 @@ var app = getApp();var collectionCard = function collectionCard() {__webpack_req
         this.current = e.currentIndex;
       }
     },
-    getData: function getData() {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
-                // const res = await API.relicManageAPI.GetCollectionData()
-                // this.collectionData = res.data.rows
-                console.log("结果", res.data.rows);case 1:case "end":return _context.stop();}}}, _callee);}))();
+    getData: function getData() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+                  _API.default.relicManageAPI.GetCollectionData());case 2:res = _context.sent;
+                _this.collectionData = res.data.rows;
+                console.log("结果", res.data.rows);case 5:case "end":return _context.stop();}}}, _callee);}))();
     },
     LinkToSetting: function LinkToSetting() {
       uni.navigateTo({
@@ -368,46 +365,46 @@ var app = getApp();var collectionCard = function collectionCard() {__webpack_req
     },
 
     //登陆板块
-    login: function login() {var _this = this;
+    login: function login() {var _this2 = this;
+      var res = uni.getStorageSync('user_token');
+      if (res) {
+        return;
+      }
       uni.getUserProfile({
         desc: 'weixin',
         success: function success(res) {
-          console.log(res, '授权成功');
-          _this.userInfo = res.userInfo;
-          _this.getCode(res.userInfo);
-          _this.nickName = res.userInfo.nickName;
+          _this2.userInfo = res.userInfo;
+          _this2.getCode(res.userInfo);
+          _this2.nickName = res.userInfo.nickName;
         },
         fail: function fail(err) {
           console.log(err, '失败授权');
         } });
 
     },
-    getCode: function getCode(userInfo) {var _this2 = this;
+    getCode: function getCode(userInfo) {var _this3 = this;
       uni.login({
         provider: 'weixin',
         success: function success(res) {
-          _this2.getToken(res.code, userInfo); //将code码和用户信息发给后端;
+          _this3.getToken(res.code, userInfo); //将code码和用户信息发给后端;
           app.globalData.code = res.code;
         } });
 
     },
-    getToken: function getToken(code, userInfo) {var _this3 = this; //获取token;
-      console.log(code, userInfo);
+    getToken: function getToken(code, userInfo) {var _this4 = this;
       uni.request({
-        url: 'https://10.10.10.24:8443/auth/wxlogin',
+        url: 'https://api.bitaichain.com:8443/auth/wxlogin',
         method: 'POST',
         data: {
           code: code,
           userInfo: userInfo },
 
         success: function success(res) {
-          console.log("--token获取结果---", res);
-          if (res.data.msg == "success") {//如果成功保存token;
+          if (res.data.msg == "success") {
             uni.setStorage({
               key: 'user_token',
               data: res.data.data.token });
 
-            // console.log("获取的token",res.data.data.token)
             app.globalData.token = res.data.data.token;
             app.globalData.openId = res.data.data.sysUser.userName;
             app.globalData.userInfo = res.data.data.sysUser;
@@ -415,8 +412,7 @@ var app = getApp();var collectionCard = function collectionCard() {__webpack_req
               title: '授权登陆成功',
               duration: 1300 });
 
-            _this3.userInfo = res.data.data.sysUser;
-            // console.log("用户信息", this.userInfo)
+            _this4.userInfo = res.data.data.sysUser;
           } else {
             uni.showToast({
               title: '网络错误,登陆失败',
@@ -428,7 +424,14 @@ var app = getApp();var collectionCard = function collectionCard() {__webpack_req
     }
     //登陆板块
   },
-  watch: {} };exports.default = _default;
+  watch: {
+    current: function current() {
+      console.log(this.current);
+      if (this.current == 1) {
+        console.log(this);
+        this.getData();
+      }
+    } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

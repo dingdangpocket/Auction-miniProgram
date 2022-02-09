@@ -7,19 +7,20 @@
 			<view class="" v-else>
 				<image class="img" src="" mode="" style="width:100rpx;height:100rpx"></image>
 			</view> -->
-			<image class="img" :src="item.imgSrc" mode="" style="width:100%;height:235rpx"></image>
+			<image class="img" :src="`${url}file${item.images[0].url}`" mode="" style="width:100%;height:235rpx">
+			</image>
 		</view>
 		<view class="nameArea">
 			<image src="../../static/iconleft.png" mode="" style="width:40rpx;height:40rpx"></image>
-			<text>{{item.title}}</text>
+			<text style="font-size:18rpx;">{{item.title}}</text>
 			<image src="../../static/iconright.png" mode="" style="width:40rpx;height:40rpx"></image>
 		</view>
 		<view class="onwerArea">
 			<view class="left">
-				<text style="font-size:20rpx;">{{item.offer}}</text>
+				<text style="font-size:20rpx;">自营</text>
 			</view>
 			<view class="right">
-				<text>¥9.9</text>
+				<text>¥199</text>
 			</view>
 		</view>
 	</view>
@@ -31,7 +32,7 @@
 		name: "navCard",
 		data() {
 			return {
-
+				url: "https://api.bitaichain.com:8443/",
 			};
 		}
 	}
@@ -46,16 +47,19 @@
 		margin-bottom: 10rpx;
 		background-color: rgba($color: #000000, $alpha: 1);
 		box-shadow: 1px 1px 1px #4f4f50;
+
 		.imgArea {
 			width: 100%;
 			height: 235rpx;
 			border-radius: 10rpx;
+
 			// background-color: #008c00;
 			.img {
 				width: 100%;
 				height: 235rpx;
 			}
 		}
+
 		.nameArea {
 			width: 100%;
 			height: 75rpx;
@@ -66,23 +70,27 @@
 			justify-content: center;
 			border-bottom: 1px solid rgba($color: #655f66, $alpha: 0.9);
 		}
+
 		.onwerArea {
 			width: 100%;
 			height: 75rpx;
 			// background-color: #cdcdeb;
 			display: flex;
 			align-items: center;
+
 			.left {
 				width: 60%;
 				height: 75rpx;
 				line-height: 75rpx;
 				// background-color: #cdcdeb;
 				color: #e3e1e4;
+
 				text {
 					display: block;
 					margin-left: 10rpx;
 				}
 			}
+
 			.right {
 				width: 40%;
 				height: 75rpx;

@@ -15,15 +15,15 @@
 			</view>
 		</view>
 		<view class="MusemArea">
-			<text>发行方</text>
-			<text>{{descData.musem}}</text>
+			<!-- 	<text>发行方</text>
+			<text>{{descData.musem}}</text> -->
 		</view>
 		<view class="PriceArea">
-			<text style="font-size:40rpx;">{{descData.price}}RMB</text><br>
-			<text class="limitTag">限量发行</text><text
-				style="font-size:22rpx;padding-left:5rpx;">{{descData.limit}}份</text>
+			<text style="font-size:40rpx;">199RMB</text><br>
+			<!-- 	<text class="limitTag">限量发行</text>
+			<text style="font-size:22rpx;padding-left:5rpx;">{{descData.limit}}份</text> -->
 			<image class="model" src="../../static/3dblack.png" mode="" @click="LinkToModel"></image>
-			<image class="follow" src="../../static/follow2.png" mode="" ></image>
+			<image class="follow" src="../../static/follow2.png" mode=""></image>
 		</view>
 
 		<view class="DescArea">
@@ -32,11 +32,11 @@
 			<image src="../../static/desc-3.jpeg" mode="" style="width: 100%;height:700rpx;"></image>
 			<text>....</text>
 		</view>
-		<view class="ReminderArea">
+		<!-- 	<view class="ReminderArea">
 			<text style="font-size:30rpx;">购买须知</text><br>
-			<text>数字藏品为虚拟数字商品,并非实物,仅限实名认证为年满14周岁的中国大陆用户购买,数字藏品的版权由发行方或作者拥有,除另行取得版权拥有者书面同意外,用户不得将数字藏品用于任何商业用途,本商品一经售出,不支持退换;请勿对藏品进行炒作、场外交易、欺诈、或其他任何非法用途;
+			<text>工艺品由发行方或作者拥有,除另行取得版权拥有者书面同意外,用户不得用于任何商业用途,本商品一经售出,不支持退换;请勿进行炒作、场外交易、欺诈、或其他任何非法用途;
 			</text>
-		</view>
+		</view> -->
 		<view class="PayBtn" @click="LinkToOrderComfirm">
 			<text>购买</text>
 		</view>
@@ -50,7 +50,7 @@
 			return {
 				descData: {
 					id: 0,
-					title: "红釉瓷",
+					title: "红釉陶瓷工艺品",
 					price: 9.9,
 					limit: 800,
 					musem: "成都博物馆",
@@ -78,13 +78,13 @@
 				})
 			},
 			LinkToOrderComfirm() {
-				console.log("请先登陆", app)
-				if (app.globalData.token == null) {
+				let res = uni.getStorageSync('user_token');
+				if (!res) {
 					uni.showToast({
 						title: '请先登陆',
 						duration: 3000
 					});
-				} else {
+				}else{
 					var items = this.descData
 					uni.navigateTo({
 						url: '../orderComfirm/orderComfirm?items=' + JSON.stringify(items),

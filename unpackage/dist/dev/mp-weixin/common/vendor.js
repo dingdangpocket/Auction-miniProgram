@@ -9333,45 +9333,66 @@ var _default =
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.request = void 0; // const baseURL='http://web.woniulab.com:8005'
-var baseURL = 'https://10.10.10.24:8443';
-// const baseURL='http://web.woniulab.com:8005'
+// const baseURL = 'https://122.112.213.108:8443'
+// const baseURL = 'https://10.10.10.24:8443'
+var baseURL = 'https://api.bitaichain.com:8443';
+//接口issue
+
 var request = function request(data) {
-  console.log("最后传出去的数据", data);
-  uni.showLoading({
-    title: '加载中' });
-
-  // console.log(data)
+  // uni.showLoading({
+  // 	title: '加载中'
+  // });
   return new Promise(function (resolve, reject) {
-    // console.log("token",localStorage.getItem("user_token"))
-    uni.getStorage({
-      key: 'user_token',
-      success: function success(res) {
-        console.log("token结果", res.data);
-        uni.request({
-          url: baseURL + data.url,
-          method: data.method,
-          data: data.data,
-          header: {
-            'Accept': "application/json",
-            'Content-Type': 'application/json',
-            'Authorization': res.data },
+    var token = uni.getStorageSync('user_token');
+    console.log("token", token);
+    if (token) {
+      uni.request({
+        url: baseURL + data.url,
+        method: data.method,
+        data: data.data,
+        header: {
+          'Accept': "application/json",
+          'Content-Type': 'application/json',
+          'Authorization': token },
 
-          success: function success(res) {
-            resolve(res);
-            // console.log(res)
-          },
-          fail: function fail() {
-            uni.showToast({
-              title: '网络错误',
-              duration: 1000 });
+        success: function success(res) {
+          console.log(res);
+          resolve(res);
+        },
+        fail: function fail() {
+          uni.showToast({
+            title: '网络错误',
+            duration: 1000 });
 
-          },
-          complete: function complete() {
-            uni.hideLoading();
-          } });
+        },
+        complete: function complete() {
+          uni.hideLoading();
+        } });
 
-      } });
+    } else {
+      uni.request({
+        url: baseURL + data.url,
+        method: data.method,
+        data: data.data,
+        header: {
+          'Accept': "application/json",
+          'Content-Type': 'application/json' },
 
+        success: function success(res) {
+          console.log(res);
+          resolve(res);
+        },
+        fail: function fail() {
+          uni.showToast({
+            title: '网络错误',
+            duration: 1000 });
+
+        },
+        complete: function complete() {
+          uni.hideLoading();
+        } });
+
+    }
   });
 };exports.request = request;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
@@ -10300,8 +10321,9 @@ userAPI;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
-var _request = __webpack_require__(/*! ../../request.js */ 14); //引入封装的数据请求;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _request = __webpack_require__(/*! ../../request.js */ 14);
+
+//引入封装的数据请求;
 var relicManageAPI = {
   getSwaiperData: function getSwaiperData() {
     return (0, _request.request)({
@@ -10326,7 +10348,7 @@ var relicManageAPI = {
   GetCollectionData: function GetCollectionData() {
     return (0, _request.request)({
       method: "GET",
-      url: "/collection/collection/list?catagory=陶瓷" });
+      url: "/collection/collection/list?catagory=1" });
 
   },
   delCollectionData: function delCollectionData(params) {
@@ -10409,6 +10431,12 @@ var payAPI = {
       url: '/bill/payment/placeorder',
       method: 'POST',
       data: data });
+
+  },
+  getPayParams: function getPayParams(prepayid) {
+    return (0, _request.request)({
+      url: "/bill/payment/paysign?prepay_id=".concat(prepayid),
+      method: 'POST' });
 
   } };var _default =
 

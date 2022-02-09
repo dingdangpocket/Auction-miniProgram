@@ -7,18 +7,18 @@
 				<view class="box">
 				  <text @click="LinkToAuth">实名认证</text>
 				</view>
-				<view class="box">
+			<!-- 	<view class="box">
 					<text @click="LinkToAboutUs">关于龙鲤</text>
+				</view> -->
+				<view class="box">
+					<text @click="LinkToServiceAgreement">用户协议</text>
 				</view>
 				<view class="box">
-					<text @click="LinkToAboutUs">服务协议</text>
+					<text @click="LinkToPrivacy">隐私政策</text>
 				</view>
-				<view class="box">
-					<text @click="LinkToAboutUs">隐私政策</text>
-				</view>
-				<view class="box">
+			<!-- 	<view class="box">
 					<text @click="LinkToAboutUs">联系我们</text>
-				</view>
+				</view> -->
 				<view class="box">
 					<text>退出登陆</text>
 				</view>
@@ -44,6 +44,16 @@
 			LinkToAboutUs(){
 				uni.navigateTo({
 					url:"../aboutUs/aboutUs"
+				})
+			},
+			LinkToPrivacy(){
+				uni.navigateTo({
+					url:"../privacy/privacy"
+				})
+			},
+			LinkToServiceAgreement(){
+				uni.navigateTo({
+					url:"../srviceAgreement/srviceAgreement"
 				})
 			}
 		}

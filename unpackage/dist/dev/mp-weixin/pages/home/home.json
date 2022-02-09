@@ -1,6 +1,7 @@
 {
-  "navigationBarTitleText": "龙鲤数字藏品",
+  "navigationBarTitleText": "龙鲤网",
   "usingComponents": {
+    "fui-dialog": "/components/fui-dialog/fui-dialog",
     "nav-card": "/components/navCard/navCard",
     "uni-segmented-control": "/uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control",
     "collection-card": "/components/collectionCard/collectionCard"

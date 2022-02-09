@@ -95,14 +95,17 @@ __webpack_require__.r(__webpack_exports__);
 var components
 try {
   components = {
+    fuiDialog: function() {
+      return __webpack_require__.e(/*! import() | components/fui-dialog/fui-dialog */ "components/fui-dialog/fui-dialog").then(__webpack_require__.bind(null, /*! @/components/fui-dialog/fui-dialog.vue */ 198))
+    },
     navCard: function() {
-      return __webpack_require__.e(/*! import() | components/navCard/navCard */ "components/navCard/navCard").then(__webpack_require__.bind(null, /*! @/components/navCard/navCard.vue */ 112))
+      return __webpack_require__.e(/*! import() | components/navCard/navCard */ "components/navCard/navCard").then(__webpack_require__.bind(null, /*! @/components/navCard/navCard.vue */ 128))
     },
     uniSegmentedControl: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control */ "uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control.vue */ 119))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control */ "uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control.vue */ 135))
     },
     collectionCard: function() {
-      return __webpack_require__.e(/*! import() | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then(__webpack_require__.bind(null, /*! @/components/collectionCard/collectionCard.vue */ 126))
+      return __webpack_require__.e(/*! import() | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then(__webpack_require__.bind(null, /*! @/components/collectionCard/collectionCard.vue */ 142))
     }
   }
 } catch (e) {
@@ -209,218 +212,170 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 19));
 
-var _vuex = __webpack_require__(/*! vuex */ 12);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var navCard = function navCard() {__webpack_require__.e(/*! require.ensure | components/navCard/navCard */ "components/navCard/navCard").then((function () {return resolve(__webpack_require__(/*! ../../components/navCard/navCard.vue */ 112));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var collectionCard = function collectionCard() {__webpack_require__.e(/*! require.ensure | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then((function () {return resolve(__webpack_require__(/*! ../../components/collectionCard/collectionCard.vue */ 126));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var app = getApp();var _createNamespacedHelp =
+
+var _vuex = __webpack_require__(/*! vuex */ 12);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var navCard = function navCard() {__webpack_require__.e(/*! require.ensure | components/navCard/navCard */ "components/navCard/navCard").then((function () {return resolve(__webpack_require__(/*! ../../components/navCard/navCard.vue */ 128));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var collectionCard = function collectionCard() {__webpack_require__.e(/*! require.ensure | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then((function () {return resolve(__webpack_require__(/*! ../../components/collectionCard/collectionCard.vue */ 142));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var fuiDialog = function fuiDialog() {__webpack_require__.e(/*! require.ensure | components/fui-dialog/fui-dialog */ "components/fui-dialog/fui-dialog").then((function () {return resolve(__webpack_require__(/*! ../../components/fui-dialog/fui-dialog.vue */ 198));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var app = getApp();var _createNamespacedHelp =
 
 
 
 
 
 (0, _vuex.createNamespacedHelpers)("homeStore"),mapState = _createNamespacedHelp.mapState,mapActions = _createNamespacedHelp.mapActions;var _default =
-
 {
   components: {
     navCard: navCard,
-    collectionCard: collectionCard },
+    collectionCard: collectionCard,
+    fuiDialog: fuiDialog },
 
   data: function data() {
     return {
-      items: ['即将发售', '精选', "热门"],
+      content: '购买、收藏等操作需要您先登陆,是否登陆?',
+      show: false,
+      items: ['发售中', '精选', "热门"],
       current: 0,
       title: 'Hello',
       navData: [{
         id: 0,
-        content: "什么是数字藏品",
-        desc: "深入了解数字藏品",
+        content: "精制陶瓷工艺品",
+        desc: "",
         imgPath: "../../static/banner1.jpg" },
 
       {
         id: 1,
-        content: "购买须知",
-        desc: "关于数字藏品的购买说明",
-        imgPath: "../../static/banner4.jpg" }
-
-      // {
-      // 	id: 2,
-      // 	content: "数字藏品拍卖",
-      // 	desc: "数字藏品拍卖进行中",
-      // 	imgPath: "../../static/banner3.jpg"
-      // }
-      ],
-      collectionData: [{
-        id: 0,
-        title: "红釉瓷",
-        imgSrc: "../../static/1.jpg",
-        offer: "成都博物院" },
-
-      {
-        id: 1,
-        title: "花纹壶",
-        imgSrc: "../../static/2.jpg",
-        offer: "山西博物院" },
-
-      {
-        id: 2,
-        title: "青瓷",
-        imgSrc: "../../static/3.jpg",
-        offer: "河北博物院" },
-
-      {
-        id: 3,
-        title: "汝窑",
-        imgSrc: "../../static/4.jpg",
-        offer: "山东博物院" },
-
-      {
-        id: 4,
-        title: "靛蓝瓷",
-        imgSrc: "../../static/5.jpg",
-        offer: "陕西博物院" },
-
-      {
-        id: 5,
-        title: "龙纹瓷",
-        imgSrc: "../../static/6.jpg",
-        offer: "成都博物院" },
-
-      {
-        id: 6,
-        title: "红釉瓷",
-        imgSrc: "../../static/7.jpg",
-        offer: "南京博物院" },
-
-      {
-        id: 7,
-        title: "红釉瓷",
-        imgSrc: "../../static/8.jpg",
-        offer: "贵州博物院" },
-
-      {
-        id: 8,
-        title: "白釉壶",
-        imgSrc: "../../static/9.jpg",
-        offer: "甘肃博物院" },
-
-      {
-        id: 9,
-        title: "龙纹笔筒",
-        imgSrc: "../../static/10.jpg",
-        offer: "北京博物院" }],
+        content: "做最好的瓷器",
+        desc: "",
+        imgPath: "../../static/banner4.jpg" }],
 
 
-      collectionRecdData: [{
-        id: 3,
-        title: "红釉瓷",
-        imgSrc: "../../static/5.jpg",
-        offer: "成都博物院" },
+      collectionData: "",
+      screenWidth: "" };
 
-      {
-        id: 1,
-        title: "花纹壶",
-        imgSrc: "../../static/1.jpg",
-        offer: "山西博物院" },
-
-      {
-        id: 2,
-        title: "青瓷",
-        imgSrc: "../../static/2.jpg",
-        offer: "河北博物院" },
-
-      {
-        id: 3,
-        title: "汝窑",
-        imgSrc: "../../static/7.jpg",
-        offer: "山东博物院" }],
-
-
-      collectionHotData: [{
-        id: 8,
-        title: "红釉瓷",
-        imgSrc: "../../static/8.jpg",
-        offer: "成都博物院" },
-
-      {
-        id: 10,
-        title: "花纹壶",
-        imgSrc: "../../static/9.jpg",
-        offer: "山西博物院" },
-
-      {
-        id: 4,
-        title: "青瓷",
-        imgSrc: "../../static/5.jpg",
-        offer: "河北博物院" },
-
-      {
-        id: 7,
-        title: "汝窑",
-        imgSrc: "../../static/10.jpg",
-        offer: "山东博物院" }] };
-
-
-
-  },
-  // mounted() {
-  //    this.getData()
-  // },
-  onShow: function onShow() {
-    // this.getData()
   },
   onLoad: function onLoad() {
-    // uni.switchTab({
-    //    url:"../find/find"
-    // })
-    // uni.navigateTo({
-    // 	url:"../description/description"
-    // })
-    // uni.navigateTo({
-    // 	url:"../orderComfirm/orderComfirm"
-    // })
-    // uni.switchTab({
-    // 		url: '../main/main',
-    // })
-    // uni.navigateTo({
-    // 	url:"../orderList/orderList"
-    // })
-    // uni.navigateTo({
-    // 	url:"../blockDetial/blockDetial"
-    // })
-    // uni.navigateTo({
-    // 	url:"../model/model"
-    // })
-    // uni.navigateTo({
-    // 	url:"../auth/auth"
-    // })
-    // uni.navigateTo({
-    // 	url:"../orderList/orderList"
-    // })
-    // uni.navigateTo({
-    // 	url:"../setting/setting"
-    // })
+    // const res = await API.relicManageAPI.GetCollectionData()
+    // if(res){
+    // 	console.log("未过期")
+    // }
+    var res = uni.getStorageSync('user_token');
+    if (res) {
+      this.show = false;
+    } else {
+      this.show = true;
+    }
   },
+  mounted: function mounted() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+              _this.getData();case 1:case "end":return _context.stop();}}}, _callee);}))();
+  },
+  watch: {
+    current: function current() {
+      console.log(this.current);
+    } },
+
+  computed: {
+    collectionDataFilter: function collectionDataFilter() {
+      if (this.current == 0) {
+        return this.collectionData;
+      }
+      if (this.current == 1) {
+        return this.collectionData.filter(function (item) {
+          return item.tag == "精选";
+        });
+      }
+      if (this.current == 2) {
+        return this.collectionData.filter(function (item) {
+          return item.tag == "热门";
+        });
+      }
+    } },
+
   methods: {
+    cancelValue: function cancelValue(index) {
+      if (index == 0) {
+        this.show = false;
+      } else {
+        this.show = false;
+        this.login();
+      }
+    },
+    onClose: function onClose() {
+      this.show = false;
+    },
+    // dialog
+
+    getData: function getData() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var res;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
+                  _API.default.relicManageAPI.GetCollectionData());case 2:res = _context2.sent;
+                _this2.collectionData = res.data.rows;
+                console.log("结果来自华为云公网API", res);case 5:case "end":return _context2.stop();}}}, _callee2);}))();
+    },
     onClickItem: function onClickItem(e) {
       if (this.current !== e.currentIndex) {
         this.current = e.currentIndex;
       }
     },
-    getData: function getData() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
-                  _API.default.relicManageAPI.GetCollectionData());case 2:res = _context.sent;
-                console.log(res);
-                _this.collectionData = res.data.rows;
-                console.log("结果", res.data.rows);case 6:case "end":return _context.stop();}}}, _callee);}))();
-    },
     linkToDescription: function linkToDescription(e) {
       app.globalData.collectionId = e.currentTarget.dataset.id;
-      // uni.navigateTo({
-      // 	url: '../description/description',
-      // })
       uni.navigateTo({
         url: "../description/description" });
 
-    } } };exports.default = _default;
+    },
+    //登陆板块
+    login: function login() {var _this3 = this;
+      this.show = false;
+      uni.getUserProfile({
+        desc: 'weixin',
+        success: function success(res) {
+          _this3.userInfo = res.userInfo;
+          _this3.getCode(res.userInfo);
+          _this3.nickName = res.userInfo.nickName;
+        },
+        fail: function fail(err) {
+          console.log(err, '失败授权');
+        } });
+
+    },
+    getCode: function getCode(userInfo) {var _this4 = this;
+      uni.login({
+        provider: 'weixin',
+        success: function success(res) {
+          _this4.getToken(res.code, userInfo); //将code码和用户信息发给后端;
+          app.globalData.code = res.code;
+        } });
+
+    },
+    getToken: function getToken(code, userInfo) {var _this5 = this; //获取token;
+      uni.request({
+        url: 'https://api.bitaichain.com:8443/auth/wxlogin',
+        method: 'POST',
+        data: {
+          code: code,
+          userInfo: userInfo },
+
+        success: function success(res) {
+          if (res.data.msg == "success") {//如果成功保存token;
+            uni.setStorage({
+              key: 'user_token',
+              data: res.data.data.token });
+
+            app.globalData.token = res.data.data.token;
+            app.globalData.openId = res.data.data.sysUser.userName;
+            app.globalData.userInfo = res.data.data.sysUser;
+            uni.showToast({
+              title: '授权登陆成功',
+              duration: 1300 });
+
+            _this5.userInfo = res.data.data.sysUser;
+          } else {
+            uni.showToast({
+              title: '网络错误,登陆失败',
+              duration: 1300 });
+
+          }
+        } });
+
+    }
+    //登陆板块
+  } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

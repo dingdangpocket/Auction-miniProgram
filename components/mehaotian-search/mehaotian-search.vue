@@ -10,6 +10,9 @@
 			</view>
 			<view v-show="(active && show && button === 'inside') || (isDelShow && button === 'inside')"
 				class="searchBtn" @click="search">搜索</view>
+				<!-- #ifdef APP-PLUS -->
+				<view class="searchBtn" @click="search">搜索</view>
+			<!-- 	#endif -->
 		</view>
 	</view>
 </template>
@@ -36,7 +39,7 @@
 			},
 			placeholder: {
 				type: String,
-				default: '搜索藏品'
+				default: '搜索'
 			},
 			backgroundColor: {
 				type: String,

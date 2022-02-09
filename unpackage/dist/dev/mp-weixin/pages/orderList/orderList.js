@@ -96,7 +96,7 @@ var components
 try {
   components = {
     orderCard: function() {
-      return __webpack_require__.e(/*! import() | components/orderCard/orderCard */ "components/orderCard/orderCard").then(__webpack_require__.bind(null, /*! @/components/orderCard/orderCard.vue */ 147))
+      return __webpack_require__.e(/*! import() | components/orderCard/orderCard */ "components/orderCard/orderCard").then(__webpack_require__.bind(null, /*! @/components/orderCard/orderCard.vue */ 163))
     }
   }
 } catch (e) {
@@ -153,7 +153,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var orderCard = function orderCard() {__webpack_require__.e(/*! require.ensure | components/orderCard/orderCard */ "components/orderCard/orderCard").then((function () {return resolve(__webpack_require__(/*! ../../components/orderCard/orderCard.vue */ 147));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var orderCard = function orderCard() {__webpack_require__.e(/*! require.ensure | components/orderCard/orderCard */ "components/orderCard/orderCard").then((function () {return resolve(__webpack_require__(/*! ../../components/orderCard/orderCard.vue */ 163));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 

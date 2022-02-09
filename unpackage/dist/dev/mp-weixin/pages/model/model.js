@@ -145,7 +145,7 @@ var app = getApp();var _default =
 
   },
   mounted: function mounted() {
-    this.url = "http://localhost:8080/home/electircShow?id=".concat(app.globalData.collectionId);
+    this.url = "https://api.bitaichain.com:8443/home/electircShow?id=".concat(app.globalData.collectionId);
     console.log(app.globalData.collectionId);
   },
   methods: {} };exports.default = _default;
