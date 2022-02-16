@@ -67,7 +67,7 @@ var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 1
 var app = getApp();var _default = { data: function data() {return { orderInfo: "" };}, onLoad: function onLoad(option) {var res = JSON.parse(option.items);console.log(res);this.orderInfo = res;}, methods: { comfirm: function comfirm() {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var orderData, res, params;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0: // var quantity = 3
                 // var needPay = Math.floor(parseFloat(3.8 * 100 * quantity));
                 // console.log(needPay, "分")
-                orderData = { openId: app.globalData.openId, collectionId: 122, price: 0.01 * 100 // title:"测试"
+                orderData = { openId: app.globalData.openId, commodityId: 5, price: 0.01 * 100 // title:"测试"
                   // payType: "wxPay"
                   // code: app.globalData.code,
                 };_context.next = 3;return _API.default.payAPI.comfirmPay(orderData);case 3:res = _context.sent;

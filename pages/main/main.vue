@@ -67,120 +67,21 @@
 				dataArry: null,
 				mycollect: null,
 				auth: false,
-				collectionData: [{
-						id: 0,
-						title: "红釉瓷",
-						imgSrc: "../../static/1.jpg",
-						offer: "成都博物院"
-					},
-					{
-						id: 1,
-						title: "花纹壶",
-						imgSrc: "../../static/2.jpg",
-						offer: "山西博物院"
-					},
-					{
-						id: 2,
-						title: "青瓷",
-						imgSrc: "../../static/3.jpg",
-						offer: "河北博物院"
-					},
-					{
-						id: 3,
-						title: "汝窑",
-						imgSrc: "../../static/4.jpg",
-						offer: "山东博物院"
-					},
-					{
-						id: 4,
-						title: "靛蓝瓷",
-						imgSrc: "../../static/5.jpg",
-						offer: "陕西博物院"
-					},
-					{
-						id: 5,
-						title: "龙纹瓷",
-						imgSrc: "../../static/6.jpg",
-						offer: "成都博物院"
-					},
-					{
-						id: 6,
-						title: "红釉瓷",
-						imgSrc: "../../static/7.jpg",
-						offer: "南京博物院"
-					},
-					{
-						id: 7,
-						title: "红釉瓷",
-						imgSrc: "../../static/8.jpg",
-						offer: "贵州博物院"
-					},
-					{
-						id: 8,
-						title: "白釉壶",
-						imgSrc: "../../static/9.jpg",
-						offer: "甘肃博物院"
-					},
-					{
-						id: 9,
-						title: "龙纹笔筒",
-						imgSrc: "../../static/10.jpg",
-						offer: "北京博物院"
-					},
-				],
-				collectionRecdData: [{
-						id: 3,
-						title: "红釉瓷",
-						imgSrc: "../../static/5.jpg",
-						offer: "成都博物院"
-					},
-					{
-						id: 1,
-						title: "花纹壶",
-						imgSrc: "../../static/1.jpg",
-						offer: "山西博物院"
-					},
-					{
-						id: 2,
-						title: "青瓷",
-						imgSrc: "../../static/2.jpg",
-						offer: "河北博物院"
-					},
-					{
-						id: 3,
-						title: "汝窑",
-						imgSrc: "../../static/7.jpg",
-						offer: "山东博物院"
-					},
-				],
-				collectionHotData: [{
-						id: 8,
-						title: "红釉瓷",
-						imgSrc: "../../static/8.jpg",
-						offer: "成都博物院"
-					},
-					{
-						id: 10,
-						title: "花纹壶",
-						imgSrc: "../../static/9.jpg",
-						offer: "山西博物院"
-					},
-					{
-						id: 4,
-						title: "青瓷",
-						imgSrc: "../../static/5.jpg",
-						offer: "河北博物院"
-					},
-					{
-						id: 7,
-						title: "汝窑",
-						imgSrc: "../../static/10.jpg",
-						offer: "山东博物院"
-					},
-				]
+				collectionData: ""
 			}
 		},
+		onShow() {
+			if (app.globalData.cach == true) {
+				this.userInfo = ""
+			}
+			//退出登陆清空缓存数据;
+		},
 		mounted() {
+			if (app.globalData.userInfo) {
+				// console.log(app.globalData.userInfo)
+				this.userInfo = app.globalData.userInfo
+			}
+			// console.log("所有",app)
 			this.login()
 			this.getData()
 		},
@@ -191,9 +92,9 @@
 				}
 			},
 			async getData() {
-				const res = await API.relicManageAPI.GetCollectionData()
+				const res = await API.relicManageAPI.GetCommodityData()
+				console.log("商品列表", res)
 				this.collectionData = res.data.rows
-				console.log("结果", res.data.rows)
 			},
 			LinkToSetting() {
 				uni.navigateTo({
@@ -211,10 +112,14 @@
 				let res = uni.getStorageSync('user_token');
 				if (res) {
 					return
-				} 
+				}
 				uni.getUserProfile({
 					desc: 'weixin',
 					success: res => {
+						uni.setStorage({
+							key: 'user_info',
+							data: res.userInfo
+						});
 						this.userInfo = res.userInfo
 						this.getCode(res.userInfo)
 						this.nickName = res.userInfo.nickName
@@ -228,7 +133,7 @@
 				uni.login({
 					provider: 'weixin',
 					success: res => {
-						this.getToken(res.code, userInfo) //将code码和用户信息发给后端;
+						this.getToken(res.code, userInfo)
 						app.globalData.code = res.code
 					}
 				})
@@ -242,17 +147,22 @@
 						userInfo,
 					},
 					success: res => {
-						if (res.data.msg == "success") { 
+						if (res.data.msg == "success") {
 							uni.setStorage({
 								key: 'user_token',
 								data: res.data.data.token
 							});
 							app.globalData.token = res.data.data.token
+							console.log("openID",res.data.data.sysUser.userName)
 							app.globalData.openId = res.data.data.sysUser.userName
 							app.globalData.userInfo = res.data.data.sysUser
 							uni.showToast({
 								title: '授权登陆成功',
 								duration: 1300
+							});
+							uni.setStorage({
+								key: 'user_info',
+								data: res.data.data.sysUser
 							});
 							this.userInfo = res.data.data.sysUser
 						} else {
@@ -268,9 +178,7 @@
 		},
 		watch: {
 			current() {
-				console.log(this.current)
 				if (this.current == 1) {
-					console.log(this)
 					this.getData()
 				}
 			}
@@ -284,6 +192,7 @@
 		overflow: hidden;
 		background-color: white;
 	}
+
 	.collectionArea-title {
 		height: 70rpx;
 		width: 180rpx;
@@ -296,6 +205,7 @@
 		border-bottom: 5rpx solid black;
 		background-color: #FFFFFF;
 	}
+
 	.collectionArea-flex-container {
 		width: 100vw;
 		display: flex;
@@ -329,6 +239,7 @@
 			justify-content: space-around;
 		}
 	}
+
 	.text {
 		font-size: 28rpx;
 	}
@@ -340,6 +251,7 @@
 		position: relative;
 		margin-top: 15rpx;
 		background-color: white;
+
 		.profile {
 			width: 120rpx;
 			height: 120rpx;
@@ -349,12 +261,14 @@
 			top: 20rpx;
 			left: 125rpx;
 		}
+
 		.login {
 			position: absolute;
 			color: black;
 			top: 35rpx;
 			left: 250rpx;
 		}
+
 		.tip {
 			position: absolute;
 			top: 70rpx;
@@ -364,26 +278,31 @@
 			margin-top: 10rpx;
 		}
 	}
+
 	.img {
 		width: 660rpx;
 		height: 110rpx;
 		margin: 0 auto;
 		margin-top: 10rpx;
 	}
+
 	.icon {
 		margin-top: 10rpx;
 		width: 45rpx;
 		height: 45rpx;
 	}
+
 	.scrollFram {
 		width: 725rpx;
 	}
+
 	.collectionArea-flex-container {
 		width: 100vw;
 		display: flex;
 		justify-content: space-around;
 		flex-wrap: wrap;
 	}
+
 	.collectionArea-flex-container:after {
 		content: '';
 		height: 10rpx;

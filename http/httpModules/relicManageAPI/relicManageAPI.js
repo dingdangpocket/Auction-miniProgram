@@ -2,10 +2,32 @@ import {
 	request
 } from "../../request.js" //引入封装的数据请求;
 const relicManageAPI = {
+	getUserInfo(){
+		return request({
+			url: '/auth/user/getInfo',
+			method: 'GET',
+		})
+	},
 	getSwaiperData() {
 		return request({
 			url: '/home/swiperdata',
 			method: 'GET',
+		})
+	},
+	addOrder(data) {
+		console.log(data)
+		return request({
+			url: '/bill/payment/placeorder',
+			method: 'POST',
+			data: data,
+		})
+	},
+	getBillList(data) {
+		console.log("订单数据",data)
+		return request({
+			url: '/bill/bill/list',
+			method: 'POST',
+			data:data,
 		})
 	},
 	addCollection(params) {
@@ -26,6 +48,12 @@ const relicManageAPI = {
 		return request({
 			method: "GET",
 			url: "/collection/collection/list?catagory=1",
+		})
+	},
+	GetCommodityData() {
+		return request({
+			method: "GET",
+			url: "/mall/commodity/list",
 		})
 	},
 	delCollectionData(params) {

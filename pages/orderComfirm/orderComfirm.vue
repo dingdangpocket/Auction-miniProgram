@@ -11,7 +11,7 @@
 			<!-- 	<text style="font-size:20rpx;">发行方:{{orderInfo.musem}}</text> -->
 			</view>
 			<view class="btnArea">
-				<button class="btn" type="default" @click="comfirm">确认支付</button>
+				<button class="btn" type="default" @click="comfirm">立即支付</button>
 			</view>
 		</view>
 	</view>
@@ -38,7 +38,7 @@
 				// console.log(needPay, "分")
 				let orderData = {
 					openId: app.globalData.openId,
-					collectionId: 122,
+					commodityId:5,
 					price: 0.01 * 100,
 					// title:"测试"
 					// payType: "wxPay"

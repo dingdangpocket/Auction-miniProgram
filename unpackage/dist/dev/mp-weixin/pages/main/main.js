@@ -96,10 +96,10 @@ var components
 try {
   components = {
     uniSegmentedControl: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control */ "uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control.vue */ 135))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control */ "uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control.vue */ 142))
     },
     collectionCard: function() {
-      return __webpack_require__.e(/*! import() | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then(__webpack_require__.bind(null, /*! @/components/collectionCard/collectionCard.vue */ 142))
+      return __webpack_require__.e(/*! import() | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then(__webpack_require__.bind(null, /*! @/components/collectionCard/collectionCard.vue */ 149))
     }
   }
 } catch (e) {
@@ -265,114 +265,19 @@ var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 1
 //
 //
 //
-var app = getApp();var collectionCard = function collectionCard() {__webpack_require__.e(/*! require.ensure | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then((function () {return resolve(__webpack_require__(/*! ../../components/collectionCard/collectionCard.vue */ 142));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { collectionCard: collectionCard }, data: function data() {return { items: ['我的收藏', '我的关注'], current: 0, userInfo: "", dataArry: null, mycollect: null, auth: false, collectionData: [{ id: 0, title: "红釉瓷", imgSrc: "../../static/1.jpg", offer: "成都博物院" }, { id: 1, title: "花纹壶", imgSrc: "../../static/2.jpg", offer: "山西博物院" }, { id: 2, title: "青瓷", imgSrc: "../../static/3.jpg", offer: "河北博物院" }, { id: 3, title: "汝窑", imgSrc: "../../static/4.jpg", offer: "山东博物院" }, { id: 4, title: "靛蓝瓷", imgSrc: "../../static/5.jpg", offer: "陕西博物院" }, { id: 5, title: "龙纹瓷", imgSrc: "../../static/6.jpg", offer: "成都博物院" }, { id: 6, title: "红釉瓷", imgSrc: "../../static/7.jpg", offer: "南京博物院" },
-
-      {
-        id: 7,
-        title: "红釉瓷",
-        imgSrc: "../../static/8.jpg",
-        offer: "贵州博物院" },
-
-      {
-        id: 8,
-        title: "白釉壶",
-        imgSrc: "../../static/9.jpg",
-        offer: "甘肃博物院" },
-
-      {
-        id: 9,
-        title: "龙纹笔筒",
-        imgSrc: "../../static/10.jpg",
-        offer: "北京博物院" }],
-
-
-      collectionRecdData: [{
-        id: 3,
-        title: "红釉瓷",
-        imgSrc: "../../static/5.jpg",
-        offer: "成都博物院" },
-
-      {
-        id: 1,
-        title: "花纹壶",
-        imgSrc: "../../static/1.jpg",
-        offer: "山西博物院" },
-
-      {
-        id: 2,
-        title: "青瓷",
-        imgSrc: "../../static/2.jpg",
-        offer: "河北博物院" },
-
-      {
-        id: 3,
-        title: "汝窑",
-        imgSrc: "../../static/7.jpg",
-        offer: "山东博物院" }],
-
-
-      collectionHotData: [{
-        id: 8,
-        title: "红釉瓷",
-        imgSrc: "../../static/8.jpg",
-        offer: "成都博物院" },
-
-      {
-        id: 10,
-        title: "花纹壶",
-        imgSrc: "../../static/9.jpg",
-        offer: "山西博物院" },
-
-      {
-        id: 4,
-        title: "青瓷",
-        imgSrc: "../../static/5.jpg",
-        offer: "河北博物院" },
-
-      {
-        id: 7,
-        title: "汝窑",
-        imgSrc: "../../static/10.jpg",
-        offer: "山东博物院" }] };
-
-
-
-  },
-  mounted: function mounted() {
-    this.login();
-    this.getData();
-  },
-  methods: {
-    onClickItem: function onClickItem(e) {
-      if (this.current !== e.currentIndex) {
-        this.current = e.currentIndex;
-      }
-    },
-    getData: function getData() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
-                  _API.default.relicManageAPI.GetCollectionData());case 2:res = _context.sent;
-                _this.collectionData = res.data.rows;
-                console.log("结果", res.data.rows);case 5:case "end":return _context.stop();}}}, _callee);}))();
-    },
-    LinkToSetting: function LinkToSetting() {
-      uni.navigateTo({
-        url: "../setting/setting" });
-
-    },
-    LinkToMyOrderList: function LinkToMyOrderList() {
-      uni.navigateTo({
-        url: "../orderList/orderList" });
-
-    },
-
-    //登陆板块
-    login: function login() {var _this2 = this;
-      var res = uni.getStorageSync('user_token');
-      if (res) {
-        return;
+var app = getApp();var collectionCard = function collectionCard() {__webpack_require__.e(/*! require.ensure | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then((function () {return resolve(__webpack_require__(/*! ../../components/collectionCard/collectionCard.vue */ 149));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { collectionCard: collectionCard }, data: function data() {return { items: ['我的收藏', '我的关注'], current: 0, userInfo: "", dataArry: null, mycollect: null, auth: false, collectionData: "" };}, onShow: function onShow() {if (app.globalData.cach == true) {this.userInfo = "";} //退出登陆清空缓存数据;
+  }, mounted: function mounted() {if (app.globalData.userInfo) {// console.log(app.globalData.userInfo)
+      this.userInfo = app.globalData.userInfo;} // console.log("所有",app)
+    this.login();this.getData();}, methods: { onClickItem: function onClickItem(e) {if (this.current !== e.currentIndex) {this.current = e.currentIndex;}}, getData: function getData() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return _API.default.relicManageAPI.GetCommodityData();case 2:res = _context.sent;console.log("商品列表", res);_this.collectionData = res.data.rows;case 5:case "end":return _context.stop();}}}, _callee);}))();}, LinkToSetting: function LinkToSetting() {uni.navigateTo({ url: "../setting/setting" });}, LinkToMyOrderList: function LinkToMyOrderList() {uni.navigateTo({ url: "../orderList/orderList" });}, //登陆板块
+    login: function login() {var _this2 = this;var res = uni.getStorageSync('user_token');if (res) {return;
       }
       uni.getUserProfile({
         desc: 'weixin',
         success: function success(res) {
+          uni.setStorage({
+            key: 'user_info',
+            data: res.userInfo });
+
           _this2.userInfo = res.userInfo;
           _this2.getCode(res.userInfo);
           _this2.nickName = res.userInfo.nickName;
@@ -386,7 +291,7 @@ var app = getApp();var collectionCard = function collectionCard() {__webpack_req
       uni.login({
         provider: 'weixin',
         success: function success(res) {
-          _this3.getToken(res.code, userInfo); //将code码和用户信息发给后端;
+          _this3.getToken(res.code, userInfo);
           app.globalData.code = res.code;
         } });
 
@@ -406,11 +311,16 @@ var app = getApp();var collectionCard = function collectionCard() {__webpack_req
               data: res.data.data.token });
 
             app.globalData.token = res.data.data.token;
+            console.log("openID", res.data.data.sysUser.userName);
             app.globalData.openId = res.data.data.sysUser.userName;
             app.globalData.userInfo = res.data.data.sysUser;
             uni.showToast({
               title: '授权登陆成功',
               duration: 1300 });
+
+            uni.setStorage({
+              key: 'user_info',
+              data: res.data.data.sysUser });
 
             _this4.userInfo = res.data.data.sysUser;
           } else {
@@ -426,9 +336,7 @@ var app = getApp();var collectionCard = function collectionCard() {__webpack_req
   },
   watch: {
     current: function current() {
-      console.log(this.current);
       if (this.current == 1) {
-        console.log(this);
         this.getData();
       }
     } } };exports.default = _default;

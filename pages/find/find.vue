@@ -32,128 +32,7 @@
 		data() {
 			return {
 				filterValue:"",
-				collectionDataCopy: [{
-						id: 0,
-						title: "红釉瓷",
-						imgSrc: "../../static/1.jpg",
-						offer: "成都博物院"
-					},
-					{
-						id: 1,
-						title: "花纹壶",
-						imgSrc: "../../static/2.jpg",
-						offer: "山西博物院"
-					},
-					{
-						id: 2,
-						title: "青瓷",
-						imgSrc: "../../static/3.jpg",
-						offer: "河北博物院"
-					},
-					{
-						id: 3,
-						title: "汝窑",
-						imgSrc: "../../static/4.jpg",
-						offer: "山东博物院"
-					},
-					{
-						id: 4,
-						title: "靛蓝瓷",
-						imgSrc: "../../static/5.jpg",
-						offer: "陕西博物院"
-					},
-					{
-						id: 5,
-						title: "龙纹瓷",
-						imgSrc: "../../static/6.jpg",
-						offer: "成都博物院"
-					},
-					{
-						id: 6,
-						title: "红釉瓷",
-						imgSrc: "../../static/7.jpg",
-						offer: "南京博物院"
-					},
-					{
-						id: 7,
-						title: "红釉瓷",
-						imgSrc: "../../static/8.jpg",
-						offer: "贵州博物院"
-					},
-					{
-						id: 8,
-						title: "白釉壶",
-						imgSrc: "../../static/9.jpg",
-						offer: "甘肃博物院"
-					},
-					{
-						id: 9,
-						title: "龙纹笔筒",
-						imgSrc: "../../static/10.jpg",
-						offer: "北京博物院"
-					},
-				],
-				collectionData: [{
-						id: 0,
-						title: "红釉瓷",
-						imgSrc: "../../static/1.jpg",
-						offer: "成都博物院"
-					},
-					{
-						id: 1,
-						title: "花纹壶",
-						imgSrc: "../../static/2.jpg",
-						offer: "山西博物院"
-					},
-					{
-						id: 2,
-						title: "青瓷",
-						imgSrc: "../../static/3.jpg",
-						offer: "河北博物院"
-					},
-					{
-						id: 3,
-						title: "汝窑",
-						imgSrc: "../../static/4.jpg",
-						offer: "山东博物院"
-					},
-					{
-						id: 4,
-						title: "靛蓝瓷",
-						imgSrc: "../../static/5.jpg",
-						offer: "陕西博物院"
-					},
-					{
-						id: 5,
-						title: "龙纹瓷",
-						imgSrc: "../../static/6.jpg",
-						offer: "成都博物院"
-					},
-					{
-						id: 6,
-						title: "红釉瓷",
-						imgSrc: "../../static/7.jpg",
-						offer: "南京博物院"
-					},
-					{
-						id: 7,
-						title: "红釉瓷",
-						imgSrc: "../../static/8.jpg",
-						offer: "贵州博物院"
-					},
-					{
-						id: 8,
-						title: "白釉壶",
-						imgSrc: "../../static/9.jpg",
-						offer: "甘肃博物院"
-					},
-					{
-						id: 9,
-						title: "龙纹笔筒",
-						imgSrc: "../../static/10.jpg",
-						offer: "北京博物院"
-					},
-				],
+				collectionData:""
 			}
 		},
 		onShow() {
@@ -164,10 +43,11 @@
 				console.log("筛选条件",filterValue)
 				// 筛选条件接口
 			},
-			async getData() {
-				const res = await API.relicManageAPI.GetCollectionData()
-				this.collectionData = res.data.rows
-			},
+		async getData() {
+			const res = await API.relicManageAPI.GetCommodityData()
+			console.log("商品列表", res)
+			this.collectionData = res.data.rows
+		},
 			getAllCollection() {
 				this.collectionData = this.getData()
 			},
@@ -188,27 +68,6 @@
 			}
 		},
 		computed: {
-			// filterCollection: function() {
-			// 	if (this.filterValue[0] == 0) {
-			// 		return this.collectionData
-			// 	}
-			// 	if (this.filterValue[0] == "近三天") {
-			// 		this.collectionData = this.collectionData.filter((item) => {
-			// 			if (item.tag == "精选") {
-			// 				return item
-			// 			}
-			// 		})
-			// 		return this.collectionData
-			// 	}
-			// 	if (this.current == 2) {
-			// 		this.collectionData = this.collectionData.filter((item) => {
-			// 			if (item.tag == "热门") {
-			// 				return item
-			// 			}
-			// 		})
-			// 		return this.collectionData
-			// 	}
-			// }
 		},
 	}
 </script>

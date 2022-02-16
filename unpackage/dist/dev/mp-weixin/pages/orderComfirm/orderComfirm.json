@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "订单确认",
+  "navigationBarTitleText": "支付确认",
   "enablePullDownRefresh": false,
   "usingComponents": {}
 }

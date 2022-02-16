@@ -9339,13 +9339,11 @@ var baseURL = 'https://api.bitaichain.com:8443';
 //接口issue
 
 var request = function request(data) {
-  // uni.showLoading({
-  // 	title: '加载中'
-  // });
   return new Promise(function (resolve, reject) {
     var token = uni.getStorageSync('user_token');
     console.log("token", token);
     if (token) {
+      console.log("交出数据", data.data);
       uni.request({
         url: baseURL + data.url,
         method: data.method,
@@ -9356,7 +9354,6 @@ var request = function request(data) {
           'Authorization': token },
 
         success: function success(res) {
-          console.log(res);
           resolve(res);
         },
         fail: function fail() {
@@ -10325,10 +10322,32 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 //引入封装的数据请求;
 var relicManageAPI = {
+  getUserInfo: function getUserInfo() {
+    return (0, _request.request)({
+      url: '/auth/user/getInfo',
+      method: 'GET' });
+
+  },
   getSwaiperData: function getSwaiperData() {
     return (0, _request.request)({
       url: '/home/swiperdata',
       method: 'GET' });
+
+  },
+  addOrder: function addOrder(data) {
+    console.log(data);
+    return (0, _request.request)({
+      url: '/bill/payment/placeorder',
+      method: 'POST',
+      data: data });
+
+  },
+  getBillList: function getBillList(data) {
+    console.log("订单数据", data);
+    return (0, _request.request)({
+      url: '/bill/bill/list',
+      method: 'POST',
+      data: data });
 
   },
   addCollection: function addCollection(params) {
@@ -10349,6 +10368,12 @@ var relicManageAPI = {
     return (0, _request.request)({
       method: "GET",
       url: "/collection/collection/list?catagory=1" });
+
+  },
+  GetCommodityData: function GetCommodityData() {
+    return (0, _request.request)({
+      method: "GET",
+      url: "/mall/commodity/list" });
 
   },
   delCollectionData: function delCollectionData(params) {

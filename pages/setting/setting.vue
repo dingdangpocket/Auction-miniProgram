@@ -20,7 +20,7 @@
 					<text @click="LinkToAboutUs">联系我们</text>
 				</view> -->
 				<view class="box">
-					<text>退出登陆</text>
+					<text  @click="ExitLogin">退出登陆</text>
 				</view>
 				
 			</view>
@@ -29,6 +29,7 @@
 </template>
 
 <script>
+	var app = getApp()
 	export default {
 		data() {
 			return {
@@ -55,6 +56,16 @@
 				uni.navigateTo({
 					url:"../srviceAgreement/srviceAgreement"
 				})
+			},
+			ExitLogin(){
+				 uni.clearStorageSync();
+				 app.globalData.userInfo=null;
+				 app.globalData.cach=true;
+				 console.log(app.globalData)
+				 uni.showToast({
+				     title: '退出成功',
+				     duration: 700
+				 });
 			}
 		}
 	}

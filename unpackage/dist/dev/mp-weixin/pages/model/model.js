@@ -145,10 +145,10 @@ var app = getApp();var _default =
 
   },
   mounted: function mounted() {
-    this.url = "https://api.bitaichain.com:8443/home/electircShow?id=".concat(app.globalData.collectionId);
-    console.log(app.globalData.collectionId);
-  },
-  methods: {} };exports.default = _default;
+    //this.url=`http://www.bitaichain.com/model?id=${app.globalData.collectionId}`
+    this.url = "https://api.bitaichain.com:8443/?id=".concat(app.globalData.collectionId);
+    console.log("藏品的ID号", app.globalData.collectionId);
+  } };exports.default = _default;
 
 /***/ }),
 

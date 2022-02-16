@@ -2,15 +2,12 @@
 	export default {
 		globalData: {
 			collectionId: 0,
-			show:""
 		},
 		onLaunch: function() {
-			let res = uni.getStorageSync('user_token');
-			if (!res) {
-				this.globalData.show = true;
-			}else{
-				this.globalData.show = false;
-			}
+			let res = uni.getStorageSync('user_info');
+			if (res) {
+				this.globalData.userInfo = res
+			} 
 		},
 		onShow: function() {},
 		onHide: function() {},
@@ -22,7 +19,6 @@
 		position: relative;
 		top: -50rpx;
 	}
-
 	page {
 		height: 100%;
 		width: 100%;

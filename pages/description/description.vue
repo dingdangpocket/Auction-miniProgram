@@ -32,18 +32,19 @@
 			<image src="../../static/desc-3.jpeg" mode="" style="width: 100%;height:700rpx;"></image>
 			<text>....</text>
 		</view>
-		<!-- 	<view class="ReminderArea">
+		<!--<view class="ReminderArea">
 			<text style="font-size:30rpx;">购买须知</text><br>
 			<text>工艺品由发行方或作者拥有,除另行取得版权拥有者书面同意外,用户不得用于任何商业用途,本商品一经售出,不支持退换;请勿进行炒作、场外交易、欺诈、或其他任何非法用途;
 			</text>
 		</view> -->
 		<view class="PayBtn" @click="LinkToOrderComfirm">
-			<text>购买</text>
+			<text>购买下单</text>
 		</view>
 	</view>
 </template>
 
 <script>
+	import API from "../../http/API.js"
 	var app = getApp()
 	export default {
 		data() {
@@ -77,19 +78,35 @@
 					url: "../model/model"
 				})
 			},
-			LinkToOrderComfirm() {
-				let res = uni.getStorageSync('user_token');
-				if (!res) {
-					uni.showToast({
-						title: '请先登陆',
-						duration: 3000
-					});
-				}else{
-					var items = this.descData
+		async LinkToOrderComfirm() {
+			   const userInfo = await  API.relicManageAPI.getUserInfo()
+			   console.log("openID",userInfo.data.user.userName)
+			   const openId=userInfo.data.user.userName
+				let obj={
+						"openId":openId,
+						"commodityId":5,
+						"price": 0.01 * 100
+						}
+                const res = await  API.relicManageAPI.addOrder(obj)
+				console.log("下单结果",res)
+				if(res){
+					var items = this.descData;
 					uni.navigateTo({
 						url: '../orderComfirm/orderComfirm?items=' + JSON.stringify(items),
 					})
 				}
+				// let res = uni.getStorageSync('user_token');
+				// if (!res) {
+				// 	uni.showToast({
+				// 		title: '请先登陆',
+				// 		duration: 3000
+				// 	});
+				// }else{
+				// 	var items = this.descData
+				// 	uni.navigateTo({
+				// 		url: '../orderComfirm/orderComfirm?items=' + JSON.stringify(items),
+				// 	})
+				// }
 			}
 		},
 	}
@@ -220,7 +237,7 @@
 		align-items: center;
 
 		text {
-			width: 85rpx;
+			width: 135rpx;
 			display: flex;
 			justify-content: center;
 			align-items: center;

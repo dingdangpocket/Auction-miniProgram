@@ -93,15 +93,12 @@ __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
 {
   globalData: {
-    collectionId: 0,
-    show: "" },
+    collectionId: 0 },
 
   onLaunch: function onLaunch() {
-    var res = uni.getStorageSync('user_token');
-    if (!res) {
-      this.globalData.show = true;
-    } else {
-      this.globalData.show = false;
+    var res = uni.getStorageSync('user_info');
+    if (res) {
+      this.globalData.userInfo = res;
     }
   },
   onShow: function onShow() {},

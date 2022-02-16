@@ -160,7 +160,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var _default =
+
+var app = getApp();var _default =
 {
   data: function data() {
     return {};
@@ -186,6 +187,16 @@ var _default =
     LinkToServiceAgreement: function LinkToServiceAgreement() {
       uni.navigateTo({
         url: "../srviceAgreement/srviceAgreement" });
+
+    },
+    ExitLogin: function ExitLogin() {
+      uni.clearStorageSync();
+      app.globalData.userInfo = null;
+      app.globalData.cach = true;
+      console.log(app.globalData);
+      uni.showToast({
+        title: '退出成功',
+        duration: 700 });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

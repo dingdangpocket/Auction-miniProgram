@@ -10,6 +10,7 @@
 
 <script>
 	import orderCard from '../../components/orderCard/orderCard.vue'
+	import API from "../../http/API.js"
 	export default {
 		components: {
 			orderCard
@@ -51,9 +52,16 @@
 				]
 			}
 		},
-		methods: {
-
-		}
+		async mounted() {
+			const userInfo = await API.relicManageAPI.getUserInfo()
+			console.log("buyerid",userInfo.data.user.userId)
+			let obj={
+			    "buyerid":19,
+			    "status":"DRAFT"
+			}
+			const res = await API.relicManageAPI.getBillList(obj)
+			console.log("订单列表", res)
+		},
 	}
 </script>
 

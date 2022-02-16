@@ -1,6 +1,6 @@
 <template>
 	<view>
-		  <web-view :src="url" class="body"></web-view>
+		<web-view :src="url" class="body"></web-view>
 	</view>
 </template>
 
@@ -9,22 +9,20 @@
 	export default {
 		data() {
 			return {
-		        url:""
+				url: ""
 			}
 		},
 		mounted() {
-		this.url=`https://api.bitaichain.com:8443/home/electircShow?id=${app.globalData.collectionId}`
-		console.log(app.globalData.collectionId)
+			//this.url=`http://www.bitaichain.com/model?id=${app.globalData.collectionId}`
+			this.url = `https://api.bitaichain.com:8443/?id=${app.globalData.collectionId}`
+			console.log("藏品的ID号", app.globalData.collectionId)
 		},
-		methods: {
-		}
 	}
 </script>
 
-
 <style lang="scss">
-	.body{
-		height: 100px
+	.body {
+		width: 100%;
+		height: 100px;
 	}
-
 </style>

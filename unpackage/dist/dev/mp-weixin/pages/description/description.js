@@ -96,7 +96,7 @@ var components
 try {
   components = {
     imgCard: function() {
-      return __webpack_require__.e(/*! import() | components/imgCard/imgCard */ "components/imgCard/imgCard").then(__webpack_require__.bind(null, /*! @/components/imgCard/imgCard.vue */ 170))
+      return __webpack_require__.e(/*! import() | components/imgCard/imgCard */ "components/imgCard/imgCard").then(__webpack_require__.bind(null, /*! @/components/imgCard/imgCard.vue */ 177))
     }
   }
 } catch (e) {
@@ -153,52 +153,53 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 16));
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
 var app = getApp();var _default =
 {
   data: function data() {
@@ -232,20 +233,36 @@ var app = getApp();var _default =
         url: "../model/model" });
 
     },
-    LinkToOrderComfirm: function LinkToOrderComfirm() {
-      var res = uni.getStorageSync('user_token');
-      if (!res) {
-        uni.showToast({
-          title: '请先登陆',
-          duration: 3000 });
+    LinkToOrderComfirm: function LinkToOrderComfirm() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var userInfo, openId, obj, res, items;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+                  _API.default.relicManageAPI.getUserInfo());case 2:userInfo = _context.sent;
+                console.log("openID", userInfo.data.user.userName);
+                openId = userInfo.data.user.userName;
+                obj = {
+                  "openId": openId,
+                  "commodityId": 5,
+                  "price": 0.01 * 100 };_context.next = 8;return (
 
-      } else {
-        var items = this.descData;
-        uni.navigateTo({
-          url: '../orderComfirm/orderComfirm?items=' + JSON.stringify(items) });
+                  _API.default.relicManageAPI.addOrder(obj));case 8:res = _context.sent;
+                console.log("下单结果", res);
+                if (res) {
+                  items = _this.descData;
+                  uni.navigateTo({
+                    url: '../orderComfirm/orderComfirm?items=' + JSON.stringify(items) });
 
-      }
-    } } };exports.default = _default;
+                }
+                // let res = uni.getStorageSync('user_token');
+                // if (!res) {
+                // 	uni.showToast({
+                // 		title: '请先登陆',
+                // 		duration: 3000
+                // 	});
+                // }else{
+                // 	var items = this.descData
+                // 	uni.navigateTo({
+                // 		url: '../orderComfirm/orderComfirm?items=' + JSON.stringify(items),
+                // 	})
+                // }
+              case 11:case "end":return _context.stop();}}}, _callee);}))();} } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

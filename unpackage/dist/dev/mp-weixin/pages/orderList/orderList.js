@@ -96,7 +96,7 @@ var components
 try {
   components = {
     orderCard: function() {
-      return __webpack_require__.e(/*! import() | components/orderCard/orderCard */ "components/orderCard/orderCard").then(__webpack_require__.bind(null, /*! @/components/orderCard/orderCard.vue */ 163))
+      return __webpack_require__.e(/*! import() | components/orderCard/orderCard */ "components/orderCard/orderCard").then(__webpack_require__.bind(null, /*! @/components/orderCard/orderCard.vue */ 170))
     }
   }
 } catch (e) {
@@ -153,7 +153,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var orderCard = function orderCard() {__webpack_require__.e(/*! require.ensure | components/orderCard/orderCard */ "components/orderCard/orderCard").then((function () {return resolve(__webpack_require__(/*! ../../components/orderCard/orderCard.vue */ 163));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 16));
 
 
 
@@ -165,6 +165,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var orderCard = function orderCard() {__webpack_require__.e(/*! require.ensure | components/orderCard/orderCard */ "components/orderCard/orderCard").then((function () {return resolve(__webpack_require__(/*! ../../components/orderCard/orderCard.vue */ 170));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   components: {
     orderCard: orderCard },
@@ -206,7 +207,16 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
   },
-  methods: {} };exports.default = _default;
+  mounted: function mounted() {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var userInfo, obj, res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+                _API.default.relicManageAPI.getUserInfo());case 2:userInfo = _context.sent;
+              console.log("buyerid", userInfo.data.user.userId);
+              obj = {
+                "buyerid": 19,
+                "status": "DRAFT" };_context.next = 7;return (
+
+                _API.default.relicManageAPI.getBillList(obj));case 7:res = _context.sent;
+              console.log("订单列表", res);case 9:case "end":return _context.stop();}}}, _callee);}))();
+  } };exports.default = _default;
 
 /***/ }),
 

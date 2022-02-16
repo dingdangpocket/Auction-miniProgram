@@ -96,16 +96,16 @@ var components
 try {
   components = {
     fuiDialog: function() {
-      return __webpack_require__.e(/*! import() | components/fui-dialog/fui-dialog */ "components/fui-dialog/fui-dialog").then(__webpack_require__.bind(null, /*! @/components/fui-dialog/fui-dialog.vue */ 198))
+      return __webpack_require__.e(/*! import() | components/fui-dialog/fui-dialog */ "components/fui-dialog/fui-dialog").then(__webpack_require__.bind(null, /*! @/components/fui-dialog/fui-dialog.vue */ 128))
     },
     navCard: function() {
-      return __webpack_require__.e(/*! import() | components/navCard/navCard */ "components/navCard/navCard").then(__webpack_require__.bind(null, /*! @/components/navCard/navCard.vue */ 128))
+      return __webpack_require__.e(/*! import() | components/navCard/navCard */ "components/navCard/navCard").then(__webpack_require__.bind(null, /*! @/components/navCard/navCard.vue */ 135))
     },
     uniSegmentedControl: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control */ "uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control.vue */ 135))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control */ "uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control.vue */ 142))
     },
     collectionCard: function() {
-      return __webpack_require__.e(/*! import() | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then(__webpack_require__.bind(null, /*! @/components/collectionCard/collectionCard.vue */ 142))
+      return __webpack_require__.e(/*! import() | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then(__webpack_require__.bind(null, /*! @/components/collectionCard/collectionCard.vue */ 149))
     }
   }
 } catch (e) {
@@ -211,11 +211,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 19));
 
 
-var _vuex = __webpack_require__(/*! vuex */ 12);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var navCard = function navCard() {__webpack_require__.e(/*! require.ensure | components/navCard/navCard */ "components/navCard/navCard").then((function () {return resolve(__webpack_require__(/*! ../../components/navCard/navCard.vue */ 128));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var collectionCard = function collectionCard() {__webpack_require__.e(/*! require.ensure | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then((function () {return resolve(__webpack_require__(/*! ../../components/collectionCard/collectionCard.vue */ 142));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var fuiDialog = function fuiDialog() {__webpack_require__.e(/*! require.ensure | components/fui-dialog/fui-dialog */ "components/fui-dialog/fui-dialog").then((function () {return resolve(__webpack_require__(/*! ../../components/fui-dialog/fui-dialog.vue */ 198));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var app = getApp();var _createNamespacedHelp =
+var _vuex = __webpack_require__(/*! vuex */ 12);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var navCard = function navCard() {__webpack_require__.e(/*! require.ensure | components/navCard/navCard */ "components/navCard/navCard").then((function () {return resolve(__webpack_require__(/*! ../../components/navCard/navCard.vue */ 135));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var collectionCard = function collectionCard() {__webpack_require__.e(/*! require.ensure | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then((function () {return resolve(__webpack_require__(/*! ../../components/collectionCard/collectionCard.vue */ 149));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var fuiDialog = function fuiDialog() {__webpack_require__.e(/*! require.ensure | components/fui-dialog/fui-dialog */ "components/fui-dialog/fui-dialog").then((function () {return resolve(__webpack_require__(/*! ../../components/fui-dialog/fui-dialog.vue */ 128));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var app = getApp();var _createNamespacedHelp =
 
 
 
@@ -263,15 +262,18 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function _interopRequireDefault(
     } else {
       this.show = true;
     }
+    // uni.navigateTo({
+    // 	url:"../description/description"
+    // })
   },
   mounted: function mounted() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
               _this.getData();case 1:case "end":return _context.stop();}}}, _callee);}))();
   },
   watch: {
-    current: function current() {
-      console.log(this.current);
-    } },
-
+    // current() {
+    // 	console.log(this.current)
+    // }
+  },
   computed: {
     collectionDataFilter: function collectionDataFilter() {
       if (this.current == 0) {
@@ -279,12 +281,12 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function _interopRequireDefault(
       }
       if (this.current == 1) {
         return this.collectionData.filter(function (item) {
-          return item.tag == "精选";
+          return item.status == "待售";
         });
       }
       if (this.current == 2) {
         return this.collectionData.filter(function (item) {
-          return item.tag == "热门";
+          return item.status == "已下架";
         });
       }
     } },
@@ -304,10 +306,15 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function _interopRequireDefault(
     // dialog
 
     getData: function getData() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var res;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
-                  _API.default.relicManageAPI.GetCollectionData());case 2:res = _context2.sent;
-                _this2.collectionData = res.data.rows;
-                console.log("结果来自华为云公网API", res);case 5:case "end":return _context2.stop();}}}, _callee2);}))();
+                  _API.default.relicManageAPI.GetCommodityData());case 2:res = _context2.sent;
+                console.log("商品列表", res);
+                _this2.collectionData = res.data.rows;case 5:case "end":return _context2.stop();}}}, _callee2);}))();
     },
+    // async getData() {
+    // 	const res = await API.relicManageAPI.GetCollectionData()
+    // 	this.collectionData = res.data.rows
+    // 	// console.log("结果来自华为云公网API", res)
+    // },
     onClickItem: function onClickItem(e) {
       if (this.current !== e.currentIndex) {
         this.current = e.currentIndex;
@@ -325,9 +332,9 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function _interopRequireDefault(
       uni.getUserProfile({
         desc: 'weixin',
         success: function success(res) {
-          _this3.userInfo = res.userInfo;
           _this3.getCode(res.userInfo);
-          _this3.nickName = res.userInfo.nickName;
+          // this.userInfo = res.userInfo
+          // this.nickName = res.userInfo.nickName
         },
         fail: function fail(err) {
           console.log(err, '失败授权');
@@ -343,7 +350,7 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function _interopRequireDefault(
         } });
 
     },
-    getToken: function getToken(code, userInfo) {var _this5 = this; //获取token;
+    getToken: function getToken(code, userInfo) {//获取token;
       uni.request({
         url: 'https://api.bitaichain.com:8443/auth/wxlogin',
         method: 'POST',
@@ -364,8 +371,13 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function _interopRequireDefault(
               title: '授权登陆成功',
               duration: 1300 });
 
-            _this5.userInfo = res.data.data.sysUser;
+            uni.setStorage({
+              key: 'user_info',
+              data: res.data.data.sysUser });
+
+            // this.userInfo = res.data.data.sysUser
           } else {
+            console.log("登陆结果", res);
             uni.showToast({
               title: '网络错误,登陆失败',
               duration: 1300 });

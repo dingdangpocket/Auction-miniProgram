@@ -159,7 +159,7 @@
           align-items: center;
 }
 .PayBtn text {
-  width: 85rpx;
+  width: 135rpx;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;

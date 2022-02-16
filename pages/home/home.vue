@@ -1,7 +1,6 @@
 <template>
 	<view>
-		<fui-dialog :show="show" :content="content" maskClosable @close="onClose">
-		</fui-dialog>
+		<fui-dialog :show="show" :content="content" maskClosable @close="onClose"></fui-dialog>
 		<view class="body">
 			<view class="NavArea">
 				<swiper class="swiper-container" :indicator-dots="true" :autoplay="true" :interval="3000"
@@ -99,14 +98,17 @@
 			} else {
 				this.show = true
 			}
+			// uni.navigateTo({
+			// 	url:"../description/description"
+			// })
 		},
 		async mounted() {
 			this.getData()
 		},
 		watch: {
-			current() {
-				console.log(this.current)
-			}
+			// current() {
+			// 	console.log(this.current)
+			// }
 		},
 		computed: {
 			collectionDataFilter: function() {
@@ -115,12 +117,12 @@
 				}
 				if (this.current == 1) {
 					return this.collectionData.filter((item) => {
-						return item.tag == "精选"
+						return item.status == "待售"
 					})
 				}
 				if (this.current == 2) {
 					return this.collectionData.filter((item) => {
-						return item.tag == "热门"
+						return item.status == "已下架"
 					})
 				}
 			}
@@ -138,12 +140,17 @@
 				this.show = false
 			},
 			// dialog
-			
+
 			async getData() {
-				const res = await API.relicManageAPI.GetCollectionData()
+				const res = await API.relicManageAPI.GetCommodityData()
+				console.log("商品列表",res)
 				this.collectionData = res.data.rows
-				console.log("结果来自华为云公网API", res)
 			},
+			// async getData() {
+			// 	const res = await API.relicManageAPI.GetCollectionData()
+			// 	this.collectionData = res.data.rows
+			// 	// console.log("结果来自华为云公网API", res)
+			// },
 			onClickItem(e) {
 				if (this.current !== e.currentIndex) {
 					this.current = e.currentIndex
@@ -161,9 +168,9 @@
 				uni.getUserProfile({
 					desc: 'weixin',
 					success: res => {
-						this.userInfo = res.userInfo
 						this.getCode(res.userInfo)
-						this.nickName = res.userInfo.nickName
+						// this.userInfo = res.userInfo
+						// this.nickName = res.userInfo.nickName
 					},
 					fail: err => {
 						console.log(err, '失败授权')
@@ -200,8 +207,13 @@
 								title: '授权登陆成功',
 								duration: 1300
 							});
-							this.userInfo = res.data.data.sysUser
+							uni.setStorage({
+								key: 'user_info',
+								data: res.data.data.sysUser
+							});
+							// this.userInfo = res.data.data.sysUser
 						} else {
+							console.log("登陆结果", res)
 							uni.showToast({
 								title: '网络错误,登陆失败',
 								duration: 1300

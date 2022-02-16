@@ -82,7 +82,7 @@
 			"style": {
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false,
-				"navigationBarTitleText": "订单确认"
+				"navigationBarTitleText": "支付确认"
 			}
 		},  {
 			"path": "pages/blockDetial/blockDetial",

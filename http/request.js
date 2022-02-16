@@ -5,13 +5,11 @@ const baseURL = 'https://api.bitaichain.com:8443'
 //接口issue
 
 export const request = function request(data) {
-	// uni.showLoading({
-	// 	title: '加载中'
-	// });
 	return new Promise((resolve, reject) => {
 		const token = uni.getStorageSync('user_token');
-		console.log("token",token);
+		console.log("token",token)
 		if (token) {
+			console.log("交出数据",data.data)
 			uni.request({
 				url: baseURL + data.url,
 				method: data.method,
@@ -22,7 +20,6 @@ export const request = function request(data) {
 					'Authorization': token
 				},
 				success: res => {
-					console.log(res)
 					resolve(res)
 				},
 				fail() {
