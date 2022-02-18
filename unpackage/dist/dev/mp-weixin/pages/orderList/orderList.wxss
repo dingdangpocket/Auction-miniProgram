@@ -29,7 +29,6 @@
   width: 100%;
   background-color: #FFFFFF;
   color: white;
-  overflow: hidden;
 }
 .body .title {
   height: 70rpx;
@@ -48,5 +47,15 @@
   height: 100%;
   background-color: #FFFFFF;
   overflow-y: scroll;
+}
+.content {
+  margin-top: 70rpx;
+}
+.tab {
+  position: fixed;
+  top: -5rpx;
+  z-index: 10;
+  width: 100%;
+  background-color: white;
 }
 

@@ -53,7 +53,7 @@
 			},
 			search(value) {
 				console.log("筛选条件", value)
-				this.collectionData = this.collectionData.filter((item) => item.title.includes(value))
+				this.collectionData = this.collectionData.filter((item) => item.name.includes(value))
 			},
 			linkToDescription(e) {
 				app.globalData.collectionId = e.currentTarget.dataset.id

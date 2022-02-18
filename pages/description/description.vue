@@ -19,11 +19,11 @@
 			<text>{{descData.musem}}</text> -->
 		</view>
 		<view class="PriceArea">
-			<text style="font-size:40rpx;">199RMB</text><br>
+			<text style="font-size:40rpx;">199RMB</text>
 			<!-- 	<text class="limitTag">限量发行</text>
 			<text style="font-size:22rpx;padding-left:5rpx;">{{descData.limit}}份</text> -->
 			<image class="model" src="../../static/3dblack.png" mode="" @click="LinkToModel"></image>
-			<image class="follow" src="../../static/follow2.png" mode=""></image>
+			<image class="follow" src="../../static/follow2.png" mode="" @click="follow"></image>
 		</view>
 
 		<view class="DescArea">
@@ -78,23 +78,47 @@
 					url: "../model/model"
 				})
 			},
+			follow(){
+				let res = uni.getStorageSync('user_info');
+				if (!res) {
+					uni.showToast({
+						title: '请先登陆账户',
+						duration: 1000
+					});
+					return
+				} 
+			},
 		async LinkToOrderComfirm() {
 			   const userInfo = await  API.relicManageAPI.getUserInfo()
-			   console.log("openID",userInfo.data.user.userName)
-			   const openId=userInfo.data.user.userName
+			   if(userInfo.data.code==500){
+				   uni.showToast({
+				   	title: '请先登陆账户',
+				   	duration: 1000
+				   });
+				   return
+			   }
+			   // console.log("openID",userInfo.data.user.userName)
+			   // const openId=userInfo.data.user.userName
 				let obj={
-						"openId":openId,
+						"openId":userInfo.data.user.userName,
 						"commodityId":5,
 						"price": 0.01 * 100
 						}
                 const res = await  API.relicManageAPI.addOrder(obj)
 				console.log("下单结果",res)
+				
+				// if(res.code==500){
+				// 	console.log("下单失败")
+				// 	return
+				// }
+				
 				if(res){
 					var items = this.descData;
 					uni.navigateTo({
 						url: '../orderComfirm/orderComfirm?items=' + JSON.stringify(items),
 					})
 				}
+			
 				// let res = uni.getStorageSync('user_token');
 				// if (!res) {
 				// 	uni.showToast({
@@ -116,7 +140,7 @@
 	.body {
 		// height: 100%;
 		width: 100%;
-		background-color: white;
+		// background-color: white;
 		color: white;
 		overflow: hidden;
 
@@ -134,15 +158,15 @@
 				width: 100%;
 
 				.swiper-item {
-					background-color: blue;
+					// background-color: blue;
 				}
 			}
 		}
 
 		.PriceArea {
-			height: 110rpx;
+			height: 65rpx;
 			width: 100%;
-			background-color: "#FFFFFF";
+			// background-color: "#ea001a";
 			color: black;
 			padding: 10rpx;
 			border-bottom: 1px solid white;
@@ -152,7 +176,7 @@
 				color: white;
 				font-size: 25rpx;
 				padding: 8rpx;
-				background-color: #78470b;
+				// background-color: #78470b;
 			}
 
 			.model {
@@ -161,14 +185,16 @@
 				height: 60rpx;
 				right: 50rpx;
 				bottom: 28rpx;
+				top:8rpx
 			}
 
 			.follow {
 				position: absolute;
 				width: 50rpx;
 				height: 50rpx;
-				right: 130rpx;
+				right: 138rpx;
 				bottom: 28rpx;
+				top:15rpx
 			}
 		}
 
@@ -180,9 +206,7 @@
 			line-height: 75rpx;
 			color: black;
 			justify-content: center;
-			background-color: "#FFFFFF";
-
-			// border-bottom: 1px solid white;
+			// background-color: "#FFFFFF";
 			.Title {
 				height: 50rpx;
 				display: flex;
@@ -190,7 +214,6 @@
 				justify-content: center;
 			}
 		}
-
 		.MusemArea {
 			height: 40rpx;
 			width: 100%;
@@ -200,7 +223,6 @@
 			font-size: 23rpx;
 			display: flex;
 			justify-content: space-between;
-
 			text {
 				display: block;
 				margin-left: 10rpx;
@@ -211,7 +233,7 @@
 		.ReminderArea {
 			height: 300rpx;
 			width: 98%;
-			background-color: #1f1e1f;
+			// background-color: #1f1e1f;
 			color: white;
 			font-size: 24rpx;
 			padding: 15rpx;
@@ -220,7 +242,7 @@
 
 		.DescArea {
 			width: 100%;
-			background-color: white;
+			// background-color: white;
 			color: white;
 		}
 	}
@@ -235,7 +257,6 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-
 		text {
 			width: 135rpx;
 			display: flex;

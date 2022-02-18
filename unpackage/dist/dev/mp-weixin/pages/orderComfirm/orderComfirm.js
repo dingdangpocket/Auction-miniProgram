@@ -24,7 +24,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 16));
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 8));
 
 
 
@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} //
+var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 11));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} //
 //
 //
 //
@@ -64,15 +64,18 @@ var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 1
 //
 //
 //
-var app = getApp();var _default = { data: function data() {return { orderInfo: "" };}, onLoad: function onLoad(option) {var res = JSON.parse(option.items);console.log(res);this.orderInfo = res;}, methods: { comfirm: function comfirm() {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var orderData, res, params;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0: // var quantity = 3
+var app = getApp();var _default = { data: function data() {return { orderInfo: "" };}, onLoad: function onLoad(option) {var res = JSON.parse(option.items);console.log(res);this.orderInfo = res;}, methods: { comfirm: function comfirm() {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var userInfo, openId, orderData, res, params;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return _API.default.relicManageAPI.getUserInfo();case 2:userInfo = _context.sent;console.log("openID", userInfo.data.user.userName);openId = userInfo.data.user.userName; // var quantity = 3
                 // var needPay = Math.floor(parseFloat(3.8 * 100 * quantity));
                 // console.log(needPay, "分")
-                orderData = { openId: app.globalData.openId, commodityId: 5, price: 0.01 * 100 // title:"测试"
+                orderData = { openId: openId, commodityId: 5,
+                  price: 0.01 * 100
+                  // title:"测试"
                   // payType: "wxPay"
                   // code: app.globalData.code,
-                };_context.next = 3;return _API.default.payAPI.comfirmPay(orderData);case 3:res = _context.sent;
-                console.log("prepay_id", res);_context.next = 7;return (
-                  _API.default.payAPI.getPayParams(res.data.prepay_id));case 7:params = _context.sent;
+                };_context.next = 8;return (
+                  _API.default.payAPI.comfirmPay(orderData));case 8:res = _context.sent;
+                console.log("prepay_id", res);_context.next = 12;return (
+                  _API.default.payAPI.getPayParams(res.data.prepay_id));case 12:params = _context.sent;
                 console.log("参数", params);
                 console.log(params.data.paySign);
                 uni.requestPayment({
@@ -84,10 +87,13 @@ var app = getApp();var _default = { data: function data() {return { orderInfo: "
                   "paySign": params.data.paySign,
                   success: function success(res) {
                     console.log("支付成功结果", res);
+                    if (res) {
+
+                    }
                   },
                   fail: function fail(err) {
                     console.log("支付失败结果", err);
-                  } });case 11:case "end":return _context.stop();}}}, _callee);}))();
+                  } });case 16:case "end":return _context.stop();}}}, _callee);}))();
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
@@ -152,7 +158,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _orderComfirm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./orderComfirm.vue?vue&type=script&lang=js& */ 100);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _orderComfirm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _orderComfirm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 /* harmony import */ var _orderComfirm_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./orderComfirm.vue?vue&type=style&index=0&lang=scss& */ 102);
-/* harmony import */ var _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 10);
+/* harmony import */ var _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 18);
 
 var renderjs
 

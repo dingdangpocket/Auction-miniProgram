@@ -44,6 +44,7 @@
 .orderCardItem .imgArea {
   width: 200rpx;
   height: 200rpx;
+  background-color: gray;
   margin-left: 10rpx;
 }
 .orderCardItem .imgArea image {
@@ -61,7 +62,7 @@
   -webkit-box-align: center;
   -webkit-align-items: center;
           align-items: center;
-  margin-left: 10rpx;
+  margin-left: 0rpx;
 }
 .orderCardItem .textArea text {
   display: block;

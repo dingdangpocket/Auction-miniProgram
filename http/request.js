@@ -3,7 +3,6 @@
 // const baseURL = 'https://10.10.10.24:8443'
 const baseURL = 'https://api.bitaichain.com:8443'
 //接口issue
-
 export const request = function request(data) {
 	return new Promise((resolve, reject) => {
 		const token = uni.getStorageSync('user_token');

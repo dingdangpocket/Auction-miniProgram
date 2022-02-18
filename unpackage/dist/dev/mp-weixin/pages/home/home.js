@@ -29,7 +29,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./home.vue?vue&type=script&lang=js& */ 28);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 /* harmony import */ var _home_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./home.vue?vue&type=style&index=0&lang=scss& */ 30);
-/* harmony import */ var _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 10);
+/* harmony import */ var _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 18);
 
 var renderjs
 
@@ -162,7 +162,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 16));
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 8));
 
 
 
@@ -211,10 +211,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 19));
+var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 11));
 
 
-var _vuex = __webpack_require__(/*! vuex */ 12);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var navCard = function navCard() {__webpack_require__.e(/*! require.ensure | components/navCard/navCard */ "components/navCard/navCard").then((function () {return resolve(__webpack_require__(/*! ../../components/navCard/navCard.vue */ 135));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var collectionCard = function collectionCard() {__webpack_require__.e(/*! require.ensure | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then((function () {return resolve(__webpack_require__(/*! ../../components/collectionCard/collectionCard.vue */ 149));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var fuiDialog = function fuiDialog() {__webpack_require__.e(/*! require.ensure | components/fui-dialog/fui-dialog */ "components/fui-dialog/fui-dialog").then((function () {return resolve(__webpack_require__(/*! ../../components/fui-dialog/fui-dialog.vue */ 128));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var app = getApp();var _createNamespacedHelp =
+var _vuex = __webpack_require__(/*! vuex */ 20);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var navCard = function navCard() {__webpack_require__.e(/*! require.ensure | components/navCard/navCard */ "components/navCard/navCard").then((function () {return resolve(__webpack_require__(/*! ../../components/navCard/navCard.vue */ 135));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var collectionCard = function collectionCard() {__webpack_require__.e(/*! require.ensure | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then((function () {return resolve(__webpack_require__(/*! ../../components/collectionCard/collectionCard.vue */ 149));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var fuiDialog = function fuiDialog() {__webpack_require__.e(/*! require.ensure | components/fui-dialog/fui-dialog */ "components/fui-dialog/fui-dialog").then((function () {return resolve(__webpack_require__(/*! ../../components/fui-dialog/fui-dialog.vue */ 128));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var app = getApp();var _createNamespacedHelp =
 
 
 
@@ -231,7 +231,7 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function _interopRequireDefault(
     return {
       content: '购买、收藏等操作需要您先登陆,是否登陆?',
       show: false,
-      items: ['发售中', '精选', "热门"],
+      items: ['待审批', '待售', "已下架"],
       current: 0,
       title: 'Hello',
       navData: [{
@@ -251,29 +251,28 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function _interopRequireDefault(
       screenWidth: "" };
 
   },
-  onLoad: function onLoad() {
-    // const res = await API.relicManageAPI.GetCollectionData()
-    // if(res){
-    // 	console.log("未过期")
-    // }
-    var res = uni.getStorageSync('user_token');
-    if (res) {
-      this.show = false;
-    } else {
-      this.show = true;
-    }
-    // uni.navigateTo({
-    // 	url:"../description/description"
-    // })
+  onLoad: function onLoad() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+              // const loginTimesOutAuth = await  API.relicManageAPI.getUserInfo()
+              // console.log(loginTimesOutAuth)
+              // if(loginTimesOutAuth.data.code==500){
+              // 	uni.clearStorageSync();
+              // 	console.log("账号登陆已过期请重新登陆")
+              // }
+              res = uni.getStorageSync('user_token');
+              if (res) {
+                _this.show = false;
+              } else {
+                _this.show = true;
+              }
+              // uni.navigateTo({
+              // 	url:"../description/description"
+              // })
+            case 2:case "end":return _context.stop();}}}, _callee);}))();},
+  mounted: function mounted() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+              _this2.getData();case 1:case "end":return _context2.stop();}}}, _callee2);}))();
   },
-  mounted: function mounted() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
-              _this.getData();case 1:case "end":return _context.stop();}}}, _callee);}))();
-  },
-  watch: {
-    // current() {
-    // 	console.log(this.current)
-    // }
-  },
+  watch: {},
+
   computed: {
     collectionDataFilter: function collectionDataFilter() {
       if (this.current == 0) {
@@ -305,16 +304,11 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function _interopRequireDefault(
     },
     // dialog
 
-    getData: function getData() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var res;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
-                  _API.default.relicManageAPI.GetCommodityData());case 2:res = _context2.sent;
+    getData: function getData() {var _this3 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {var res;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
+                  _API.default.relicManageAPI.GetCommodityData());case 2:res = _context3.sent;
                 console.log("商品列表", res);
-                _this2.collectionData = res.data.rows;case 5:case "end":return _context2.stop();}}}, _callee2);}))();
+                _this3.collectionData = res.data.rows;case 5:case "end":return _context3.stop();}}}, _callee3);}))();
     },
-    // async getData() {
-    // 	const res = await API.relicManageAPI.GetCollectionData()
-    // 	this.collectionData = res.data.rows
-    // 	// console.log("结果来自华为云公网API", res)
-    // },
     onClickItem: function onClickItem(e) {
       if (this.current !== e.currentIndex) {
         this.current = e.currentIndex;
@@ -327,12 +321,12 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function _interopRequireDefault(
 
     },
     //登陆板块
-    login: function login() {var _this3 = this;
+    login: function login() {var _this4 = this;
       this.show = false;
       uni.getUserProfile({
         desc: 'weixin',
         success: function success(res) {
-          _this3.getCode(res.userInfo);
+          _this4.getCode(res.userInfo);
           // this.userInfo = res.userInfo
           // this.nickName = res.userInfo.nickName
         },
@@ -341,11 +335,11 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function _interopRequireDefault(
         } });
 
     },
-    getCode: function getCode(userInfo) {var _this4 = this;
+    getCode: function getCode(userInfo) {var _this5 = this;
       uni.login({
         provider: 'weixin',
         success: function success(res) {
-          _this4.getToken(res.code, userInfo); //将code码和用户信息发给后端;
+          _this5.getToken(res.code, userInfo); //将code码和用户信息发给后端;
           app.globalData.code = res.code;
         } });
 

@@ -67,7 +67,7 @@
 			return {
 				content: '购买、收藏等操作需要您先登陆,是否登陆?',
 				show: false,
-				items: ['发售中', '精选', "热门"],
+				items: ['待审批', '待售', "已下架"],
 				current: 0,
 				title: 'Hello',
 				navData: [{
@@ -87,10 +87,12 @@
 				screenWidth: ""
 			}
 		},
-		onLoad() {
-			// const res = await API.relicManageAPI.GetCollectionData()
-			// if(res){
-			// 	console.log("未过期")
+		async onLoad() {
+			// const loginTimesOutAuth = await  API.relicManageAPI.getUserInfo()
+			// console.log(loginTimesOutAuth)
+			// if(loginTimesOutAuth.data.code==500){
+			// 	uni.clearStorageSync();
+			// 	console.log("账号登陆已过期请重新登陆")
 			// }
 			let res = uni.getStorageSync('user_token');
 			if (res) {
@@ -106,9 +108,6 @@
 			this.getData()
 		},
 		watch: {
-			// current() {
-			// 	console.log(this.current)
-			// }
 		},
 		computed: {
 			collectionDataFilter: function() {
@@ -146,11 +145,6 @@
 				console.log("商品列表",res)
 				this.collectionData = res.data.rows
 			},
-			// async getData() {
-			// 	const res = await API.relicManageAPI.GetCollectionData()
-			// 	this.collectionData = res.data.rows
-			// 	// console.log("结果来自华为云公网API", res)
-			// },
 			onClickItem(e) {
 				if (this.current !== e.currentIndex) {
 					this.current = e.currentIndex
@@ -258,7 +252,7 @@
 	}
 
 	.body {
-		background-color: white;
+		// background-color: white;
 	}
 
 	.NavArea {
@@ -271,12 +265,12 @@
 		.swiper-container {
 			width: 85%;
 			height: 325rpx;
-			background-color: black;
+			// background-color: black;
 			box-shadow: 1px 1px 3px #101010;
 
 			.swiper-item {
-				background-color: blue;
-				background-color: rgba($color: #373737, $alpha: 0.5);
+				// background-color: blue;
+				// background-color: rgba($color: #373737, $alpha: 0.5);
 				box-shadow: 1px 1px 3px #101010;
 			}
 		}

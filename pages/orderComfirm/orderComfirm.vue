@@ -33,11 +33,14 @@
 		},
 		methods: {
 			async comfirm() {
+				const userInfo = await  API.relicManageAPI.getUserInfo()
+				console.log("openID",userInfo.data.user.userName)
+				const openId=userInfo.data.user.userName
 				// var quantity = 3
 				// var needPay = Math.floor(parseFloat(3.8 * 100 * quantity));
 				// console.log(needPay, "分")
 				let orderData = {
-					openId: app.globalData.openId,
+					openId:openId,
 					commodityId:5,
 					price: 0.01 * 100,
 					// title:"测试"
@@ -58,6 +61,9 @@
 					"paySign": params.data.paySign,
 					success: function(res) {
 						console.log("支付成功结果", res)
+						if(res){
+							
+						}
 					},
 					fail: function(err) {
 						console.log("支付失败结果", err)

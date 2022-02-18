@@ -13,7 +13,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _orderCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./orderCard.vue?vue&type=script&lang=js& */ 173);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _orderCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _orderCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 /* harmony import */ var _orderCard_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./orderCard.vue?vue&type=style&index=0&lang=scss& */ 175);
-/* harmony import */ var _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 10);
+/* harmony import */ var _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 18);
 
 var renderjs
 
@@ -81,6 +81,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var g0 = _vm.item.prepayid.slice(0, 10)
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        g0: g0
+      }
+    }
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -114,38 +123,75 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 8));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 11));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var _default =
 {
   props: ["item"],
   name: "orderCard",
   data: function data() {
     return {};
-
-
   },
+  // mounted() {
+  // 	console.log("single", this.item)
+  // },
   methods: {
-    LinkToDetial: function LinkToDetial() {
-      uni.navigateTo({
-        url: "../../pages/blockDetial/blockDetial" });
+    comfirm: function comfirm(commodityId) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var userInfo, orderData, res, params;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+                  _API.default.relicManageAPI.getUserInfo());case 2:userInfo = _context.sent;
+                orderData = {
+                  openId: userInfo.data.user.userName,
+                  commodityId: commodityId,
+                  price: 0.01 * 100
+                  // title:"测试"
+                  // payType: "wxPay"
+                  // code: app.globalData.code,
+                };_context.next = 6;return (
+                  _API.default.payAPI.comfirmPay(orderData));case 6:res = _context.sent;
+                console.log("prepay_id", res);_context.next = 10;return (
+                  _API.default.payAPI.getPayParams(res.data.prepay_id));case 10:params = _context.sent;
+                console.log("参数", params);
+                console.log(params.data.paySign);
+                uni.requestPayment({
+                  "appId": params.data.appId,
+                  "timeStamp": params.data.timeStamp,
+                  "nonceStr": params.data.nonceStr,
+                  "package": params.data.package,
+                  "signType": params.data.signType,
+                  "paySign": params.data.paySign,
+                  success: function success(res) {
+                    console.log("支付成功结果", res);
+                    if (res) {
 
-    } } };exports.default = _default;
+                    }
+                  },
+                  fail: function fail(err) {
+                    console.log("支付失败结果", err);
+                  } });case 14:case "end":return _context.stop();}}}, _callee);}))();
+
+    }
+    // LinkToDetial() {
+    // 	uni.navigateTo({
+    // 		url: "../../pages/blockDetial/blockDetial"
+    // 	})
+    // }
+  } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

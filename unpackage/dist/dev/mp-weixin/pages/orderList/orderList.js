@@ -29,7 +29,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _orderList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./orderList.vue?vue&type=script&lang=js& */ 76);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _orderList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _orderList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 /* harmony import */ var _orderList_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./orderList.vue?vue&type=style&index=0&lang=scss& */ 78);
-/* harmony import */ var _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 10);
+/* harmony import */ var _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 18);
 
 var renderjs
 
@@ -95,6 +95,9 @@ __webpack_require__.r(__webpack_exports__);
 var components
 try {
   components = {
+    uniSegmentedControl: function() {
+      return __webpack_require__.e(/*! import() | uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control */ "uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control.vue */ 142))
+    },
     orderCard: function() {
       return __webpack_require__.e(/*! import() | components/orderCard/orderCard */ "components/orderCard/orderCard").then(__webpack_require__.bind(null, /*! @/components/orderCard/orderCard.vue */ 170))
     }
@@ -153,7 +156,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 16));
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 8));
 
 
 
@@ -165,58 +168,87 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var orderCard = function orderCard() {__webpack_require__.e(/*! require.ensure | components/orderCard/orderCard */ "components/orderCard/orderCard").then((function () {return resolve(__webpack_require__(/*! ../../components/orderCard/orderCard.vue */ 170));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 11));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var orderCard = function orderCard() {__webpack_require__.e(/*! require.ensure | components/orderCard/orderCard */ "components/orderCard/orderCard").then((function () {return resolve(__webpack_require__(/*! ../../components/orderCard/orderCard.vue */ 170));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var collectionCard = function collectionCard() {__webpack_require__.e(/*! require.ensure | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then((function () {return resolve(__webpack_require__(/*! ../../components/collectionCard/collectionCard.vue */ 149));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   components: {
-    orderCard: orderCard },
+    orderCard: orderCard,
+    collectionCard: collectionCard },
 
   data: function data() {
     return {
-      orderList: [{
-        id: 0,
-        orderId: "YTSH28255388UJOP",
-        collectionId: "73",
-        title: "青花瓷",
-        payTime: "2021-1-3",
-        imgSrc: "https://img1.baidu.com/it/u=2267847562,3543896283&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=542" },
-
-      {
-        id: 1,
-        orderId: "YTSH28255388UJOP",
-        collectionId: "73",
-        title: "磁州窑",
-        payTime: "2021-1-3",
-        imgSrc: "https://img1.baidu.com/it/u=2267847562,3543896283&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=542" },
-
-      {
-        id: 2,
-        orderId: "YTSH28255388UJOP",
-        collectionId: "73",
-        title: "白瓷",
-        payTime: "2021-1-3",
-        imgSrc: "https://img1.baidu.com/it/u=2267847562,3543896283&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=542" },
-
-      {
-        id: 3,
-        orderId: "YTSH28255388UJOP",
-        collectionId: "73",
-        title: "景泰蓝",
-        payTime: "2021-1-3",
-        imgSrc: "https://img1.baidu.com/it/u=2267847562,3543896283&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=542" }] };
-
-
+      show: false,
+      items: ['待付款', '已成交', '已收货', "已取消"],
+      current: 0,
+      buyerid: null,
+      orderList: [] };
 
   },
-  mounted: function mounted() {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var userInfo, obj, res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+  mounted: function mounted() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var userInfo, obj, res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
                 _API.default.relicManageAPI.getUserInfo());case 2:userInfo = _context.sent;
-              console.log("buyerid", userInfo.data.user.userId);
+              _this.buyerid = userInfo.data.user.userId;
               obj = {
-                "buyerid": 19,
+                "buyerid": _this.buyerid,
                 "status": "DRAFT" };_context.next = 7;return (
 
                 _API.default.relicManageAPI.getBillList(obj));case 7:res = _context.sent;
-              console.log("订单列表", res);case 9:case "end":return _context.stop();}}}, _callee);}))();
-  } };exports.default = _default;
+              _this.orderList = res.data.rows;
+              console.log("待支付订单列表", res);case 10:case "end":return _context.stop();}}}, _callee);}))();
+  },
+  methods: {
+    onClickItem: function onClickItem(e) {
+      if (this.current !== e.currentIndex) {
+        this.current = e.currentIndex;
+      }
+    } },
+
+  watch: {
+    current: function current() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var obj, res, _obj, _res, _obj2, _res2, _obj3, _res3;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+                console.log(_this2.current, _this2.buyerid);if (!(
+                _this2.current == 0)) {_context2.next = 8;break;}
+                obj = {
+                  "buyerid": _this2.buyerid,
+                  "status": "DRAFT" };_context2.next = 5;return (
+
+                  _API.default.relicManageAPI.getBillList(obj));case 5:res = _context2.sent;
+                _this2.orderList = res.data.rows;
+                console.log("待支付订单列表", res);case 8:if (!(
+
+                _this2.current == 1)) {_context2.next = 15;break;}
+                _obj = {
+                  "buyerid": _this2.buyerid,
+                  "status": "PAIED" };_context2.next = 12;return (
+
+                  _API.default.relicManageAPI.getBillList(_obj));case 12:_res = _context2.sent;
+                _this2.orderList = _res.data.rows;
+                console.log("已成交订单列表", _res);case 15:if (!(
+
+                _this2.current == 2)) {_context2.next = 22;break;}
+                _obj2 = {
+                  "buyerid": _this2.buyerid,
+                  "status": "RECEIVED" };_context2.next = 19;return (
+
+                  _API.default.relicManageAPI.getBillList(_obj2));case 19:_res2 = _context2.sent;
+                _this2.orderList = _res2.data.rows;
+                console.log("已收获订单列表", _res2);case 22:if (!(
+
+                _this2.current == 3)) {_context2.next = 29;break;}
+                _obj3 = {
+                  "buyerid": _this2.buyerid,
+                  "status": "CANCELED" };_context2.next = 26;return (
+
+                  _API.default.relicManageAPI.getBillList(_obj3));case 26:_res3 = _context2.sent;
+                _this2.orderList = _res3.data.rows;
+                console.log("已取消订单列表", _res3);case 29:case "end":return _context2.stop();}}}, _callee2);}))();
+
+    } } };exports.default = _default;
 
 /***/ }),
 

@@ -1,9 +1,10 @@
 <script>
+	import API from "./http/API.js"
 	export default {
 		globalData: {
 			collectionId: 0,
 		},
-		onLaunch: function() {
+		async onLaunch() {
 			let res = uni.getStorageSync('user_info');
 			if (res) {
 				this.globalData.userInfo = res

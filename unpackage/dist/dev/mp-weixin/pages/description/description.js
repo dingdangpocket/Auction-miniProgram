@@ -29,7 +29,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _description_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./description.vue?vue&type=script&lang=js& */ 84);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _description_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _description_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 /* harmony import */ var _description_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./description.vue?vue&type=style&index=0&lang=scss& */ 86);
-/* harmony import */ var _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 10);
+/* harmony import */ var _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 18);
 
 var renderjs
 
@@ -153,7 +153,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 16));
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 8));
 
 
 
@@ -199,7 +199,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 11));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
 var app = getApp();var _default =
 {
   data: function data() {
@@ -233,23 +233,47 @@ var app = getApp();var _default =
         url: "../model/model" });
 
     },
-    LinkToOrderComfirm: function LinkToOrderComfirm() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var userInfo, openId, obj, res, items;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
-                  _API.default.relicManageAPI.getUserInfo());case 2:userInfo = _context.sent;
-                console.log("openID", userInfo.data.user.userName);
-                openId = userInfo.data.user.userName;
-                obj = {
-                  "openId": openId,
-                  "commodityId": 5,
-                  "price": 0.01 * 100 };_context.next = 8;return (
+    follow: function follow() {
+      var res = uni.getStorageSync('user_info');
+      if (!res) {
+        uni.showToast({
+          title: '请先登陆账户',
+          duration: 1000 });
 
-                  _API.default.relicManageAPI.addOrder(obj));case 8:res = _context.sent;
+        return;
+      }
+    },
+    LinkToOrderComfirm: function LinkToOrderComfirm() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var userInfo, obj, res, items;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+                  _API.default.relicManageAPI.getUserInfo());case 2:userInfo = _context.sent;if (!(
+                userInfo.data.code == 500)) {_context.next = 6;break;}
+                uni.showToast({
+                  title: '请先登陆账户',
+                  duration: 1000 });return _context.abrupt("return");case 6:
+
+
+
+                // console.log("openID",userInfo.data.user.userName)
+                // const openId=userInfo.data.user.userName
+                obj = {
+                  "openId": userInfo.data.user.userName,
+                  "commodityId": 5,
+                  "price": 0.01 * 100 };_context.next = 9;return (
+
+                  _API.default.relicManageAPI.addOrder(obj));case 9:res = _context.sent;
                 console.log("下单结果", res);
+
+                // if(res.code==500){
+                // 	console.log("下单失败")
+                // 	return
+                // }
+
                 if (res) {
                   items = _this.descData;
                   uni.navigateTo({
                     url: '../orderComfirm/orderComfirm?items=' + JSON.stringify(items) });
 
                 }
+
                 // let res = uni.getStorageSync('user_token');
                 // if (!res) {
                 // 	uni.showToast({
@@ -262,7 +286,7 @@ var app = getApp();var _default =
                 // 		url: '../orderComfirm/orderComfirm?items=' + JSON.stringify(items),
                 // 	})
                 // }
-              case 11:case "end":return _context.stop();}}}, _callee);}))();} } };exports.default = _default;
+              case 12:case "end":return _context.stop();}}}, _callee);}))();} } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
