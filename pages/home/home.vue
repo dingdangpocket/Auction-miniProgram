@@ -16,7 +16,7 @@
 				<view class="content">
 					<view v-show="current === 0">
 						<view class="collectionArea-flex-container">
-							<view class="" v-for="item in collectionDataFilter" @click="linkToDescription"
+							<view class="" v-for="item in collectionDataFilter" @click="linkToDescription(item)"
 								:key="item.id" :data-id="item.id">
 								<collectionCard :item="item"></collectionCard>
 							</view>
@@ -24,15 +24,15 @@
 					</view>
 					<view v-show="current === 1">
 						<view class="collectionArea-flex-container">
-							<view class="" v-for="item in collectionDataFilter" @click="linkToDescription"
-								:key="item.id" :data-id="item.id">
+							<view class="" v-for="item in collectionDataFilter" @click="linkToDescription(item)"
+								:key="item" :data-id="item.id">
 								<collectionCard :item="item"></collectionCard>
 							</view>
 						</view>
 					</view>
 					<view v-show="current === 2">
 						<view class="collectionArea-flex-container">
-							<view class="" v-for="item in collectionDataFilter" @click="linkToDescription"
+							<view class="" v-for="item in collectionDataFilter" @click="linkToDescription(item)"
 								:key="item.id" :data-id="item.id">
 								<collectionCard :item="item"></collectionCard>
 							</view>
@@ -88,26 +88,23 @@
 			}
 		},
 		async onLoad() {
-			// const loginTimesOutAuth = await  API.relicManageAPI.getUserInfo()
-			// console.log(loginTimesOutAuth)
-			// if(loginTimesOutAuth.data.code==500){
-			// 	uni.clearStorageSync();
-			// 	console.log("账号登陆已过期请重新登陆")
-			// }
-			let res = uni.getStorageSync('user_token');
-			if (res) {
-				this.show = false
-			} else {
-				this.show = true
-			}
-			// uni.navigateTo({
-			// 	url:"../description/description"
+			// uni.switchTab({
+			// 	url:"../main/main"
 			// })
+			const loginTimesOutAuth = await  API.relicManageAPI.getUserInfo()
+			if(loginTimesOutAuth.data.code==500){
+				uni.clearStorageSync();
+				app.globalData.isLoginStatus=false;
+				console.log("账号登陆过期,重新登陆!")
+			}
+			if (app.globalData.isLoginStatus==false) {
+				this.show = true
+			} else {
+				this.show = false
+			}
 		},
 		async mounted() {
 			this.getData()
-		},
-		watch: {
 		},
 		computed: {
 			collectionDataFilter: function() {
@@ -150,10 +147,10 @@
 					this.current = e.currentIndex
 				}
 			},
-			linkToDescription(e) {
-				app.globalData.collectionId = e.currentTarget.dataset.id
+			linkToDescription(item) {
+				// app.globalData.collectionId = e.currentTarget.dataset.id
 				uni.navigateTo({
-					url: "../description/description"
+					url: '../description/description?items='+ JSON.stringify(item)
 				})
 			},
 			//登陆板块
@@ -197,6 +194,7 @@
 							app.globalData.token = res.data.data.token
 							app.globalData.openId = res.data.data.sysUser.userName
 							app.globalData.userInfo = res.data.data.sysUser
+							app.globalData.isLoginStatus = true
 							uni.showToast({
 								title: '授权登陆成功',
 								duration: 1300

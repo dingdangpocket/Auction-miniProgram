@@ -64,21 +64,7 @@ var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 1
 //
 //
 //
-var app = getApp();var _default = { data: function data() {return { orderInfo: "" };}, onLoad: function onLoad(option) {var res = JSON.parse(option.items);console.log(res);this.orderInfo = res;}, methods: { comfirm: function comfirm() {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var userInfo, openId, orderData, res, params;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return _API.default.relicManageAPI.getUserInfo();case 2:userInfo = _context.sent;console.log("openID", userInfo.data.user.userName);openId = userInfo.data.user.userName; // var quantity = 3
-                // var needPay = Math.floor(parseFloat(3.8 * 100 * quantity));
-                // console.log(needPay, "分")
-                orderData = { openId: openId, commodityId: 5,
-                  price: 0.01 * 100
-                  // title:"测试"
-                  // payType: "wxPay"
-                  // code: app.globalData.code,
-                };_context.next = 8;return (
-                  _API.default.payAPI.comfirmPay(orderData));case 8:res = _context.sent;
-                console.log("prepay_id", res);_context.next = 12;return (
-                  _API.default.payAPI.getPayParams(res.data.prepay_id));case 12:params = _context.sent;
-                console.log("参数", params);
-                console.log(params.data.paySign);
-                uni.requestPayment({
+var app = getApp();var _default = { data: function data() {return { url: "https://api.bitaichain.com:8443/", orderInfo: "", paramsArray: [] };}, onLoad: function onLoad(option) {this.paramsArray = JSON.parse(option.items);console.log("订单数据", this.paramsArray);this.orderInfo = this.paramsArray[1];console.log("订单数据", this.orderInfo);}, methods: { comfirm: function comfirm() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var params;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return _API.default.payAPI.getPayParams(_this.paramsArray[0].prepay_id);case 2:params = _context.sent;console.log("支付参数", params);uni.requestPayment({
                   "appId": params.data.appId,
                   "timeStamp": params.data.timeStamp,
                   "nonceStr": params.data.nonceStr,
@@ -93,7 +79,7 @@ var app = getApp();var _default = { data: function data() {return { orderInfo: "
                   },
                   fail: function fail(err) {
                     console.log("支付失败结果", err);
-                  } });case 16:case "end":return _context.stop();}}}, _callee);}))();
+                  } });case 5:case "end":return _context.stop();}}}, _callee);}))();
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

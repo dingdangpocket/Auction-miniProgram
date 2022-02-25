@@ -2,11 +2,11 @@
 	<view class="commonStyle">
 		<view class="orderCardItem">
 			<view class="imgArea">
-				<image :src="orderInfo.imgArray[0].imgPath" mode=""></image>
+				<image  :src="`${url}file${orderInfo.collection.images[0].url}`" mode=""></image>
 			</view>
 			<view class="textArea">
-				<text style="font-size: 25rpx;">{{orderInfo.title}}</text>
-				<text>¥199</text>
+				<text style="font-size: 25rpx;">{{orderInfo.name}}</text>
+				<text>¥{{orderInfo.price/100}}</text>
 				<text style="font-size:25rpx;">数量:1件</text>
 			<!-- 	<text style="font-size:20rpx;">发行方:{{orderInfo.musem}}</text> -->
 			</view>
@@ -23,35 +23,21 @@
 	export default {
 		data() {
 			return {
+				url: "https://api.bitaichain.com:8443/",
 				orderInfo: "",
+				paramsArray:[]
 			}
 		},
 		onLoad(option) {
-			const res = JSON.parse(option.items)
-			console.log(res)
-			this.orderInfo = res
+			this.paramsArray= JSON.parse(option.items)
+			console.log("订单数据",this.paramsArray)
+			this.orderInfo = this.paramsArray[1]
+			console.log("订单数据",this.orderInfo)
 		},
 		methods: {
 			async comfirm() {
-				const userInfo = await  API.relicManageAPI.getUserInfo()
-				console.log("openID",userInfo.data.user.userName)
-				const openId=userInfo.data.user.userName
-				// var quantity = 3
-				// var needPay = Math.floor(parseFloat(3.8 * 100 * quantity));
-				// console.log(needPay, "分")
-				let orderData = {
-					openId:openId,
-					commodityId:5,
-					price: 0.01 * 100,
-					// title:"测试"
-					// payType: "wxPay"
-					// code: app.globalData.code,
-				}
-				const res = await API.payAPI.comfirmPay(orderData)
-				console.log("prepay_id", res)
-				const params = await API.payAPI.getPayParams(res.data.prepay_id)
-				console.log("参数", params)
-				console.log(params.data.paySign)
+				const params = await API.payAPI.getPayParams(this.paramsArray[0].prepay_id)
+				console.log("支付参数", params)
 				uni.requestPayment({
 					"appId": params.data.appId,
 					"timeStamp": params.data.timeStamp,

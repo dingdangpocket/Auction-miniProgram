@@ -8895,9 +8895,12 @@ var baseURL = 'https://api.bitaichain.com:8443';
 var request = function request(data) {
   return new Promise(function (resolve, reject) {
     var token = uni.getStorageSync('user_token');
-    console.log("token", token);
+    // console.log("token",token)
     if (token) {
-      console.log("交出数据", data.data);
+      // console.log("交出数据",data.data)
+      uni.showLoading({
+        title: "加载中..." });
+
       uni.request({
         url: baseURL + data.url,
         method: data.method,
@@ -8910,7 +8913,7 @@ var request = function request(data) {
         success: function success(res) {
           resolve(res);
         },
-        fail: function fail() {
+        fail: function fail(res) {
           uni.showToast({
             title: '网络错误',
             duration: 1000 });
@@ -8921,6 +8924,9 @@ var request = function request(data) {
         } });
 
     } else {
+      uni.showLoading({
+        title: "加载中..." });
+
       uni.request({
         url: baseURL + data.url,
         method: data.method,
@@ -8930,7 +8936,6 @@ var request = function request(data) {
           'Content-Type': 'application/json' },
 
         success: function success(res) {
-          console.log(res);
           resolve(res);
         },
         fail: function fail() {
@@ -8974,7 +8979,6 @@ var relicManageAPI = {
 
   },
   addOrder: function addOrder(data) {
-    console.log(data);
     return (0, _request.request)({
       url: '/bill/payment/placeorder',
       method: 'POST',
@@ -8982,7 +8986,7 @@ var relicManageAPI = {
 
   },
   getBillList: function getBillList(data) {
-    console.log("订单数据", data);
+    // console.log("订单数据",data)
     return (0, _request.request)({
       url: '/bill/bill/list',
       method: 'POST',

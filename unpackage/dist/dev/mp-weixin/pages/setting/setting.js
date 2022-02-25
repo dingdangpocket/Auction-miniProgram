@@ -190,10 +190,18 @@ var app = getApp();var _default =
 
     },
     ExitLogin: function ExitLogin() {
+      console.log(app.globalData.isLoginStatus);
+      if (app.globalData.isLoginStatus == false) {
+        uni.showToast({
+          title: '您未登陆账户',
+          duration: 1000 });
+
+        return;
+      }
       uni.clearStorageSync();
       app.globalData.userInfo = null;
       app.globalData.cach = true;
-      console.log(app.globalData);
+      app.globalData.isLoginStatus = false;
       uni.showToast({
         title: '退出成功',
         duration: 700 });

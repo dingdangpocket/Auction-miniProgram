@@ -96,7 +96,7 @@ var components
 try {
   components = {
     imgCard: function() {
-      return __webpack_require__.e(/*! import() | components/imgCard/imgCard */ "components/imgCard/imgCard").then(__webpack_require__.bind(null, /*! @/components/imgCard/imgCard.vue */ 177))
+      return __webpack_require__.e(/*! import() | components/imgCard/imgCard */ "components/imgCard/imgCard").then(__webpack_require__.bind(null, /*! @/components/imgCard/imgCard.vue */ 184))
     }
   }
 } catch (e) {
@@ -204,6 +204,9 @@ var app = getApp();var _default =
 {
   data: function data() {
     return {
+      commodityId: null,
+      descInfo: {},
+      openId: null,
       descData: {
         id: 0,
         title: "红釉陶瓷工艺品",
@@ -227,6 +230,11 @@ var app = getApp();var _default =
 
 
   },
+  onLoad: function onLoad(option) {
+    this.descInfo = JSON.parse(option.items);
+    // console.log("商品数据",this.descInfo)
+    this.openId = uni.getStorageSync('user_info').userName;
+  },
   methods: {
     LinkToModel: function LinkToModel() {
       uni.navigateTo({
@@ -234,8 +242,7 @@ var app = getApp();var _default =
 
     },
     follow: function follow() {
-      var res = uni.getStorageSync('user_info');
-      if (!res) {
+      if (app.globalData.isLoginStatus == false) {
         uni.showToast({
           title: '请先登陆账户',
           duration: 1000 });
@@ -243,50 +250,31 @@ var app = getApp();var _default =
         return;
       }
     },
-    LinkToOrderComfirm: function LinkToOrderComfirm() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var userInfo, obj, res, items;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
-                  _API.default.relicManageAPI.getUserInfo());case 2:userInfo = _context.sent;if (!(
-                userInfo.data.code == 500)) {_context.next = 6;break;}
+    LinkToOrderComfirm: function LinkToOrderComfirm() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var obj, res, paramsArray;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:if (!(
+                app.globalData.isLoginStatus == false)) {_context.next = 3;break;}
                 uni.showToast({
                   title: '请先登陆账户',
-                  duration: 1000 });return _context.abrupt("return");case 6:
+                  duration: 1000 });return _context.abrupt("return");case 3:
 
 
 
-                // console.log("openID",userInfo.data.user.userName)
-                // const openId=userInfo.data.user.userName
                 obj = {
-                  "openId": userInfo.data.user.userName,
-                  "commodityId": 5,
-                  "price": 0.01 * 100 };_context.next = 9;return (
+                  "openId": _this.openId,
+                  "commodityId": _this.descInfo.id,
+                  "price": _this.descInfo.price };_context.next = 6;return (
 
-                  _API.default.relicManageAPI.addOrder(obj));case 9:res = _context.sent;
-                console.log("下单结果", res);
+                  _API.default.relicManageAPI.addOrder(obj));case 6:res = _context.sent;if (!(
 
-                // if(res.code==500){
-                // 	console.log("下单失败")
-                // 	return
-                // }
+                res.data.success == "false")) {_context.next = 9;break;}return _context.abrupt("return");case 9:
 
-                if (res) {
-                  items = _this.descData;
+
+                if (res.data.success == "true") {
+                  paramsArray = [res.data, _this.descInfo];
                   uni.navigateTo({
-                    url: '../orderComfirm/orderComfirm?items=' + JSON.stringify(items) });
+                    url: '../orderComfirm/orderComfirm?items=' + JSON.stringify(paramsArray) });
 
-                }
-
-                // let res = uni.getStorageSync('user_token');
-                // if (!res) {
-                // 	uni.showToast({
-                // 		title: '请先登陆',
-                // 		duration: 3000
-                // 	});
-                // }else{
-                // 	var items = this.descData
-                // 	uni.navigateTo({
-                // 		url: '../orderComfirm/orderComfirm?items=' + JSON.stringify(items),
-                // 	})
-                // }
-              case 12:case "end":return _context.stop();}}}, _callee);}))();} } };exports.default = _default;
+                }case 10:case "end":return _context.stop();}}}, _callee);}))();
+    } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

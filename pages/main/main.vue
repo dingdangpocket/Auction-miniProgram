@@ -26,38 +26,36 @@
 		<view>
 			<uni-segmented-control :current="current" :values="items" style-type="text" active-color="#a05909"
 				@clickItem="onClickItem" />
-			<view class="content">
-				<view v-show="current === 0">
-					<scroll-view scroll-y="true" class="collectionArea" show-scrollbar="false">
-						<view class="collectionArea-flex-container">
-							<view class="" v-for="item in collectionData" @click="linkToDescription" :key="item.id"
-								:data-id="item.id">
-								<collectionCard :item="item"></collectionCard>
+					<view v-if="collectionData==null" class="empty">
+					  <text>空</text>
+					</view>
+					<view v-show="current === 0">
+							<view class="collectionArea-flex-container">
+								<view class="collectionArea-flex-container" v-for="item in collectionData"
+									:key="item.id" :data-id="item.id">
+									<myCollectionCard :item="item"></myCollectionCard>
+								</view>
 							</view>
-						</view>
-					</scroll-view>
-				</view>
-				<view v-show="current === 1">
-					<view class="collectionArea-flex-container">
-						<view class="" v-for="item in collectionData" @click="linkToDescription" :key="item.id"
-							:data-id="item.id">
-							<collectionCard :item="item"></collectionCard>
-						</view>
+					</view>
+					<view v-show="current === 1">
+							<view class="collectionArea-flex-container">
+								<view class="collectionArea-flex-container" v-for="item in collectionData"
+									:key="item.id" :data-id="item.id">
+									<myCollectionCard :item="item"></myCollectionCard>
+								</view>
+							</view>
 					</view>
 				</view>
 			</view>
-		</view>
-
-	</view>
 </template>
 
 <script>
 	var app = getApp()
-	import collectionCard from '../../components/collectionCard/collectionCard.vue'
+	import myCollectionCard from "../../components/myCollectionCard/myCollectionCard.vue"
 	import API from "../../http/API.js"
 	export default {
 		components: {
-			collectionCard
+			myCollectionCard
 		},
 		data() {
 			return {
@@ -67,22 +65,21 @@
 				dataArry: null,
 				mycollect: null,
 				auth: false,
-				collectionData: ""
+				collectionData: null
 			}
 		},
 		onShow() {
 			if (app.globalData.cach == true) {
 				this.userInfo = ""
+				this.collectionData = null
 			}
-			//退出登陆清空缓存数据;
+			//退出登陆后清空缓存用户登陆数据;
 		},
-		mounted() {
+	    onLoad() {
 			if (app.globalData.userInfo) {
-				// console.log(app.globalData.userInfo)
 				this.userInfo = app.globalData.userInfo
+				
 			}
-			// console.log("所有",app)
-			this.login()
 			this.getData()
 		},
 		methods: {
@@ -92,9 +89,13 @@
 				}
 			},
 			async getData() {
-				const res = await API.relicManageAPI.GetCommodityData()
-				console.log("商品列表", res)
+				let obj = {
+					"buyerid": uni.getStorageSync('user_info').userId,
+					"status": "PAIED"
+				}
+				const res = await API.relicManageAPI.getBillList(obj)
 				this.collectionData = res.data.rows
+				// console.log("用户的藏品列表", res)
 			},
 			LinkToSetting() {
 				uni.navigateTo({
@@ -102,6 +103,14 @@
 				})
 			},
 			LinkToMyOrderList() {
+				console.log("boolean",app.globalData.isLoginStatus)
+				if(app.globalData.isLoginStatus==false){
+					uni.showToast({
+						title: '请先登陆账户',
+						duration: 1000
+					});
+					return
+				}
 				uni.navigateTo({
 					url: "../orderList/orderList"
 				})
@@ -109,8 +118,10 @@
 
 			//登陆板块
 			login() {
-				let res = uni.getStorageSync('user_token');
-				if (res) {
+				if(app.globalData.isLoginStatus==true){
+					uni.navigateTo({
+						url:"../setting/setting"
+					})
 					return
 				}
 				uni.getUserProfile({
@@ -153,9 +164,11 @@
 								data: res.data.data.token
 							});
 							app.globalData.token = res.data.data.token
-							console.log("openID",res.data.data.sysUser.userName)
 							app.globalData.openId = res.data.data.sysUser.userName
 							app.globalData.userInfo = res.data.data.sysUser
+							app.globalData.isLoginStatus = true
+							this.getData()
+							//登陆后,获取我的收藏数据
 							uni.showToast({
 								title: '授权登陆成功',
 								duration: 1300
@@ -187,6 +200,14 @@
 </script>
 
 <style lang="scss">
+	.empty{
+		width: 100vw;
+		height: 60vh;
+		display: flex;
+		justify-content:center;
+		align-items: center;
+		color: rgb(180,180,180);
+	}
 	.body {
 		color: white;
 		overflow: hidden;
@@ -207,7 +228,7 @@
 	}
 
 	.collectionArea-flex-container {
-		width: 100vw;
+		width: 100%;
 		display: flex;
 		justify-content: space-around;
 		flex-wrap: wrap;

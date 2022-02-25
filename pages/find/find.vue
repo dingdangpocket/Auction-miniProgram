@@ -77,14 +77,12 @@
 		width: 100vw;
 		height: 80vh;
 		margin-top: 10rpx;
-
 		.collectionArea-flex-container {
 			width: 100vw;
 			display: flex;
 			justify-content: space-around;
 			flex-wrap: wrap;
 		}
-
 		.collectionArea-flex-container:after {
 			content: '';
 			height: 10rpx;

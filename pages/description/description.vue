@@ -19,7 +19,7 @@
 			<text>{{descData.musem}}</text> -->
 		</view>
 		<view class="PriceArea">
-			<text style="font-size:40rpx;">199RMB</text>
+			<text style="font-size:40rpx;">¥{{descInfo.price/100}}</text>
 			<!-- 	<text class="limitTag">限量发行</text>
 			<text style="font-size:22rpx;padding-left:5rpx;">{{descData.limit}}份</text> -->
 			<image class="model" src="../../static/3dblack.png" mode="" @click="LinkToModel"></image>
@@ -49,6 +49,9 @@
 	export default {
 		data() {
 			return {
+				commodityId: null,
+				descInfo: {},
+				openId: null,
 				descData: {
 					id: 0,
 					title: "红釉陶瓷工艺品",
@@ -72,65 +75,50 @@
 				},
 			}
 		},
+		onLoad: function(option) {
+			this.descInfo = JSON.parse(option.items)
+			// console.log("商品数据",this.descInfo)
+			this.openId = uni.getStorageSync('user_info').userName
+		},
 		methods: {
 			LinkToModel() {
 				uni.navigateTo({
 					url: "../model/model"
 				})
 			},
-			follow(){
-				let res = uni.getStorageSync('user_info');
-				if (!res) {
+			follow() {
+				if (app.globalData.isLoginStatus == false) {
 					uni.showToast({
 						title: '请先登陆账户',
 						duration: 1000
 					});
 					return
-				} 
+				}
 			},
-		async LinkToOrderComfirm() {
-			   const userInfo = await  API.relicManageAPI.getUserInfo()
-			   if(userInfo.data.code==500){
-				   uni.showToast({
-				   	title: '请先登陆账户',
-				   	duration: 1000
-				   });
-				   return
-			   }
-			   // console.log("openID",userInfo.data.user.userName)
-			   // const openId=userInfo.data.user.userName
-				let obj={
-						"openId":userInfo.data.user.userName,
-						"commodityId":5,
-						"price": 0.01 * 100
-						}
-                const res = await  API.relicManageAPI.addOrder(obj)
-				console.log("下单结果",res)
-				
-				// if(res.code==500){
-				// 	console.log("下单失败")
-				// 	return
-				// }
-				
-				if(res){
-					var items = this.descData;
+			async LinkToOrderComfirm() {
+				if (app.globalData.isLoginStatus == false) {
+					uni.showToast({
+						title: '请先登陆账户',
+						duration: 1000
+					});
+					return
+				}
+				let obj = {
+					"openId": this.openId,
+					"commodityId": this.descInfo.id,
+					"price": this.descInfo.price,
+				}
+				const res = await API.relicManageAPI.addOrder(obj)
+				// console.log("下单结果", res)
+				if (res.data.success == "false") {
+					return
+				}
+				if (res.data.success == "true") {
+					let paramsArray = [res.data, this.descInfo]
 					uni.navigateTo({
-						url: '../orderComfirm/orderComfirm?items=' + JSON.stringify(items),
+						url: '../orderComfirm/orderComfirm?items=' + JSON.stringify(paramsArray),
 					})
 				}
-			
-				// let res = uni.getStorageSync('user_token');
-				// if (!res) {
-				// 	uni.showToast({
-				// 		title: '请先登陆',
-				// 		duration: 3000
-				// 	});
-				// }else{
-				// 	var items = this.descData
-				// 	uni.navigateTo({
-				// 		url: '../orderComfirm/orderComfirm?items=' + JSON.stringify(items),
-				// 	})
-				// }
 			}
 		},
 	}
@@ -185,7 +173,7 @@
 				height: 60rpx;
 				right: 50rpx;
 				bottom: 28rpx;
-				top:8rpx
+				top: 8rpx
 			}
 
 			.follow {
@@ -194,7 +182,7 @@
 				height: 50rpx;
 				right: 138rpx;
 				bottom: 28rpx;
-				top:15rpx
+				top: 15rpx
 			}
 		}
 
@@ -206,6 +194,7 @@
 			line-height: 75rpx;
 			color: black;
 			justify-content: center;
+
 			// background-color: "#FFFFFF";
 			.Title {
 				height: 50rpx;
@@ -214,6 +203,7 @@
 				justify-content: center;
 			}
 		}
+
 		.MusemArea {
 			height: 40rpx;
 			width: 100%;
@@ -223,6 +213,7 @@
 			font-size: 23rpx;
 			display: flex;
 			justify-content: space-between;
+
 			text {
 				display: block;
 				margin-left: 10rpx;
@@ -257,6 +248,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+
 		text {
 			width: 135rpx;
 			display: flex;

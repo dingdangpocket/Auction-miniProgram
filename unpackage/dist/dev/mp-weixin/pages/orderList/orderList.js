@@ -99,7 +99,7 @@ try {
       return __webpack_require__.e(/*! import() | uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control */ "uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control.vue */ 142))
     },
     orderCard: function() {
-      return __webpack_require__.e(/*! import() | components/orderCard/orderCard */ "components/orderCard/orderCard").then(__webpack_require__.bind(null, /*! @/components/orderCard/orderCard.vue */ 170))
+      return __webpack_require__.e(/*! import() | components/orderCard/orderCard */ "components/orderCard/orderCard").then(__webpack_require__.bind(null, /*! @/components/orderCard/orderCard.vue */ 177))
     }
   }
 } catch (e) {
@@ -176,7 +176,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 11));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var orderCard = function orderCard() {__webpack_require__.e(/*! require.ensure | components/orderCard/orderCard */ "components/orderCard/orderCard").then((function () {return resolve(__webpack_require__(/*! ../../components/orderCard/orderCard.vue */ 170));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var collectionCard = function collectionCard() {__webpack_require__.e(/*! require.ensure | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then((function () {return resolve(__webpack_require__(/*! ../../components/collectionCard/collectionCard.vue */ 149));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 11));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var orderCard = function orderCard() {__webpack_require__.e(/*! require.ensure | components/orderCard/orderCard */ "components/orderCard/orderCard").then((function () {return resolve(__webpack_require__(/*! ../../components/orderCard/orderCard.vue */ 177));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var collectionCard = function collectionCard() {__webpack_require__.e(/*! require.ensure | components/collectionCard/collectionCard */ "components/collectionCard/collectionCard").then((function () {return resolve(__webpack_require__(/*! ../../components/collectionCard/collectionCard.vue */ 149));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   components: {
     orderCard: orderCard,
@@ -200,8 +200,8 @@ var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 1
 
                 _API.default.relicManageAPI.getBillList(obj));case 7:res = _context.sent;
               _this.orderList = res.data.rows;
-              console.log("待支付订单列表", res);case 10:case "end":return _context.stop();}}}, _callee);}))();
-  },
+              // console.log("待支付订单列表", res)
+            case 9:case "end":return _context.stop();}}}, _callee);}))();},
   methods: {
     onClickItem: function onClickItem(e) {
       if (this.current !== e.currentIndex) {
@@ -210,43 +210,43 @@ var _API = _interopRequireDefault(__webpack_require__(/*! ../../http/API.js */ 1
     } },
 
   watch: {
-    current: function current() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var obj, res, _obj, _res, _obj2, _res2, _obj3, _res3;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
-                console.log(_this2.current, _this2.buyerid);if (!(
-                _this2.current == 0)) {_context2.next = 8;break;}
+    current: function current() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var obj, res, _obj, _res, _obj2, _res2, _obj3, _res3;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:if (!(
+
+                _this2.current == 0)) {_context2.next = 6;break;}
                 obj = {
                   "buyerid": _this2.buyerid,
-                  "status": "DRAFT" };_context2.next = 5;return (
+                  "status": "DRAFT" };_context2.next = 4;return (
 
-                  _API.default.relicManageAPI.getBillList(obj));case 5:res = _context2.sent;
+                  _API.default.relicManageAPI.getBillList(obj));case 4:res = _context2.sent;
                 _this2.orderList = res.data.rows;
-                console.log("待支付订单列表", res);case 8:if (!(
-
-                _this2.current == 1)) {_context2.next = 15;break;}
+                // console.log("待支付订单列表", res)
+              case 6:if (!(
+                _this2.current == 1)) {_context2.next = 12;break;}
                 _obj = {
                   "buyerid": _this2.buyerid,
-                  "status": "PAIED" };_context2.next = 12;return (
+                  "status": "PAIED" };_context2.next = 10;return (
 
-                  _API.default.relicManageAPI.getBillList(_obj));case 12:_res = _context2.sent;
+                  _API.default.relicManageAPI.getBillList(_obj));case 10:_res = _context2.sent;
                 _this2.orderList = _res.data.rows;
-                console.log("已成交订单列表", _res);case 15:if (!(
-
-                _this2.current == 2)) {_context2.next = 22;break;}
+                // console.log("已成交订单列表", res)
+              case 12:if (!(
+                _this2.current == 2)) {_context2.next = 19;break;}
                 _obj2 = {
                   "buyerid": _this2.buyerid,
-                  "status": "RECEIVED" };_context2.next = 19;return (
+                  "status": "RECEIVED" };_context2.next = 16;return (
 
-                  _API.default.relicManageAPI.getBillList(_obj2));case 19:_res2 = _context2.sent;
+                  _API.default.relicManageAPI.getBillList(_obj2));case 16:_res2 = _context2.sent;
                 _this2.orderList = _res2.data.rows;
-                console.log("已收获订单列表", _res2);case 22:if (!(
+                console.log("已收获订单列表", _res2);case 19:if (!(
 
-                _this2.current == 3)) {_context2.next = 29;break;}
+                _this2.current == 3)) {_context2.next = 26;break;}
                 _obj3 = {
                   "buyerid": _this2.buyerid,
-                  "status": "CANCELED" };_context2.next = 26;return (
+                  "status": "CANCELED" };_context2.next = 23;return (
 
-                  _API.default.relicManageAPI.getBillList(_obj3));case 26:_res3 = _context2.sent;
+                  _API.default.relicManageAPI.getBillList(_obj3));case 23:_res3 = _context2.sent;
                 _this2.orderList = _res3.data.rows;
-                console.log("已取消订单列表", _res3);case 29:case "end":return _context2.stop();}}}, _callee2);}))();
+                console.log("已取消订单列表", _res3);case 26:case "end":return _context2.stop();}}}, _callee2);}))();
 
     } } };exports.default = _default;
 

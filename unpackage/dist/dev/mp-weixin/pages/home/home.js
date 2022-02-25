@@ -251,28 +251,25 @@ var _vuex = __webpack_require__(/*! vuex */ 20);function _interopRequireDefault(
       screenWidth: "" };
 
   },
-  onLoad: function onLoad() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
-              // const loginTimesOutAuth = await  API.relicManageAPI.getUserInfo()
-              // console.log(loginTimesOutAuth)
-              // if(loginTimesOutAuth.data.code==500){
-              // 	uni.clearStorageSync();
-              // 	console.log("账号登陆已过期请重新登陆")
-              // }
-              res = uni.getStorageSync('user_token');
-              if (res) {
-                _this.show = false;
-              } else {
-                _this.show = true;
+  onLoad: function onLoad() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var loginTimesOutAuth;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+
+
+
+                _API.default.relicManageAPI.getUserInfo());case 2:loginTimesOutAuth = _context.sent;
+              if (loginTimesOutAuth.data.code == 500) {
+                uni.clearStorageSync();
+                app.globalData.isLoginStatus = false;
+                console.log("账号登陆过期,重新登陆!");
               }
-              // uni.navigateTo({
-              // 	url:"../description/description"
-              // })
-            case 2:case "end":return _context.stop();}}}, _callee);}))();},
+              if (app.globalData.isLoginStatus == false) {
+                _this.show = true;
+              } else {
+                _this.show = false;
+              }case 5:case "end":return _context.stop();}}}, _callee);}))();
+  },
   mounted: function mounted() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
               _this2.getData();case 1:case "end":return _context2.stop();}}}, _callee2);}))();
   },
-  watch: {},
-
   computed: {
     collectionDataFilter: function collectionDataFilter() {
       if (this.current == 0) {
@@ -314,10 +311,10 @@ var _vuex = __webpack_require__(/*! vuex */ 20);function _interopRequireDefault(
         this.current = e.currentIndex;
       }
     },
-    linkToDescription: function linkToDescription(e) {
-      app.globalData.collectionId = e.currentTarget.dataset.id;
+    linkToDescription: function linkToDescription(item) {
+      // app.globalData.collectionId = e.currentTarget.dataset.id
       uni.navigateTo({
-        url: "../description/description" });
+        url: '../description/description?items=' + JSON.stringify(item) });
 
     },
     //登陆板块
@@ -361,6 +358,7 @@ var _vuex = __webpack_require__(/*! vuex */ 20);function _interopRequireDefault(
             app.globalData.token = res.data.data.token;
             app.globalData.openId = res.data.data.sysUser.userName;
             app.globalData.userInfo = res.data.data.sysUser;
+            app.globalData.isLoginStatus = true;
             uni.showToast({
               title: '授权登陆成功',
               duration: 1300 });

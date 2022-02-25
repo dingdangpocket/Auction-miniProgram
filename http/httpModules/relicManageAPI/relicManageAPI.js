@@ -15,15 +15,14 @@ const relicManageAPI = {
 		})
 	},
 	addOrder(data) {
-		console.log(data)
 		return request({
 			url: '/bill/payment/placeorder',
-			method: 'POST',
+			method:'POST',
 			data: data,
 		})
 	},
 	getBillList(data) {
-		console.log("订单数据",data)
+		// console.log("订单数据",data)
 		return request({
 			url: '/bill/bill/list',
 			method: 'POST',

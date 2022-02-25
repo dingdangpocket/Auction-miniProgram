@@ -14,7 +14,7 @@
 				<text style="font-size:20rpx;">自营</text>
 			</view>
 			<view class="right">
-				<text>¥{{item.price}}</text>
+				<text>¥{{item.price/100}}</text>
 			</view>
 		</view>
 	</view>

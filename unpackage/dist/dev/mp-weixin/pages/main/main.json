@@ -2,6 +2,6 @@
   "navigationBarTitleText": "个人中心",
   "usingComponents": {
     "uni-segmented-control": "/uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control",
-    "collection-card": "/components/collectionCard/collectionCard"
+    "my-collection-card": "/components/myCollectionCard/myCollectionCard"
   }
 }

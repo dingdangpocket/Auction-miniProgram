@@ -6,9 +6,12 @@ const baseURL = 'https://api.bitaichain.com:8443'
 export const request = function request(data) {
 	return new Promise((resolve, reject) => {
 		const token = uni.getStorageSync('user_token');
-		console.log("token",token)
+		// console.log("token",token)
 		if (token) {
-			console.log("交出数据",data.data)
+			// console.log("交出数据",data.data)
+			uni.showLoading({
+			    	title:"加载中..."
+			})
 			uni.request({
 				url: baseURL + data.url,
 				method: data.method,
@@ -21,7 +24,7 @@ export const request = function request(data) {
 				success: res => {
 					resolve(res)
 				},
-				fail() {
+				fail(res) {
 					uni.showToast({
 						title: '网络错误',
 						duration: 1000
@@ -32,6 +35,9 @@ export const request = function request(data) {
 				}
 			})
 		} else {
+			uni.showLoading({
+			    	title:"加载中..."
+			})
 			uni.request({
 				url: baseURL + data.url,
 				method: data.method,
@@ -41,7 +47,6 @@ export const request = function request(data) {
 					'Content-Type': 'application/json',
 				},
 				success: res => {
-					console.log(res)
 					resolve(res)
 				},
 				fail() {

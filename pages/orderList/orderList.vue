@@ -5,7 +5,7 @@
 				@clickItem="onClickItem"/>
 			<scroll-view class="content">
 				<view class="collectionArea-flex-container">
-					<view class="" v-for="item in orderList" @click="linkToDescription" :key="item.id"
+					<view class="" v-for="item in orderList" :key="item.id"
 						:data-id="item.id">
 						<orderCard :item="item"></orderCard>
 					</view>
@@ -42,7 +42,7 @@
 			}
 			const res = await API.relicManageAPI.getBillList(obj)
 			this.orderList = res.data.rows
-			console.log("待支付订单列表", res)
+			// console.log("待支付订单列表", res)
 		},
 		methods: {
 			onClickItem(e) {
@@ -53,7 +53,7 @@
 		},
 		watch: {
 			async current() {
-				console.log(this.current, this.buyerid)
+				// console.log(this.current, this.buyerid)
 				if (this.current == 0) {
 					let obj = {
 						"buyerid": this.buyerid,
@@ -61,7 +61,7 @@
 					}
 					const res = await API.relicManageAPI.getBillList(obj)
 					this.orderList = res.data.rows
-					console.log("待支付订单列表", res)
+					// console.log("待支付订单列表", res)
 				}
 				if (this.current == 1) {
 					let obj = {
@@ -70,7 +70,7 @@
 					}
 					const res = await API.relicManageAPI.getBillList(obj)
 					this.orderList = res.data.rows
-					console.log("已成交订单列表", res)
+					// console.log("已成交订单列表", res)
 				}
 				if (this.current == 2) {
 					let obj = {

@@ -1,17 +1,18 @@
 <template>
 	<view class="orderCardItem">
 		<view class="imgArea">
-			<image :src="item.imgSrc" mode=""></image>
+			<image :src="`${url}file${item.commodity.collection.images[0].url}`" mode=""></image>
 		</view>
 		<view class="textArea">
-			<text>{{item.title}}</text>
-			<text style="font-size:20rpx;">订单编号{{item.prepayid.slice(0,10)}}</text>
-			<text style="font-size:20rpx;">订单状态:{{item.status}}</text>
-			<text style="font-size:20rpx;">交易时间{{item.payTime}}</text>
+			<text style="font-size:25rpx;color:#1d1d1d;">{{item.commodity.name}}</text>
+			<text>订单编号{{item.outTradeNo.slice(0,18)}}</text>
+			<text>订单状态:待付款</text>
+			<text v-if="item.status=='DRAFT'">交易时间{{item.orderTime.slice(0,10)}}</text>
+			<text v-if="item.status=='PAIED'">交易时间{{item.payTime.slice(0,10)}}</text>
 		</view>
 		<view class="btnArea">
-			<button v-if="item.status=='DRAFT'" class="btn" type="default" @click="comfirm(item.commodityId)">支付</button>
-			<!-- 	... -->
+			<button v-if="item.status=='DRAFT'" class="btn" type="default" @click="comfirm(item)">支付</button>
+			<button v-if="item.status=='PAIED'" class="btn" type="default" @click="LinkToDetial">详情</button>
 		</view>
 	</view>
 </template>
@@ -22,26 +23,16 @@
 		props: ["item"],
 		name: "orderCard",
 		data() {
-			return {};
+			return {
+				url: "https://api.bitaichain.com:8443/",
+			};
 		},
 		// mounted() {
-		// 	console.log("single", this.item)
+		// 	console.log(this.item)
 		// },
 		methods: {
-			async comfirm(commodityId) {
-				const userInfo = await  API.relicManageAPI.getUserInfo()
-				let orderData = {
-					openId:userInfo.data.user.userName,
-					commodityId:commodityId,
-					price: 0.01 * 100,
-					// title:"测试"
-					// payType: "wxPay"
-					// code: app.globalData.code,
-				}
-				const res = await API.payAPI.comfirmPay(orderData)
-				console.log("prepay_id", res)
-				const params = await API.payAPI.getPayParams(res.data.prepay_id)
-				console.log("参数", params)
+			async comfirm(item) {
+				const params = await API.payAPI.getPayParams(item.prepay_id)
 				console.log(params.data.paySign)
 				uni.requestPayment({
 					"appId": params.data.appId,
@@ -52,20 +43,18 @@
 					"paySign": params.data.paySign,
 					success: function(res) {
 						console.log("支付成功结果", res)
-						if(res){
-							
-						}
+						if (res) {}
 					},
 					fail: function(err) {
 						console.log("支付失败结果", err)
 					}
 				});
 			},
-			// LinkToDetial() {
-			// 	uni.navigateTo({
-			// 		url: "../../pages/blockDetial/blockDetial"
-			// 	})
-			// }
+			LinkToDetial() {
+				uni.navigateTo({
+					url: "../../pages/blockDetial/blockDetial"
+				})
+			}
 		}
 	}
 </script>
@@ -80,46 +69,43 @@
 		align-items: center;
 		justify-content: space-between;
 		color: black;
-		border-bottom: 2px solid black;
-
+		border-bottom: 2px solid rgb(140,140,140);
 		.imgArea {
 			width: 200rpx;
 			height: 200rpx;
 			background-color: gray;
 			margin-left: 10rpx;
-
 			image {
 				width: 200rpx;
 				height: 200rpx;
 			}
 		}
-
 		.textArea {
-			width: 200rpx;
 			height: 200rpx;
-			// background-color: blue;
 			display: flex;
 			flex-wrap: wrap;
+			justify-content: center;
 			align-items: center;
-			margin-left: 0rpx;
-
 			text {
+				width: 360rpx;
+				color: rgb(46, 46, 47);
 				display: block;
+				font-size: 20rpx;
 			}
 		}
 
 		.btnArea {
-			width: 190rpx;
-			height: 200rpx;
+			width: 120rpx;
+			height: 110rpx;
 			// background-color: blue;
 			display: flex;
 			flex-wrap: wrap;
 			align-items: center;
-
+			margin-right: 10rpx;
 			.btn {
 				width: 160rpx;
 				height: 60rpx;
-				font-size: 27rpx;
+				font-size: 23rpx;
 				border-radius: 3rpx;
 				background-color: #333333;
 				color: white;
