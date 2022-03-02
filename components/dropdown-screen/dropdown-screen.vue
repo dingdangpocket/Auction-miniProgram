@@ -198,8 +198,8 @@
 		},
 		watch:{
 			updateArr(){
+				this.$parent.filterCondition(this.updateArr)
 				// console.log("筛选条件",this.updateArr)
-				this.$parent.filterIf(this.updateArr)
 			}
 		},
 		methods: {

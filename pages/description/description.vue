@@ -10,20 +10,18 @@
 		<view class="TitleArea">
 			<view class="Title">
 				<image src="../../static/iconleft.png" mode="" style="width:40rpx;height:40rpx"></image>
-				<text>{{descData.title}}</text>
+				<text>{{descInfo.name}}</text>
 				<image src="../../static/iconright.png" mode="" style="width:40rpx;height:40rpx"></image>
 			</view>
 		</view>
 		<view class="MusemArea">
-			<!-- 	<text>发行方</text>
-			<text>{{descData.musem}}</text> -->
 		</view>
 		<view class="PriceArea">
 			<text style="font-size:40rpx;">¥{{descInfo.price/100}}</text>
-			<!-- 	<text class="limitTag">限量发行</text>
-			<text style="font-size:22rpx;padding-left:5rpx;">{{descData.limit}}份</text> -->
-			<image class="model" src="../../static/3dblack.png" mode="" @click="LinkToModel"></image>
-			<image class="follow" src="../../static/follow2.png" mode="" @click="follow"></image>
+			<image class="model" src="../../static/3dblack.png" mode="" @click="LinkToModel(descInfo)"></image>
+			<image v-if="isFollow==true" class="follow" src="../../static/follow1.png" mode=""
+				@click="Follow(descInfo)"></image>
+			<image v-else class="follow" src="../../static/follow2.png" mode="" @click="Follow(descInfo)"></image>
 		</view>
 
 		<view class="DescArea">
@@ -32,11 +30,6 @@
 			<image src="../../static/desc-3.jpeg" mode="" style="width: 100%;height:700rpx;"></image>
 			<text>....</text>
 		</view>
-		<!--<view class="ReminderArea">
-			<text style="font-size:30rpx;">购买须知</text><br>
-			<text>工艺品由发行方或作者拥有,除另行取得版权拥有者书面同意外,用户不得用于任何商业用途,本商品一经售出,不支持退换;请勿进行炒作、场外交易、欺诈、或其他任何非法用途;
-			</text>
-		</view> -->
 		<view class="PayBtn" @click="LinkToOrderComfirm">
 			<text>购买下单</text>
 		</view>
@@ -52,6 +45,7 @@
 				commodityId: null,
 				descInfo: {},
 				openId: null,
+				isFollow: null,
 				descData: {
 					id: 0,
 					title: "红釉陶瓷工艺品",
@@ -72,21 +66,40 @@
 						}
 					],
 					decs: "详情数据",
+
 				},
 			}
 		},
 		onLoad: function(option) {
-			this.descInfo = JSON.parse(option.items)
-			// console.log("商品数据",this.descInfo)
 			this.openId = uni.getStorageSync('user_info').userName
+			this.commodityId = JSON.parse(option.items).id
+			//点击的商品id参数;
+		},
+		onShow() {
+			this.initDesc()
+			//初始化商品详情数据;
 		},
 		methods: {
-			LinkToModel() {
+			async initDesc() {
+				const res = await API.relicManageAPI.getCommodityDesc(this.commodityId);
+				this.descInfo = res.data.data
+				if (this.descInfo.mycartid == -1) {
+					this.isFollow = false
+					return
+					//取消关注;
+				}
+				if (this.descInfo.mycartid != -1) {
+					this.isFollow = true
+					return
+					//关注购物车
+				}
+			},
+			LinkToModel(descInfo) {
 				uni.navigateTo({
-					url: "../model/model"
+					url: "../model/model?id=" + JSON.stringify(descInfo.id)
 				})
 			},
-			follow() {
+			async Follow(descInfo) {
 				if (app.globalData.isLoginStatus == false) {
 					uni.showToast({
 						title: '请先登陆账户',
@@ -94,7 +107,26 @@
 					});
 					return
 				}
+				if (this.isFollow == true) {
+					const res = await API.relicManageAPI.cancelFollowList(descInfo.id)
+					if (res.data.msg == "操作成功") {
+						this.initDesc()
+					}
+					console.log("取消🛒结果", res)
+					return
+					//取消关注;
+				}
+				if (this.isFollow == false) {
+					const res = await API.relicManageAPI.addFollowList(descInfo.id)
+					if (res.data.msg == "添加成功") {
+						this.initDesc()
+					}
+					console.log("加入🛒结果", res)
+					return
+					//关注购物车
+				}
 			},
+			//点击关注按钮
 			async LinkToOrderComfirm() {
 				if (app.globalData.isLoginStatus == false) {
 					uni.showToast({
@@ -111,6 +143,10 @@
 				const res = await API.relicManageAPI.addOrder(obj)
 				// console.log("下单结果", res)
 				if (res.data.success == "false") {
+					uni.showToast({
+						title: '网络错误,下单失败',
+						duration: 1000
+					});
 					return
 				}
 				if (res.data.success == "true") {
@@ -126,16 +162,13 @@
 
 <style lang="scss">
 	.body {
-		// height: 100%;
 		width: 100%;
-		// background-color: white;
 		color: white;
 		overflow: hidden;
 
 		.ImgArea {
 			height: 560rpx;
 			width: 100%;
-			// background-color: red;
 			color: white;
 			display: flex;
 			align-items: center;
@@ -144,17 +177,12 @@
 			.swiper-container {
 				height: 560rpx;
 				width: 100%;
-
-				.swiper-item {
-					// background-color: blue;
-				}
 			}
 		}
 
 		.PriceArea {
 			height: 65rpx;
 			width: 100%;
-			// background-color: "#ea001a";
 			color: black;
 			padding: 10rpx;
 			border-bottom: 1px solid white;
@@ -164,7 +192,6 @@
 				color: white;
 				font-size: 25rpx;
 				padding: 8rpx;
-				// background-color: #78470b;
 			}
 
 			.model {
@@ -195,7 +222,6 @@
 			color: black;
 			justify-content: center;
 
-			// background-color: "#FFFFFF";
 			.Title {
 				height: 50rpx;
 				display: flex;

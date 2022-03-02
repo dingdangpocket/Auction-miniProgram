@@ -16,7 +16,6 @@
 		</view>
 	</view>
 </template>
-
 <script>
 	var app = getApp()
 	import API from "../../http/API.js"
@@ -30,9 +29,8 @@
 		},
 		onLoad(option) {
 			this.paramsArray= JSON.parse(option.items)
-			console.log("订单数据",this.paramsArray)
 			this.orderInfo = this.paramsArray[1]
-			console.log("订单数据",this.orderInfo)
+			console.log("下单参数",this.paramsArray)
 		},
 		methods: {
 			async comfirm() {
@@ -46,20 +44,23 @@
 					"signType": params.data.signType,
 					"paySign": params.data.paySign,
 					success: function(res) {
-						console.log("支付成功结果", res)
 						if(res){
-							
+							console.log("支付成功结果", res)
 						}
 					},
 					fail: function(err) {
-						console.log("支付失败结果", err)
+						if(err){
+							uni.showToast({
+								title: '支付失败',
+								duration: 1300
+							});
+						}
 					}
 				});
 			},
 		}
 	}
 </script>
-
 <style lang="scss">
 	.commonStyle {
 		color: white;
@@ -74,39 +75,31 @@
 		align-items: center;
 		justify-content: center;
 		margin: 0 auto;
-
 		.imgArea {
 			width: 200rpx;
 			height: 200rpx;
-			// background-color: red;
 			image {
 				width: 200rpx;
 				height: 200rpx;
 			}
 		}
-
 		.textArea {
 			width: 200rpx;
 			height: 200rpx;
-			// background-color: blue;
 			display: flex;
 			flex-wrap: wrap;
 			align-items: center;
 			margin-left: 10rpx;
-
 			text {
 				display: block;
 			}
 		}
-
 		.btnArea {
 			width: 310rpx;
 			height: 200rpx;
-			// background-color: blue;
 			display: flex;
 			flex-wrap: wrap;
 			align-items: center;
-
 			.btn {
 				width: 160rpx;
 				height: 60rpx;

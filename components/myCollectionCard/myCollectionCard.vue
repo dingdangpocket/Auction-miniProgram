@@ -17,7 +17,7 @@
 <script>
 	export default {
 		props: ["item"],
-		name: "orderCard",
+		name: "myCollectionCard",
 		data() {
 			return {
 				url: "https://api.bitaichain.com:8443/",

@@ -9,13 +9,17 @@
 	export default {
 		data() {
 			return {
-				url: ""
+				url: "",
+				id:null,
 			}
+		},
+		onLoad(option) {
+			this.id=option.id
 		},
 		mounted() {
 			//this.url=`http://www.bitaichain.com/model?id=${app.globalData.collectionId}`
-			this.url = `https://api.bitaichain.com:8443/?id=${app.globalData.collectionId}`
-			console.log("藏品的ID号", app.globalData.collectionId)
+			this.url = `https://api.bitaichain.com:8443/?id=${this.id}`
+			console.log("藏品的ID号",this.id)
 		},
 	}
 </script>

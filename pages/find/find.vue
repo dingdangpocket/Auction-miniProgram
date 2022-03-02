@@ -8,7 +8,7 @@
 		</view>
 		<scroll-view class="collectionArea" scroll-y="true" show-scrollbar="false">
 			<view class="collectionArea-flex-container">
-				<view class="" v-for="item in collectionData" @click="linkToDescription" :key="item.id"
+				<view class="" v-for="item in collectionData" @click="linkToDescription(item)" :key="item.id"
 					:data-id="item.id">
 					<collectionCard :item="item" :search="search"></collectionCard>
 				</view>
@@ -31,34 +31,32 @@
 		},
 		data() {
 			return {
-				filterValue:"",
-				collectionData:""
+				filterValue: "",
+				collectionData: ""
 			}
 		},
-		onShow() {
+		onLoad() {
 			this.getData()
 		},
 		methods: {
-			filterIf(filterValue){
-				console.log("筛选条件",filterValue)
+			filterCondition(filterValue) {
+				console.log("筛选条件来自dropdown组件内部", filterValue)
 				// 筛选条件接口
 			},
-		async getData() {
-			const res = await API.relicManageAPI.GetCommodityData()
-			console.log("商品列表", res)
-			this.collectionData = res.data.rows
-		},
+			async getData() {
+				const res = await API.relicManageAPI.GetCommodityData()
+				this.collectionData = res.data.rows
+			},
 			getAllCollection() {
 				this.collectionData = this.getData()
 			},
 			search(value) {
-				console.log("筛选条件", value)
+				console.log("搜索条件", value)
 				this.collectionData = this.collectionData.filter((item) => item.name.includes(value))
 			},
-			linkToDescription(e) {
-				app.globalData.collectionId = e.currentTarget.dataset.id
+			linkToDescription(item) {
 				uni.navigateTo({
-					url: "../description/description"
+					url: '../description/description?items=' + JSON.stringify(item)
 				})
 			}
 		},
@@ -66,8 +64,6 @@
 			filterValue() {
 				this.collectionData = this.getData()
 			}
-		},
-		computed: {
 		},
 	}
 </script>

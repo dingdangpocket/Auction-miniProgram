@@ -26,63 +26,72 @@
 		<view>
 			<uni-segmented-control :current="current" :values="items" style-type="text" active-color="#a05909"
 				@clickItem="onClickItem" />
-					<view v-if="collectionData==null" class="empty">
-					  <text>空</text>
-					</view>
-					<view v-show="current === 0">
-							<view class="collectionArea-flex-container">
-								<view class="collectionArea-flex-container" v-for="item in collectionData"
-									:key="item.id" :data-id="item.id">
-									<myCollectionCard :item="item"></myCollectionCard>
-								</view>
-							</view>
-					</view>
-					<view v-show="current === 1">
-							<view class="collectionArea-flex-container">
-								<view class="collectionArea-flex-container" v-for="item in collectionData"
-									:key="item.id" :data-id="item.id">
-									<myCollectionCard :item="item"></myCollectionCard>
-								</view>
-							</view>
+			<view v-if="collectionData==null" class="empty">
+				<text>空</text>
+			</view>
+			<view v-show="current === 0">
+				<view class="collectionArea-flex-container">
+					<view class="collectionArea-flex-container" v-for="item in collectionData" :key="item.id"
+						:data-id="item.id">
+						<myCollectionCard :item="item"></myCollectionCard>
 					</view>
 				</view>
 			</view>
+			<view v-show="current === 1">
+				<view class="collectionArea-flex-container">
+					<view class="collectionArea-flex-container" v-for="item in followList" :key="item.id"
+						:data-id="item.id">
+						<myFollowCard :item="item"></myFollowCard>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
 </template>
-
 <script>
 	var app = getApp()
 	import myCollectionCard from "../../components/myCollectionCard/myCollectionCard.vue"
+	import myFollowCard from "../../components/myFollowCard/myFollowCard.vue"
 	import API from "../../http/API.js"
 	export default {
 		components: {
-			myCollectionCard
+			myCollectionCard,myFollowCard
 		},
 		data() {
 			return {
 				items: ['我的收藏', '我的关注'],
 				current: 0,
-				userInfo: "",
+				userInfo: null,
 				dataArry: null,
-				mycollect: null,
 				auth: false,
-				collectionData: null
+				collectionData: null,
+				followList:null
 			}
 		},
 		onShow() {
+			// let res = uni.getStorageSync('user_info');
+			// if (res) {
+			// 	this.userInfo = res;
+			// }
+			let res = uni.getStorageSync('user_info');
+			this.userInfo = res;
+			console.log("用户信息", res.avatarurl)
+
 			if (app.globalData.cach == true) {
-				this.userInfo = ""
+				this.userInfo = null
 				this.collectionData = null
 			}
 			//退出登陆后清空缓存用户登陆数据;
-		},
-	    onLoad() {
-			if (app.globalData.userInfo) {
-				this.userInfo = app.globalData.userInfo
-				
-			}
 			this.getData()
+			this.getMyFollowList()
+			//获取我的收藏/关注列表
 		},
 		methods: {
+			async getMyFollowList(){
+				const res= await API.relicManageAPI.getFollowList()
+				this.followList=res.data.rows
+				console.log("关注列表",this.followList)
+			},
 			onClickItem(e) {
 				if (this.current !== e.currentIndex) {
 					this.current = e.currentIndex
@@ -95,7 +104,7 @@
 				}
 				const res = await API.relicManageAPI.getBillList(obj)
 				this.collectionData = res.data.rows
-				// console.log("用户的藏品列表", res)
+				//console.log("用户已经购买的藏品列表", res)
 			},
 			LinkToSetting() {
 				uni.navigateTo({
@@ -103,8 +112,7 @@
 				})
 			},
 			LinkToMyOrderList() {
-				console.log("boolean",app.globalData.isLoginStatus)
-				if(app.globalData.isLoginStatus==false){
+				if (app.globalData.isLoginStatus == false) {
 					uni.showToast({
 						title: '请先登陆账户',
 						duration: 1000
@@ -115,12 +123,10 @@
 					url: "../orderList/orderList"
 				})
 			},
-
-			//登陆板块
 			login() {
-				if(app.globalData.isLoginStatus==true){
+				if (app.globalData.isLoginStatus == true) {
 					uni.navigateTo({
-						url:"../setting/setting"
+						url: "../setting/setting"
 					})
 					return
 				}
@@ -131,9 +137,7 @@
 							key: 'user_info',
 							data: res.userInfo
 						});
-						this.userInfo = res.userInfo
 						this.getCode(res.userInfo)
-						this.nickName = res.userInfo.nickName
 					},
 					fail: err => {
 						console.log(err, '失败授权')
@@ -145,7 +149,6 @@
 					provider: 'weixin',
 					success: res => {
 						this.getToken(res.code, userInfo)
-						app.globalData.code = res.code
 					}
 				})
 			},
@@ -163,12 +166,9 @@
 								key: 'user_token',
 								data: res.data.data.token
 							});
-							app.globalData.token = res.data.data.token
-							app.globalData.openId = res.data.data.sysUser.userName
-							app.globalData.userInfo = res.data.data.sysUser
 							app.globalData.isLoginStatus = true
 							this.getData()
-							//登陆后,获取我的收藏数据
+							//登陆成功后,获取我的收藏数据;
 							uni.showToast({
 								title: '授权登陆成功',
 								duration: 1300
@@ -177,7 +177,7 @@
 								key: 'user_info',
 								data: res.data.data.sysUser
 							});
-							this.userInfo = res.data.data.sysUser
+							this.userInfo=res.data.data.sysUser
 						} else {
 							uni.showToast({
 								title: '网络错误,登陆失败',
@@ -187,27 +187,27 @@
 					},
 				})
 			},
-			//登陆板块
+			//微信三方登陆;
 		},
 		watch: {
-			current() {
+		 async current() {
 				if (this.current == 1) {
-					this.getData()
+				    this.getMyFollowList()
 				}
 			}
 		}
 	}
 </script>
-
 <style lang="scss">
-	.empty{
+	.empty {
 		width: 100vw;
 		height: 60vh;
 		display: flex;
-		justify-content:center;
+		justify-content: center;
 		align-items: center;
-		color: rgb(180,180,180);
+		color: rgb(180, 180, 180);
 	}
+
 	.body {
 		color: white;
 		overflow: hidden;

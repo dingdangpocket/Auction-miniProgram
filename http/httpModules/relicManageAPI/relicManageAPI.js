@@ -29,6 +29,33 @@ const relicManageAPI = {
 			data:data,
 		})
 	},
+	getCommodityDesc(id){
+		console.log(id)
+		return request({
+			url: `/mall/commodity/${id}`,
+			method: 'GET',
+		})
+	},
+	addFollowList(id) {
+		console.log("关注",id)
+		return request({
+			url: `/mall/cart/add/${id}`,
+			method: 'POST',
+		})
+	},
+	cancelFollowList(id) {
+		console.log("取消关注",id)
+		return request({
+			url: `/mall/cart/delete/${id}`,
+			method: 'POST',
+		})
+	},
+	getFollowList(){
+		return request({
+			url: "/mall/cart/list",
+			method: 'GET',
+		})
+	},
 	addCollection(params) {
 		const data = JSON.stringify({
 			title: params.title,

@@ -91,20 +91,21 @@
 			// uni.switchTab({
 			// 	url:"../main/main"
 			// })
+			
+			this.getData()
 			const loginTimesOutAuth = await  API.relicManageAPI.getUserInfo()
 			if(loginTimesOutAuth.data.code==500){
 				uni.clearStorageSync();
 				app.globalData.isLoginStatus=false;
 				console.log("账号登陆过期,重新登陆!")
 			}
+			//随机接口,校验TOKEN时效;
 			if (app.globalData.isLoginStatus==false) {
 				this.show = true
 			} else {
 				this.show = false
 			}
-		},
-		async mounted() {
-			this.getData()
+			//未登陆,弹窗提示用户登陆;
 		},
 		computed: {
 			collectionDataFilter: function() {
@@ -135,12 +136,11 @@
 			onClose() {
 				this.show = false
 			},
-			// dialog
-
+			//弹窗按钮回调事件;
 			async getData() {
 				const res = await API.relicManageAPI.GetCommodityData()
-				console.log("商品列表",res)
 				this.collectionData = res.data.rows
+				console.log("商品列表",this.collectionData)
 			},
 			onClickItem(e) {
 				if (this.current !== e.currentIndex) {
@@ -148,20 +148,15 @@
 				}
 			},
 			linkToDescription(item) {
-				// app.globalData.collectionId = e.currentTarget.dataset.id
 				uni.navigateTo({
 					url: '../description/description?items='+ JSON.stringify(item)
 				})
 			},
-			//登陆板块
 			login() {
-				this.show = false;
 				uni.getUserProfile({
 					desc: 'weixin',
 					success: res => {
 						this.getCode(res.userInfo)
-						// this.userInfo = res.userInfo
-						// this.nickName = res.userInfo.nickName
 					},
 					fail: err => {
 						console.log(err, '失败授权')
@@ -172,8 +167,9 @@
 				uni.login({
 					provider: 'weixin',
 					success: res => {
-						this.getToken(res.code, userInfo) //将code码和用户信息发给后端;
-						app.globalData.code = res.code
+						this.getToken(res.code, userInfo) 
+						//将code码和用户信息发给后端获取TOKEN;
+						// app.globalData.code = res.code
 					}
 				})
 			},
@@ -191,9 +187,9 @@
 								key: 'user_token',
 								data: res.data.data.token
 							});
-							app.globalData.token = res.data.data.token
-							app.globalData.openId = res.data.data.sysUser.userName
-							app.globalData.userInfo = res.data.data.sysUser
+							// app.globalData.token = res.data.data.token
+							// app.globalData.openId = res.data.data.sysUser.userName
+							// app.globalData.userInfo = res.data.data.sysUser
 							app.globalData.isLoginStatus = true
 							uni.showToast({
 								title: '授权登陆成功',
@@ -203,9 +199,7 @@
 								key: 'user_info',
 								data: res.data.data.sysUser
 							});
-							// this.userInfo = res.data.data.sysUser
 						} else {
-							console.log("登陆结果", res)
 							uni.showToast({
 								title: '网络错误,登陆失败',
 								duration: 1300
@@ -214,7 +208,7 @@
 					},
 				})
 			},
-			//登陆板块
+		  //三方登陆;
 		},
 	}
 </script>

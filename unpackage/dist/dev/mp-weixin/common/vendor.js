@@ -8820,12 +8820,10 @@ if (hadRuntime) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _userAPI = _interopRequireDefault(__webpack_require__(/*! ./httpModules/userAPI/userAPI.js */ 12));
-var _relicManageAPI = _interopRequireDefault(__webpack_require__(/*! ./httpModules/relicManageAPI/relicManageAPI.js */ 14));
-var _payAPI = _interopRequireDefault(__webpack_require__(/*! ./httpModules/payAPI/payAPI.js */ 15));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _relicManageAPI = _interopRequireDefault(__webpack_require__(/*! ./httpModules/relicManageAPI/relicManageAPI.js */ 12));
+var _payAPI = _interopRequireDefault(__webpack_require__(/*! ./httpModules/payAPI/payAPI.js */ 14));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 var API = {
-  userAPI: _userAPI.default,
   relicManageAPI: _relicManageAPI.default,
   payAPI: _payAPI.default };var _default =
 
@@ -8833,128 +8831,6 @@ API;exports.default = _default;
 
 /***/ }),
 /* 12 */
-/*!**************************************************************************************!*\
-  !*** /Users/niegang/Desktop/Auction-miniProgram/http/httpModules/userAPI/userAPI.js ***!
-  \**************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
-var _request = __webpack_require__(/*! ../../request.js */ 13); //引入封装的数据请求;
-var userAPI = {
-  login: function login(data) {
-    console.log("登陆数据", data);
-    return (0, _request.request)({
-      method: "POST",
-      url: "/auth/login",
-      data: JSON.stringify(data),
-      headers: {
-        'Accept': "application/json",
-        'Content-Type': 'application/json' } });
-
-  },
-  register: function register(data) {
-    console.log("注册数据", data);
-    return (0, _request.request)({
-      method: "POST",
-      url: "/auth/user/regist",
-      data: JSON.stringify(data),
-      headers: {
-        'Accept': "application/json",
-        'Content-Type': 'application/json' } });
-
-  },
-  getRoleMenu: function getRoleMenu(data) {
-    console.log("菜单");
-    return (0, _request.request)({
-      method: "GET",
-      url: "/auth/menu/MenuTreeSelectByRole",
-      headers: {
-        'Accept': "application/json",
-        'Content-Type': 'application/json' } });
-
-  } };var _default =
-
-userAPI;exports.default = _default;
-
-/***/ }),
-/* 13 */
-/*!******************************************************************!*\
-  !*** /Users/niegang/Desktop/Auction-miniProgram/http/request.js ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.request = void 0; // const baseURL='http://web.woniulab.com:8005'
-// const baseURL = 'https://122.112.213.108:8443'
-// const baseURL = 'https://10.10.10.24:8443'
-var baseURL = 'https://api.bitaichain.com:8443';
-//接口issue
-var request = function request(data) {
-  return new Promise(function (resolve, reject) {
-    var token = uni.getStorageSync('user_token');
-    // console.log("token",token)
-    if (token) {
-      // console.log("交出数据",data.data)
-      uni.showLoading({
-        title: "加载中..." });
-
-      uni.request({
-        url: baseURL + data.url,
-        method: data.method,
-        data: data.data,
-        header: {
-          'Accept': "application/json",
-          'Content-Type': 'application/json',
-          'Authorization': token },
-
-        success: function success(res) {
-          resolve(res);
-        },
-        fail: function fail(res) {
-          uni.showToast({
-            title: '网络错误',
-            duration: 1000 });
-
-        },
-        complete: function complete() {
-          uni.hideLoading();
-        } });
-
-    } else {
-      uni.showLoading({
-        title: "加载中..." });
-
-      uni.request({
-        url: baseURL + data.url,
-        method: data.method,
-        data: data.data,
-        header: {
-          'Accept': "application/json",
-          'Content-Type': 'application/json' },
-
-        success: function success(res) {
-          resolve(res);
-        },
-        fail: function fail() {
-          uni.showToast({
-            title: '网络错误',
-            duration: 1000 });
-
-        },
-        complete: function complete() {
-          uni.hideLoading();
-        } });
-
-    }
-  });
-};exports.request = request;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-/* 14 */
 /*!****************************************************************************************************!*\
   !*** /Users/niegang/Desktop/Auction-miniProgram/http/httpModules/relicManageAPI/relicManageAPI.js ***!
   \****************************************************************************************************/
@@ -8991,6 +8867,33 @@ var relicManageAPI = {
       url: '/bill/bill/list',
       method: 'POST',
       data: data });
+
+  },
+  getCommodityDesc: function getCommodityDesc(id) {
+    console.log(id);
+    return (0, _request.request)({
+      url: "/mall/commodity/".concat(id),
+      method: 'GET' });
+
+  },
+  addFollowList: function addFollowList(id) {
+    console.log("关注", id);
+    return (0, _request.request)({
+      url: "/mall/cart/add/".concat(id),
+      method: 'POST' });
+
+  },
+  cancelFollowList: function cancelFollowList(id) {
+    console.log("取消关注", id);
+    return (0, _request.request)({
+      url: "/mall/cart/delete/".concat(id),
+      method: 'POST' });
+
+  },
+  getFollowList: function getFollowList() {
+    return (0, _request.request)({
+      url: "/mall/cart/list",
+      method: 'GET' });
 
   },
   addCollection: function addCollection(params) {
@@ -9081,7 +8984,82 @@ var relicManageAPI = {
 relicManageAPI;exports.default = _default;
 
 /***/ }),
-/* 15 */
+/* 13 */
+/*!******************************************************************!*\
+  !*** /Users/niegang/Desktop/Auction-miniProgram/http/request.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.request = void 0; // const baseURL='http://web.woniulab.com:8005'
+// const baseURL = 'https://122.112.213.108:8443'
+// const baseURL = 'https://10.10.10.24:8443'
+var baseURL = 'https://api.bitaichain.com:8443';
+//接口issue
+var request = function request(data) {
+  return new Promise(function (resolve, reject) {
+    var token = uni.getStorageSync('user_token');
+    // console.log("token",token)
+    if (token) {
+      // console.log("交出数据",data.data)
+      uni.showLoading({
+        title: "加载中..." });
+
+      uni.request({
+        url: baseURL + data.url,
+        method: data.method,
+        data: data.data,
+        header: {
+          'Accept': "application/json",
+          'Content-Type': 'application/json',
+          'Authorization': token },
+
+        success: function success(res) {
+          resolve(res);
+        },
+        fail: function fail(res) {
+          uni.showToast({
+            title: '网络错误',
+            duration: 1000 });
+
+        },
+        complete: function complete() {
+          uni.hideLoading();
+        } });
+
+    } else {
+      uni.showLoading({
+        title: "加载中..." });
+
+      uni.request({
+        url: baseURL + data.url,
+        method: data.method,
+        data: data.data,
+        header: {
+          'Accept': "application/json",
+          'Content-Type': 'application/json' },
+
+        success: function success(res) {
+          resolve(res);
+        },
+        fail: function fail() {
+          uni.showToast({
+            title: '网络错误',
+            duration: 1000 });
+
+        },
+        complete: function complete() {
+          uni.hideLoading();
+        } });
+
+    }
+  });
+};exports.request = request;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 14 */
 /*!************************************************************************************!*\
   !*** /Users/niegang/Desktop/Auction-miniProgram/http/httpModules/payAPI/payAPI.js ***!
   \************************************************************************************/
@@ -9111,9 +9089,9 @@ var payAPI = {
 payAPI;exports.default = _default;
 
 /***/ }),
+/* 15 */,
 /* 16 */,
-/* 17 */,
-/* 18 */
+/* 17 */
 /*!**********************************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
   \**********************************************************************************************************/
@@ -9241,7 +9219,7 @@ function normalizeComponent (
 
 
 /***/ }),
-/* 19 */
+/* 18 */
 /*!*****************************************************************!*\
   !*** /Users/niegang/Desktop/Auction-miniProgram/store/index.js ***!
   \*****************************************************************/
@@ -9250,10 +9228,10 @@ function normalizeComponent (
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 20));
-var _userStore = _interopRequireDefault(__webpack_require__(/*! ./storeModules/userStore.js */ 21));
-var _homeStore = _interopRequireDefault(__webpack_require__(/*! ./storeModules/homeStore.js */ 22));
-var _searchStore = _interopRequireDefault(__webpack_require__(/*! ./storeModules/searchStore.js */ 23));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 19));
+var _userStore = _interopRequireDefault(__webpack_require__(/*! ./storeModules/userStore.js */ 20));
+var _homeStore = _interopRequireDefault(__webpack_require__(/*! ./storeModules/homeStore.js */ 21));
+var _searchStore = _interopRequireDefault(__webpack_require__(/*! ./storeModules/searchStore.js */ 22));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 _vue.default.use(_vuex.default);var _default =
 
@@ -9270,7 +9248,7 @@ new _vuex.default.Store({
     homeStore: _homeStore.default } });exports.default = _default;
 
 /***/ }),
-/* 20 */
+/* 19 */
 /*!********************************************!*\
   !*** ./node_modules/vuex/dist/vuex.esm.js ***!
   \********************************************/
@@ -10382,7 +10360,7 @@ var index = {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ 3)))
 
 /***/ }),
-/* 21 */
+/* 20 */
 /*!**********************************************************************************!*\
   !*** /Users/niegang/Desktop/Auction-miniProgram/store/storeModules/userStore.js ***!
   \**********************************************************************************/
@@ -10411,7 +10389,7 @@ var _default =
     } } };exports.default = _default;
 
 /***/ }),
-/* 22 */
+/* 21 */
 /*!**********************************************************************************!*\
   !*** /Users/niegang/Desktop/Auction-miniProgram/store/storeModules/homeStore.js ***!
   \**********************************************************************************/
@@ -10471,7 +10449,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     } } };exports.default = _default;
 
 /***/ }),
-/* 23 */
+/* 22 */
 /*!************************************************************************************!*\
   !*** /Users/niegang/Desktop/Auction-miniProgram/store/storeModules/searchStore.js ***!
   \************************************************************************************/
