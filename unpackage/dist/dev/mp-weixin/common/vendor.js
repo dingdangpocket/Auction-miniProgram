@@ -8862,7 +8862,7 @@ var relicManageAPI = {
 
   },
   getBillList: function getBillList(data) {
-    // console.log("订单数据",data)
+    console.log("订单数据", data);
     return (0, _request.request)({
       url: '/bill/bill/list',
       method: 'POST',

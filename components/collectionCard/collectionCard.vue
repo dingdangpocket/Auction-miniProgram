@@ -20,10 +20,11 @@
 	</view>
 </template>
 
+//藏品卡片组件
 <script>
 	export default {
 		props: ["item"],
-		name: "navCard",
+		name: "collectionCard",
 		data() {
 			return {
 				url: "https://api.bitaichain.com:8443/",
@@ -36,7 +37,6 @@
 	.collectionCard {
 		width: 280rpx;
 		height: 380rpx;
-		// background-color: #424347;
 		margin-top: 20rpx;
 		margin-bottom: 10rpx;
 		background-color: rgba($color: #000000, $alpha: 1);
@@ -45,7 +45,6 @@
 			width: 100%;
 			height: 235rpx;
 			border-radius: 10rpx;
-			// background-color: #008c00;
 			.img {
 				width: 100%;
 				height: 235rpx;
@@ -65,14 +64,12 @@
 		.onwerArea {
 			width: 100%;
 			height: 75rpx;
-			// background-color: #cdcdeb;
 			display: flex;
 			align-items: center;
 			.left {
 				width: 60%;
 				height: 75rpx;
 				line-height: 75rpx;
-				// background-color: #cdcdeb;
 				color: #e3e1e4;
 				text {
 					display: block;
@@ -82,9 +79,7 @@
 			.right {
 				width: 40%;
 				height: 75rpx;
-				// background-color: #cdcdeb;
 				line-height: 75rpx;
-				// background-color: #252529;
 				color: #ffffff;
 				font-size: 40rpx;
 				display: flex;

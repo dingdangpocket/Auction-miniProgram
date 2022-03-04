@@ -6,7 +6,8 @@
 		<view class="textArea">
 			<text style="font-size:25rpx;color:#1d1d1d;">{{item.commodity.name}}</text>
 			<text>订单编号{{item.outTradeNo.slice(0,18)}}</text>
-			<text>订单状态:待付款</text>
+			<text v-if="item.status=='DRAFT'">订单状态:待付款</text>
+			<text v-if="item.status=='PAIED'">订单状态:已支付</text>
 			<text v-if="item.status=='DRAFT'">交易时间{{item.orderTime.slice(0,10)}}</text>
 			<text v-if="item.status=='PAIED'">交易时间{{item.payTime.slice(0,10)}}</text>
 		</view>
@@ -27,9 +28,9 @@
 				url: "https://api.bitaichain.com:8443/",
 			};
 		},
-		// mounted() {
-		// 	console.log(this.item)
-		// },
+		mounted() {
+			console.log(this.item)
+		},
 		methods: {
 			async comfirm(item) {
 				const params = await API.payAPI.getPayParams(item.prepay_id)

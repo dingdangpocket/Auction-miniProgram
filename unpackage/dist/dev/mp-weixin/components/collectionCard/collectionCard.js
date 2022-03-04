@@ -136,10 +136,11 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
 var _default =
 {
   props: ["item"],
-  name: "navCard",
+  name: "collectionCard",
   data: function data() {
     return {
       url: "https://api.bitaichain.com:8443/" };

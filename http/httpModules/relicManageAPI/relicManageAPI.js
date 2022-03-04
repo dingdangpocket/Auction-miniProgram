@@ -22,7 +22,7 @@ const relicManageAPI = {
 		})
 	},
 	getBillList(data) {
-		// console.log("订单数据",data)
+		console.log("订单数据",data)
 		return request({
 			url: '/bill/bill/list',
 			method: 'POST',

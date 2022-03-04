@@ -88,10 +88,6 @@
 			}
 		},
 		async onLoad() {
-			// uni.switchTab({
-			// 	url:"../main/main"
-			// })
-			
 			this.getData()
 			const loginTimesOutAuth = await  API.relicManageAPI.getUserInfo()
 			if(loginTimesOutAuth.data.code==500){

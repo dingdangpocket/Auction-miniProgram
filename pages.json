@@ -14,15 +14,6 @@
 				"navigationBarTitleText": "个人中心"
 			}
 		}
-		// ,{
-		//     "path" : "pages/description/description",
-		//     "style" :                                                                                    
-		//     {
-		//         "navigationBarTitleText": "",
-		//         "enablePullDownRefresh": false
-		//     }
-
-		// }
 		, {
 			"path": "pages/setting/setting",
 			"style": {
