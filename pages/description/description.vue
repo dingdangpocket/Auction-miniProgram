@@ -65,8 +65,7 @@
 							imgPath: "../../static/3.jpg"
 						}
 					],
-					decs: "详情数据",
-
+					decs: "测试详情数据",
 				},
 			}
 		},
@@ -91,13 +90,8 @@
 				if (this.descInfo.mycartid != -1) {
 					this.isFollow = true
 					return
-					//关注购物车
+					//关注购物车;
 				}
-			},
-			LinkToModel(descInfo) {
-				uni.navigateTo({
-					url: "../model/model?id=" + JSON.stringify(descInfo.id)
-				})
 			},
 			async Follow(descInfo) {
 				if (app.globalData.isLoginStatus == false) {
@@ -107,6 +101,7 @@
 					});
 					return
 				}
+				
 				if (this.isFollow == true) {
 					const res = await API.relicManageAPI.cancelFollowList(descInfo.id)
 					if (res.data.msg == "操作成功") {
@@ -126,7 +121,13 @@
 					//关注购物车
 				}
 			},
-			//点击关注按钮
+			//点击关注按钮;
+			LinkToModel(descInfo) {
+				uni.navigateTo({
+					url: "../model/model"
+				})
+			},
+			//跳转至Model页面;
 			async LinkToOrderComfirm() {
 				if (app.globalData.isLoginStatus == false) {
 					uni.showToast({
@@ -135,13 +136,14 @@
 					});
 					return
 				}
+				//登陆权限控制;
 				let obj = {
 					"openId": this.openId,
 					"commodityId": this.descInfo.id,
 					"price": this.descInfo.price,
 				}
 				const res = await API.relicManageAPI.addOrder(obj)
-				// console.log("下单结果", res)
+				console.log("下单结果", res)
 				if (res.data.success == "false") {
 					uni.showToast({
 						title: '网络错误,下单失败',
@@ -150,7 +152,7 @@
 					return
 				}
 				if (res.data.success == "true") {
-					let paramsArray = [res.data, this.descInfo]
+					let paramsArray = [res.data,this.descInfo]
 					uni.navigateTo({
 						url: '../orderComfirm/orderComfirm?items=' + JSON.stringify(paramsArray),
 					})
@@ -165,7 +167,6 @@
 		width: 100%;
 		color: white;
 		overflow: hidden;
-
 		.ImgArea {
 			height: 560rpx;
 			width: 100%;

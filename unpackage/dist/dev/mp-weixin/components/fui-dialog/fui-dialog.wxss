@@ -110,7 +110,6 @@
 
 
 
-
 	text-align: center;
 }
 .fui-dialog__btn:active {
@@ -140,6 +139,5 @@
 	        transform: scale3d(1, 1, 1);
 	visibility: visible;
 }
-
 
 

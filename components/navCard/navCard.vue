@@ -10,14 +10,13 @@
 	</view>
 
 </template>
-
+//banner导航卡片组件;
 <script>
 	export default {
 		props: ["item"],
 		name:"navCard",
 		data() {
 			return {
-				
 			};
 		}
 	}

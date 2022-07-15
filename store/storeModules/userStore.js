@@ -15,6 +15,7 @@ export default {
     actions:{
 		saveUserInfo(context,userInfo){
 			console.log("接受组件传入的",userInfo)
+			//acxios
 			 context.commit('SET_DATA',userInfo)
 		}
     }

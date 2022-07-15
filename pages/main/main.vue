@@ -77,7 +77,7 @@
 			this.userInfo = res;
 			console.log("用户信息", res.avatarurl)
 
-			if (app.globalData.cach == true) {
+			if (app.globalData.isLoginStatus == false) {
 				this.userInfo = null
 				this.collectionData = null
 			}

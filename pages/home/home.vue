@@ -89,6 +89,7 @@
 		},
 		async onLoad() {
 			this.getData()
+			//此数据接口不需要校验TOKEN;
 			const loginTimesOutAuth = await  API.relicManageAPI.getUserInfo()
 			if(loginTimesOutAuth.data.code==500){
 				uni.clearStorageSync();
@@ -121,6 +122,11 @@
 			}
 		},
 		methods: {
+			async getData() {
+				const res = await API.relicManageAPI.GetCommodityData()
+				this.collectionData = res.data.rows
+				console.log("商品列表",this.collectionData)
+			},
 			cancelValue(index) {
 				if (index == 0) {
 					this.show = false
@@ -133,11 +139,6 @@
 				this.show = false
 			},
 			//弹窗按钮回调事件;
-			async getData() {
-				const res = await API.relicManageAPI.GetCommodityData()
-				this.collectionData = res.data.rows
-				console.log("商品列表",this.collectionData)
-			},
 			onClickItem(e) {
 				if (this.current !== e.currentIndex) {
 					this.current = e.currentIndex
@@ -187,6 +188,9 @@
 							// app.globalData.openId = res.data.data.sysUser.userName
 							// app.globalData.userInfo = res.data.data.sysUser
 							app.globalData.isLoginStatus = true
+							this.getData()
+							//登陆成功调取数据,应当不需要校验Token直接放行获取数据;
+							//调整后删除this.getData()方法;
 							uni.showToast({
 								title: '授权登陆成功',
 								duration: 1300
@@ -204,7 +208,7 @@
 					},
 				})
 			},
-		  //三方登陆;
+		    //三方登陆;
 		},
 	}
 </script>

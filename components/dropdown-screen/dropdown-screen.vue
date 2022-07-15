@@ -22,21 +22,12 @@
 		</view>
 		<view class="bg-mask" :class="[show?'bg-mask-show':'']" @tap="maskClose" @touchmove="touchControl"></view>
 	</view>
-
 </template>
 
+//下拉组件;
 <script>
-	/**
-	 *  下拉组件
-	 * @author xzj
-	 * @create date 2021-4-3
-	 * @update user xzj
-	 * @update date 2021-4-3
-	 * @note 遮罩层级98 筛选条&下拉层层级99
-	 **/
 	export default {
 		name: 'com-dropdown-screen',
-		
 		data() {
 			return {
 				currentIndex: 0,
@@ -199,7 +190,8 @@
 		watch:{
 			updateArr(){
 				this.$parent.filterCondition(this.updateArr)
-				// console.log("筛选条件",this.updateArr)
+				//调用父组件的筛选事件,更新数据;
+				//console.log("筛选条件",this.updateArr);
 			}
 		},
 		methods: {
@@ -251,7 +243,6 @@
 		position: relative;
 		z-index: 99;
 	}
-
 	.screen-bar::after {
 		position: absolute;
 		content: '';
@@ -262,14 +253,12 @@
 		left: 0;
 		z-index: 99;
 	}
-
 	.screen-bar-item {
 		height: 100%;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 	}
-
 	.screen-bar-item image {
 		width: 24rpx;
 		height: 24rpx;
@@ -278,7 +267,6 @@
 		transition: all .3s;
 		flex-shrink: 0;
 	}
-
 	.dropdown-box {
 		width: 100%;
 		position: absolute;
@@ -286,7 +274,6 @@
 		z-index: 99;
 		overflow: hidden;
 	}
-
 	.dropdown-item {
 		width: 100%;
 		display: flex;
@@ -297,7 +284,6 @@
 		color: #111111;
 		border-bottom: 1rpx solid #EEEEEE;
 	}
-
 	.bg-mask {
 		position: fixed;
 		top: 0;
@@ -310,12 +296,10 @@
 		opacity: 0;
 		visibility: hidden;
 	}
-
 	.bg-mask-show {
 		visibility: visible;
 		opacity: 1;
 	}
-
 	.bar-item-text {
 		max-width: 120rpx;
 		text-overflow: ellipsis;

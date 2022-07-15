@@ -16,7 +16,7 @@
 		</view>
 	</view>
 </template>
-
+//搜索TabBar组件;
 <script>
 	var app = getApp()
 	export default {
@@ -49,7 +49,6 @@
 				type: String,
 				default: '1px #f5f5f5 solid'
 			},
-
 		},
 		data() {
 			return {
@@ -100,7 +99,6 @@
 		}
 	};
 </script>
-
 <style lang="scss" scoped>
 	.search {
 		display: flex;
@@ -110,7 +108,6 @@
 		padding: 15upx;
 		font-size: $uni-font-size-base;
 		background: #fff;
-
 		.content {
 			display: flex;
 			align-items: center;
@@ -121,43 +118,34 @@
 			overflow: hidden;
 			transition: all 0.2s linear;
 			border-radius: 30px;
-
 			.content-box {
 				width: 100%;
 				display: flex;
 				align-items: center;
-
 				&.center {
 					justify-content: center;
 				}
-
 				.icon {
 					padding: 0 15upx;
-
 					&.icon-del {
 						font-size: 38upx;
 					}
 				}
-
 				.input {
 					width: 100%;
 					max-width: 100%;
 					line-height: 60upx;
 					height: 60upx;
 					transition: all 0.2s linear;
-
 					&.center {
 						width: 200upx;
 					}
-
 					&.sub {
-						// position: absolute;
 						width: auto;
 						color: grey;
 					}
 				}
 			}
-
 			.searchBtn {
 				height: 100%;
 				flex-shrink: 0;
@@ -173,12 +161,10 @@
 			}
 		}
 	}
-
 	@font-face {
 		font-family: 'iconfont';
 		src: url('https://at.alicdn.com/t/font_989023_efq0mtli526.ttf') format('truetype');
 	}
-
 	.icon {
 		font-family: iconfont;
 		font-size: 32upx;

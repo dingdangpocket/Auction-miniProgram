@@ -8992,8 +8992,7 @@ relicManageAPI;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.request = void 0; // const baseURL='http://web.woniulab.com:8005'
-// const baseURL = 'https://122.112.213.108:8443'
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.request = void 0; // const baseURL = 'https://122.112.213.108:8443'
 // const baseURL = 'https://10.10.10.24:8443'
 var baseURL = 'https://api.bitaichain.com:8443';
 //接口issue
@@ -9002,7 +9001,7 @@ var request = function request(data) {
     var token = uni.getStorageSync('user_token');
     // console.log("token",token)
     if (token) {
-      // console.log("交出数据",data.data)
+      // console.log("最后交出的数据",data.data)
       uni.showLoading({
         title: "加载中..." });
 
@@ -10385,6 +10384,7 @@ var _default =
   actions: {
     saveUserInfo: function saveUserInfo(context, userInfo) {
       console.log("接受组件传入的", userInfo);
+      //acxios
       context.commit('SET_DATA', userInfo);
     } } };exports.default = _default;
 

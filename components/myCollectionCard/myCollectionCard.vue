@@ -13,7 +13,7 @@
 		</view>
 	</view>
 </template>
-
+//已经购买的藏品卡片组件;
 <script>
 	export default {
 		props: ["item"],

@@ -68,7 +68,7 @@
 				}
 				 uni.clearStorageSync();
 				 app.globalData.userInfo=null;
-				 app.globalData.cach=true;
+				 // app.globalData.cach=true;
 				 app.globalData.isLoginStatus=false;
 				 uni.showToast({
 				     title: '退出成功',

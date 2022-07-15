@@ -65,12 +65,21 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "appid" : "wx48d4c185c78f0c21",
+        "appid" : "wx719df666549b5433",
         "setting" : {
             "urlCheck" : false
         },
         "usingComponents" : true,
-        "permission" : {}
+        "permission" : {
+            "scope.userLocation" : {
+                "desc" : "你的位置信息将用于小程序位置接口的效果展示"
+            }
+        }
+    },
+    "permission" : {
+        "scope.userLocation" : {
+            "desc" : "你的位置信息将用于小程序位置接口的效果展示"
+        }
     },
     "mp-alipay" : {
         "usingComponents" : true

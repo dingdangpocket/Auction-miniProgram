@@ -5,8 +5,6 @@
 		</view>
 		<view class="textArea">
 			<text style="font-size:30rpx;">{{item.commodityvo.name}}</text>
-		    <!-- <text style="font-size:20rpx;">订单编号{{item.outTradeNo.slice(0,18)}}</text> -->
-			<!-- <text style="font-size:20rpx;">交易时间{{item.payTime.slice(0,10)}}</text> -->
 		</view>
 		<view class="btnArea">
 			<button class="btn" type="default" @click="linkToDescription(item)">详情</button>
@@ -14,15 +12,12 @@
 		</view>
 	</view>
 </template>
-
+//已经关注的藏品卡片组件;
 <script>
     import API from "../../http/API.js"
 	export default {
 		props: ["item"],
 		name: "myFollowCard",
-		mounted() {
-			console.log("?",this.item)
-		},
 		data() {
 			return {
 				url: "https://api.bitaichain.com:8443/",
@@ -31,13 +26,13 @@
 		methods: {
 			async CancelFollow(item){
 				const res= await API.relicManageAPI.cancelFollowList(item.commoditityid)
-				console.log("取消🛒结果",res)
+				console.log("取消关注的结果",res)
 				if(res.data.code==200){
 					this.$parent.getMyFollowList()
+					//取消关注成功重新调取父组件的关注列表;
 				}
 			},
 			linkToDescription(item) {
-				//》》》
 				uni.navigateTo({
 					url: '../description/description?items=' + JSON.stringify(item.commodityvo)
 				})
@@ -45,7 +40,6 @@
 		}
 	}
 </script>
-
 <style lang="scss">
 	.orderCardItem {
 		width: 90vw;
@@ -69,7 +63,6 @@
 		.textArea {
 			width: 300rpx;
 			height: 160rpx;
-			// background-color: blue;
 			display: flex;
 			flex-wrap: wrap;
 			align-items: center;

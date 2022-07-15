@@ -2,7 +2,7 @@
 	<view class="body">
 		<view>
 			<uni-segmented-control class="tab" :current="current" :values="items" style-type="text" active-color="#de7800"
-				@clickItem="onClickItem"/>
+			@clickItem="onClickItem"/>
 			<scroll-view class="content">
 				<view class="collectionArea-flex-container">
 					<view class="" v-for="item in orderList" :key="item.id"
@@ -94,7 +94,6 @@
 		},
 	}
 </script>
-
 <style lang="scss">
 	.body {
 		height: 100%;
@@ -108,7 +107,6 @@
 			align-items: center;
 			color: black;
 		}
-
 		.orderListContainer {
 			height: 100%;
 			background-color: #FFFFFF;

@@ -30,6 +30,8 @@
 				url: "https://api.bitaichain.com:8443/",
 			};
 		},
+		mounted() {	
+		}
 	}
 </script>
 
@@ -50,7 +52,6 @@
 				height: 235rpx;
 			}
 		}
-
 		.nameArea {
 			width: 100%;
 			height: 75rpx;

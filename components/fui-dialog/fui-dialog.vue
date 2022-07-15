@@ -15,7 +15,7 @@
 		</view>
 	</view>
 </template>
-
+//初始登陆弹窗组件;
 <script>
 	// #ifdef APP-NVUE
 	const animation = uni.requireNativePlugin('animation');
@@ -166,7 +166,6 @@
 		justify-content: center;
 		opacity: 0;
 	}
-
 	.fui-dialog__inner {
 		width: 680rpx;
 		text-align: center;
@@ -177,14 +176,12 @@
 		/* #endif */
 		flex-direction: column;
 	}
-
 	.fui-dialog__title {
 		padding: 64rpx 48rpx 0;
 		font-weight: 700;
 		font-size: 34rpx;
 		text-align: center;
 	}
-
 	.fui-dialog__body {
 		padding: 32rpx 48rpx;
 		margin-bottom: 32rpx;
@@ -193,19 +190,15 @@
 		-webkit-hyphens: auto;
 		hyphens: auto;
 		/* #endif */
-
 	}
-
 	.fui-dialog__descr {
 		font-size: 30rpx;
 		font-weight: normal;
 		text-align: center;
 	}
-
 	.fui-dialog__mtop {
 		margin-top: 32rpx;
 	}
-
 	.fui-dialog__footer {
 		/* #ifndef APP-NVUE */
 		display: flex;
@@ -221,7 +214,6 @@
 		border-top-color: #EEEEEE;
 		/* #endif */
 	}
-
 	/* #ifndef APP-NVUE */
 	.fui-dialog__footer:after {
 		content: " ";
@@ -234,9 +226,7 @@
 		transform-origin: 0 0;
 		transform: scaleY(.5)
 	}
-
 	/* #endif */
-
 	.fui-dialog__btn {
 		/* #ifndef APP-NVUE */
 		display: block;
@@ -248,7 +238,6 @@
 		font-weight: 700;
 		position: relative;
 		font-size: 34rpx;
-
 		/* #ifdef APP-NVUE */
 		border-left-width: 0.5px;
 		border-left-style: solid;
@@ -256,25 +245,19 @@
 		/* #endif */
 		text-align: center;
 	}
-
 	.fui-dialog__btn:active {
 		/* #ifndef APP-NVUE */
 		background-color: var(--fui-bg-color-hover, rgba(0, 0, 0, 0.2));
 		/* #endif */
-
 		/* #ifdef APP-NVUE */
 		background-color: rgba(0, 0, 0, 0.2);
 		/* #endif */
 	}
-
 	/* #ifdef APP-NVUE */
 	.fui-dialog__btn-first {
 		border-left-width: 0;
 	}
-
 	/* #endif */
-
-
 	/* #ifndef APP-NVUE */
 	.fui-dialog__btn::after {
 		content: " ";
@@ -287,12 +270,10 @@
 		transform-origin: 0 0;
 		transform: scaleX(.5)
 	}
-
 	.fui-dialog__btn-first::after {
 		width: 0;
 		border-left: 0 !important;
 	}
-
 	/* #endif */
 	/* #ifndef APP-NVUE */
 	.fui-wrap__show {
@@ -300,6 +281,5 @@
 		transform: scale3d(1, 1, 1);
 		visibility: visible;
 	}
-
 	/* #endif */
 </style>
